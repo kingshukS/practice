@@ -1,0 +1,18 @@
+package com.kingshuk.tests;
+
+public class TestRepeatedElementsByNegetiveMarking {
+    public static void main(String[] args) {
+        int[] arr = new int[]{1,2,2,1};
+        twoRepeatedByNegetiveMarking(arr, arr.length);
+    }
+
+    public static void twoRepeatedByNegetiveMarking(int arr[], int N) {
+        for (int i = 0; i < N; i++) {
+           int element = Math.abs(arr[i]);
+           if(arr[element]<0)
+               System.out.println(element);
+           else
+               arr[element] = -arr[element];
+        }
+    }
+}
