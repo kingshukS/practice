@@ -2,49 +2,52 @@ package com.kingshuk.tests;
 
 public class TestMedianOfSortedArrays {
     public static void main(String[] args) {
-        int[] a1 = {5,6,7,8,9};
-        int[] a2 = {30,40,50,50};
+        int[] a1 = {1,3};
+        int[] a2 = {2};
 
-        double median = findMedianOfArrays(a1,a2);
+        double median = findMedian(a1,a1.length,a2, a2.length);
         System.out.println("Median is = "+median);
     }
     //Time Complexity=BigO(log(min(n1,n2)))
-    private static double findMedianOfArrays(int[] a1, int[] a2) {
-        int[] x = null;
-        int[] y = null;
-        if(a1.length <= a2.length){
-            x = a1;
-            y = a2;
-        }else{
-            x = a2;
-            y = a1;
-        }
-        int low = 0;
-        int high = x.length -1;
-        int n1 = x.length;
-        int n2 = y.length;
-        while(low<=high){
-            int partitionX = (low+high)/2;
-            int partitionY = (n1+n2+1)/2-partitionX;
+    public static int findMedian(int nums1[], int n, int nums2[], int m)
+    {
+        //Your code here
+        if(n<=m)
+            return findMedianUtil(nums1,nums2);
+        else
+            return findMedianUtil(nums2,nums1);
+    }
+    public static int findMedianUtil(int a1[],int a2[])
+    {
+        int n1 = a1.length;
+        int n2 = a2.length;
 
-            int maxLeftX = partitionX>0?x[partitionX-1]:Integer.MIN_VALUE;
-            int maxLeftY = partitionY>0?y[partitionY-1]:Integer.MIN_VALUE;
-            int minRightX = partitionX<n1?x[partitionX]:Integer.MAX_VALUE;
-            int minRightY = partitionY<n2?y[partitionY]:Integer.MAX_VALUE;
+        int begin1 = 0, end1 = n1;
 
-            if(maxLeftX<=minRightY && maxLeftY<=minRightX)
+        while(begin1 <= end1)
+        {
+            int i1 = (begin1 + end1) / 2;
+            int i2 = ((n1 + n2 + 1) / 2 )- i1;
+
+            int min1 = (i1 == n1)?Integer.MAX_VALUE:a1[i1];
+            int max1 = (i1 == 0)?Integer.MIN_VALUE:a1[i1 - 1];
+
+            int min2 = (i2 == n2)?Integer.MAX_VALUE:a2[i2];
+            int max2 = (i2 == 0)?Integer.MIN_VALUE:a2[i2 - 1];
+
+            if(max1 <= min2 && max2 <= min1)
             {
-                if((n1+n2)%2 ==0){
-                    return (double)(Math.max(maxLeftX,maxLeftY) + Math.min(minRightX,minRightY))/2;
-                }else{
-                    return (double) Math.max(maxLeftX,maxLeftY);
-                }
-            }else if(maxLeftX>minRightY){
-                high = partitionX -1;
-            }else{
-                low = partitionX +1;
+                if((n1 + n2) % 2 == 0)
+                    return (int)((double)Math.max(max1, max2) + Math.min(min1, min2)) / 2;
+                else
+                    return (int)(double) Math.max(max1, max2);
             }
+            else if(max1 > min2)
+                end1 = i1 - 1;
+            else
+                begin1 = i1 + 1;
         }
-        throw new IllegalArgumentException("Arrays are not sorted");
+
+        return -1;
     }
 }
