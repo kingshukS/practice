@@ -28,7 +28,7 @@ public class LomutoPartition {
 
         return i+1;
     }
-    private static void swap(int[] arr, int i1, int i2)
+    public static void swap(int[] arr, int i1, int i2)
     {
         int temp = arr[i1];
         arr[i1] = arr[i2];
