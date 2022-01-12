@@ -15,6 +15,7 @@ public class BubbleSort {
         int n = arr.length;
         if(n<2)
             return;
+        // last element will be in correct place automatically, 0 to n-2 i.e. n-1 iterations
         for(int j = 0; j<n-1; j++){
             swapped = false;
             for(int i = 0; i<n-j-1; i++){

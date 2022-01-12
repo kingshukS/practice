@@ -52,6 +52,6 @@ public class CycleSort {
                 }
             }
         }
-        System.out.println("Total wites:"+writes);
+        System.out.println("Total writes:"+writes);
     }
 }

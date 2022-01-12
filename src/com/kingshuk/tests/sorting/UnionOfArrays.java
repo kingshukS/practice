@@ -18,6 +18,7 @@ public class UnionOfArrays {
         int n2 = b.length;
         int i = 0, j = 0;
         while (i < n1 && j < n2) {
+            // skip duplicates in both the arrays because we are printing elements from both the arrays even if it is present in any one of them
             if (i > 0 && a[i] == a[i - 1]) {
                 i++;
                 continue;
@@ -41,12 +42,14 @@ public class UnionOfArrays {
             }
         }
         while (i < n1) {
+            // to skip duplicate elements from any of the remaining array
             if(i>0 && a[i]!=a[i-1]) {
                 System.out.print(a[i] + " ");
             }
             i++;
         }
         while (j < n2) {
+            // to skip duplicate elements from any of the remaining array
             if(j>0 && b[j]!=b[j-1]) {
                 System.out.print(b[j] + " ");
             }

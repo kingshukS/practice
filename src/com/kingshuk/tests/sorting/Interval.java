@@ -42,7 +42,7 @@ public class Interval implements Comparable<Interval> {
         return this.start - i.start;
     }
 
-    public boolean isCoincident(Interval i) {
+    public boolean isCoIncident(Interval i) {
         return this.start <= i.end && i.start <= this.end;
     }
 

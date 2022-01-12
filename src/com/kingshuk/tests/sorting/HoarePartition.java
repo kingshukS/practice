@@ -25,7 +25,7 @@ public class HoarePartition {
                 j--;
             } while (arr[j] > pivot);
 
-            // If two pointers met.
+            // If two pointers met or cross eac other
             if (i >= j)
                 return j;
             swap(arr, i, j);

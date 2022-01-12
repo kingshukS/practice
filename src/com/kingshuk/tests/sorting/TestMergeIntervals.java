@@ -16,11 +16,11 @@ public class TestMergeIntervals {
     }
 
     public static void mergeAndPrint(List<Interval> list) {
-        Collections.sort(list);
+        Collections.sort(list); // Uses natural order of sorting, using start point(Comparable objects)
         while (list.size() > 1) {
             Interval i0 = list.get(0);
             Interval i1 = list.get(1);
-            boolean isCoincident = i0.isCoincident(i1);
+            boolean isCoincident = i0.isCoIncident(i1);
             if(isCoincident)
             {
                 Interval mergedInterval = i0.merge(i1);
