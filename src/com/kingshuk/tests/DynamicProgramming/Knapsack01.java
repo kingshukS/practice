@@ -6,6 +6,8 @@ public class Knapsack01 {
     {
         int t[][] = new int[n+1][W+1];
         int i,j;
+
+        // either the knapsack has no capacity, i.e. W=0 or there are no objects present, i.e. n=0, so mac profit = 0
         for(i=0;i<=n;i++)
         {
             for(j=0;j<=W;j++)

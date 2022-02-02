@@ -31,10 +31,6 @@ public class MinimumDiffSubset {
     {
         int arr[]={3, 1, 4, 2, 2, 1};
         int n = arr.length;
-        int sum =0;
-        for(int i =0;i<n;i++) {
-            sum = sum+arr[i];
-        }
         System.out.println(getMinimumSubsetSum(arr));
     }
     private static int getMinimumSubsetSum(int[] arr) {
