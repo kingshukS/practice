@@ -1,6 +1,6 @@
-package com.kingshuk.tests;
+package com.kingshuk.tests.DynamicProgramming;
 
-public class TestMinimumNumberOfJumpsBest {
+public class MinimumNumberOfJumpsBest {
     public static void main(String[] args) {
         int[] arr = { 1, 3, 6, 1, 0, 9 };
         int size = arr.length;

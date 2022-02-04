@@ -1,8 +1,8 @@
 package com.kingshuk.tests.DynamicProgramming;
 
-public class ShortestCommonSupersequence {
+public class ShortestCommonSuperSequence {
 
-    static int shortestSS(char[] a1,char[] b1,int n ,int m)
+    static int shortestCommonSuperSequence(char[] a1,char[] b1,int n ,int m)
     {
        int t[][] = new int[n+1][m+1];
        int totalLen = n+m;
@@ -39,6 +39,6 @@ public class ShortestCommonSupersequence {
         char[] b1 = b.toCharArray();
         int n = a.length();
         int m = b.length();
-        System.out.println("the longest superseq is : "+shortestSS(a1,b1,n,m));
+        System.out.println("the shortest common super sequence is : "+shortestCommonSuperSequence(a1,b1,n,m));
     }
 }
