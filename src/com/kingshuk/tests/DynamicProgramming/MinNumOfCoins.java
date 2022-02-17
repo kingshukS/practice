@@ -5,7 +5,6 @@ public class MinNumOfCoins {
 
     static int minNumCoins(int coins[], int n, int sum) {
         int t[][] = new int[n + 1][sum + 1];
-        int j = 1;
         for (int i = 0; i <= n; i++) {
             for (int k = 0; k <= sum; k++) {
                 // for a valid sum, if there are no coins, then it can't be done, so assigning INFINITY(-1 for calculation purpose)
@@ -18,7 +17,7 @@ public class MinNumOfCoins {
                 }
             }
         }
-        for (int i = 1; j <= sum; j++) {
+        for (int i = 1, j = 1; j <= sum; j++) {
             if (j % coins[0] == 0) {
                 t[i][j] = j / coins[0];
             } else {
