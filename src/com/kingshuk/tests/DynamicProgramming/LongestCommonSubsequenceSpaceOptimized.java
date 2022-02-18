@@ -1,23 +1,24 @@
 package com.kingshuk.tests.DynamicProgramming;
 
-public class LongestCommonSubsequence {
+public class LongestCommonSubsequenceSpaceOptimized {
 
     static int longestSubSeqlength(char[] x, char[] y, int n, int m) {
-        int[][] t = new int[n + 1][m + 1];
-
+        int[][] t = new int[2][m + 1];
+        int bi = 0;
         for (int i = 0; i <= n; i++) {
+            bi = i & 1;
             for (int j = 0; j <= m; j++) {
                 if (i == 0 || j == 0) //this means if one the lengths of strings is 0 then result will be 0 Base Condition
-                    t[i][j] = 0;
+                    t[bi][j] = 0;
                 else {
                     if (x[i - 1] == y[j - 1])
-                        t[i][j] = 1 + t[i - 1][j - 1];
+                        t[bi][j] = 1 + t[1 - bi][j - 1];
                     else
-                        t[i][j] = Math.max(t[i][j - 1], t[i - 1][j]);
+                        t[bi][j] = Math.max(t[bi][j - 1], t[1 - bi][j]);
                 }
             }
         }
-        return t[n][m];
+        return t[bi][m];
     }
 
     public static void main(String[] args) {
