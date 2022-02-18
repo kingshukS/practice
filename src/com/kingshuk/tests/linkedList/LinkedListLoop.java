@@ -1,4 +1,4 @@
-package com.kingshuk.tests;
+package com.kingshuk.tests.linkedList;
 
 import com.kingshuk.tests.JustPractice.LLNode;
 

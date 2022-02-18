@@ -1,4 +1,4 @@
-package com.kingshuk.tests;
+package com.kingshuk.tests.linkedList;
 
 class LinkedList {
 
