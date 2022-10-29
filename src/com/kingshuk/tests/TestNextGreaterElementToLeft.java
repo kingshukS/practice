@@ -1,15 +1,17 @@
 package com.kingshuk.tests;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Arrays;
 
 public class TestNextGreaterElementToLeft {
     public static void main(String[] args) {
         int[] arr = {5,17,8,10,13};
-        findNextGreaterElementToLeft(arr, arr.length);
+        int[] array1 = findNextGreaterElementToLeft(arr, arr.length);
+        Arrays.stream(array1).forEach(i-> System.out.print(i+" "));
     }
 
-    private static void findNextGreaterElementToLeft(int[] arr, int n) {
-        Stack<Integer> s = new Stack<>();
+    public static int[] findNextGreaterElementToLeft(int[] arr, int n) {
+        ArrayDeque<Integer> s = new ArrayDeque<>();
         int[] arr1 = new int[n];
         for(int i = 0; i<n; i++){
             int num = arr[i];
@@ -22,8 +24,6 @@ public class TestNextGreaterElementToLeft {
             s.push(num);
         }
 
-        for(int i = 0; i<n; i++){
-            System.out.println("Element:"+arr[i]+" -> NGEL:"+arr1[i]);
-        }
+       return arr1;
     }
 }

@@ -1,17 +1,20 @@
 package com.kingshuk.tests;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class TestNextGreaterElementToRight {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1,3,2,4};
-        findNextGreaterElement(arr, arr.length);
+        int[] arr1 = findNextGreaterElement(arr, arr.length);
+        Arrays.stream(arr1).forEach(i-> System.out.print(i+" "));
     }
 
-    private static void findNextGreaterElement(int[] arr, int length) {
+    public static int[] findNextGreaterElement(int[] arr, int length) {
         int[] arr1 = new int[length];
-        Stack<Integer> s = new Stack<>();
+        ArrayDeque<Integer> s = new ArrayDeque<>();
         for(int i = length-1; i>=0; i--){
             int num = arr[i];
             while(!s.isEmpty() && s.peek()<= num){
@@ -25,8 +28,6 @@ public class TestNextGreaterElementToRight {
             s.push(num);
         }
 
-        for(int i = 0; i<length; i++){
-            System.out.println("Element:"+arr[i]+" -> NGE:"+arr1[i]);
-        }
+        return arr1;
     }
 }
