@@ -1,4 +1,4 @@
-package com.kingshuk.tests.Arrays;
+package com.kingshuk.tests.hundredDaysChallenge.day1;
 
 import java.util.Arrays;
 
