@@ -1,12 +1,16 @@
 package com.kingshuk.tests.sorting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class FirstMissingPositive {
     public static void main(String[] args) {
-        System.out.println(new FirstMissingPositive().firstMissingPositive(new int[] {1,2,3}));
+        System.out.println(new FirstMissingPositive().firstMissingPositive(new int[] {4,3,2,7,8,2,3,1}));
     }
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
         int i = 0;
+        List<Integer> list = new ArrayList<>();
         while(i < n)
         {
             int element = nums[i];
@@ -20,6 +24,11 @@ class FirstMissingPositive {
             }
             i++;
         }
+        for (i = 0; i < n; i++) {
+            if (nums[i] != i + 1)
+                list.add(i + 1);
+        }
+        System.out.println(list);
         for(int j = 0; j<n; j++)
         {
             if(nums[j] != j+1)

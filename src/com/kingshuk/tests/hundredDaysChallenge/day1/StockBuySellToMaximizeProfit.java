@@ -37,12 +37,11 @@ public class StockBuySellToMaximizeProfit {
             System.out.println("There is no day when buying the stock will make profit");
         else {
             int maxProfit = 0;
-            for (int j = 0; j < count; j++)
-            {
-                System.out.println("Buy on day: " + txnList.get(j).buy+ " Sell on day : " + txnList.get(j).sell);
-                maxProfit+=(price[txnList.get(j).sell] - price[txnList.get(j).buy]);
+            for (int j = 0; j < count; j++) {
+                System.out.println("Buy on day: " + txnList.get(j).buy + " Sell on day : " + txnList.get(j).sell);
+                maxProfit += (price[txnList.get(j).sell] - price[txnList.get(j).buy]);
             }
-            System.out.println("Maximum Profit: "+maxProfit);
+            System.out.println("Maximum Profit: " + maxProfit);
         }
     }
 }
