@@ -8,7 +8,7 @@ public class TestMaxConsecutive1s {
         System.out.println("Max 1s:"+max_1s);
     }
 
-    private static int findMaximumConsecutive1s(int[] arr, int n) {
+    public static int findMaximumConsecutive1s(int[] arr, int n) {
        int max = 0;
        int i = 0;
        int counter = 0;
@@ -16,13 +16,10 @@ public class TestMaxConsecutive1s {
            if(arr[i] == 1){
                counter++;
            }else{
-               max = Math.max(max,counter);
                counter = 0;
            }
-           i++;
-       }
-       if(arr[n-1] == 1){
            max = Math.max(max,counter);
+           i++;
        }
        return max;
     }
