@@ -11,7 +11,7 @@ public class LevelOrder {
     TreeNode root;
     void levelOrderTrav()
     {
-        Queue<TreeNode> tree = new LinkedList<TreeNode>();
+        Queue<TreeNode> tree = new LinkedList<>();
         tree.add(root);
         while(!tree.isEmpty())
         {
@@ -25,7 +25,6 @@ public class LevelOrder {
             {
                 tree.add(temp.right);
             }
-
         }
 
     }

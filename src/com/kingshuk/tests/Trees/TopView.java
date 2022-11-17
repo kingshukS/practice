@@ -22,9 +22,9 @@ public class TopView {
             NodeT temp = queue.remove();
 
             hd = temp.hd;
-           // if(!map.containsKey(temp.hd)) {
+            if(!map.containsKey(temp.hd)) {
                 map.put(hd, temp.data);
-          //  }
+            }
 
             if (temp.right != null) {
                 temp.right.hd = hd + 1;

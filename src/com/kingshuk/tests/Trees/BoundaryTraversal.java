@@ -2,79 +2,63 @@ package com.kingshuk.tests.Trees;
 
 public class BoundaryTraversal {
 
-    static void boundaryTraversal(NodeT root)
-    {
+    static void boundaryTraversal(NodeT root) {
         printRoot(root);
-        if(root.left!=null)
-        {
+        if (root.left != null) {
             leftView(root.left);
         }
         printLeafNodes(root);
-        if(root.right!=null)
-        {
+        if (root.right != null) {
             rightView(root.right);
         }
-
     }
-    static void printLeafNodes(NodeT root)
-    {
-            if(root.left==null && root.right==null)
-            {
-                System.out.print(root.data+" ");
-            }
-            if(root.left!=null)
-            {
-                printLeafNodes(root.left);
-            }
-        if(root.right!=null)
-        {
+
+    static void printLeafNodes(NodeT root) {
+        if (root.left == null && root.right == null) {
+            System.out.print(root.data + " ");
+        }
+        if (root.left != null) {
+            printLeafNodes(root.left);
+        }
+        if (root.right != null) {
             printLeafNodes(root.right);
         }
-
     }
-    static void leftView(NodeT root)
-    {
-        if(root==null)
-        {
+
+    static void leftView(NodeT root) {
+        if (root == null) {
             return;
         }
-        if (root.left == null && root.right == null)
-        {
+        if (root.left == null && root.right == null) {
             return;
         }
-        System.out.print(root.data+" ");
-        if(root.left==null)
-        {
+        System.out.print(root.data + " ");
+        if (root.left == null) {
             leftView(root.right);
-        }
-        else
-        leftView(root.left);
+        } else
+            leftView(root.left);
     }
-    static void rightView(NodeT root)
-    {
-        if(root==null)
-        {
-            return;
-        }
-        if(root.left==null && root.right==null)
-        {
-            return;
-        }
 
-        if(root.right==null)
+    static void rightView(NodeT root) {
+        if (root == null) {
+            return;
+        }
+        if (root.left == null && root.right == null) {
+            return;
+        }
+        if (root.right == null)
             rightView(root.left);
         else
             rightView(root.right);
+        System.out.println(root.data + " ");
+    }
 
-        System.out.println(root.data+ " ");
+    static void printRoot(NodeT root) {
+        if (root != null)
+            System.out.print(root.data + " ");
     }
-    static void printRoot(NodeT root)
-    {
-        if(root!=null)
-        System.out.print(root.data+" ");
-    }
-    public static void main(String args[])
-    {
+
+    public static void main(String args[]) {
         NodeT root = new NodeT(100);
         root.left = new NodeT(50);
         root.right = new NodeT(150);

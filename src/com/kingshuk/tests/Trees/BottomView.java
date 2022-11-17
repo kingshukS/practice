@@ -24,9 +24,7 @@ public class BottomView {
         {
             NodeT temp = q.remove();
             hd = temp.hd;
-            if(!hm.containsKey(hd)) {
-                hm.put(hd, temp.data);
-            }
+            hm.put(hd, temp.data);
             if(temp.left!=null)
             {
                 temp.left.hd = hd-1;
