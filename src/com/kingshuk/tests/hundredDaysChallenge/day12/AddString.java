@@ -7,19 +7,19 @@ public class AddString {
 
     public String addStrings(String num1, String num2) {
         int carry = 0;
-        String result = "";
         int i = num1.length() - 1;
         int j = num2.length() - 1;
-        while(i>=0 || j >=0 || carry!=0)
+        StringBuilder res = new StringBuilder();
+        while(i>=0 || j >=0)
         {
-            int x = i>=0 ? num1.charAt(i) - '0' : 0;
-            int y = j>=0 ? num2.charAt(j) - '0' : 0;
-            int sum = x+y+carry;
+            int sum = carry;
+            sum += i>=0 ? num1.charAt(i--) - '0' : 0;
+            sum += j>=0 ? num2.charAt(j--) - '0' : 0;
             carry = sum/10;
-            result = sum%10+result;
-            i--;
-            j--;
+            res.append(sum%10);
         }
-        return result;
+        if(carry != 0)
+            res.append(carry);
+        return res.reverse().toString();
     }
 }
