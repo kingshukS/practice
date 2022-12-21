@@ -11,7 +11,7 @@ import java.util.Set;
 public class IntersectionOfTwoArrays {
     public static void main(String[] args) {
         int[] nums1 = {1,2,2,1};
-        int[] nums2 = {2,2};
+        int[] nums2 = {1,1,2,2};
         int[] intersection = intersection(nums1, nums2);
         Arrays.stream(intersection).forEach(i -> System.out.println(i+" "));
     }
@@ -31,5 +31,22 @@ public class IntersectionOfTwoArrays {
             result[index++] = i;
         }
         return result;
+    }
+
+    public int[] intersectionBest(int[] nums1, int[] nums2) {
+        boolean[] map = new boolean[10001];
+        for(int i: nums1)
+            map[i] = true;
+
+        int[] intersection = new int[Math.min(nums1.length, nums2.length)];
+        int count = 0;
+        for(int i : nums2){
+            if(map[i]){
+                intersection[count] = i;
+                count++;
+                map[i] = false;
+            }
+        }
+        return Arrays.copyOf(intersection, count);
     }
 }
