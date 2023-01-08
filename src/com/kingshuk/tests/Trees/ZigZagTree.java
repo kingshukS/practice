@@ -2,12 +2,11 @@ package com.kingshuk.tests.Trees;
 
 import com.kingshuk.tests.InorderTraversal.TreeNode;
 
-import java.util.Deque;
 import java.util.Stack;
 
 public class ZigZagTree {
 
-    static void zigZagTraversal(TreeNode root) {
+    static void ZigZagTraversal(TreeNode root) {
         Stack<TreeNode> currentLevel = new Stack<>();
         Stack<TreeNode> nextLevel = new Stack<>();
         boolean leftToRight = true;
@@ -50,6 +49,6 @@ public class ZigZagTree {
         root.left.right = new TreeNode(6);
         root.right.left = new TreeNode(5);
         root.right.right = new TreeNode(4);
-        zigZagTraversal(root);
+        ZigZagTraversal(root);
     }
 }
