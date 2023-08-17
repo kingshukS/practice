@@ -9,23 +9,25 @@ public class LongestPalindrome {
     public static void main(String[] args) {
         System.out.println(longestPalindrome("ccc"));
     }
-
     public static int longestPalindrome(String s) {
-        int hash[] = new int[256];
-        for (int i = 0; i < s.length(); i++) {
-            hash[s.charAt(i)]++;
+        if(s.length() <= 1)
+            return s.length();
+
+        int[] arr = new int[128];
+        for(char c : s.toCharArray())
+        {
+            arr[c]++;
         }
-        int c_e = 0;
-        int c_o = 0;
-        for (int f : hash) {
-            if (f != 0) {
-                if (f % 2 == 0) c_e += f;
-                else {
-                    c_e += f - 1;
-                    c_o++;
-                }
+        int sum = 0, odd_count = 0;
+        for(int i = 0; i<128; i++)
+        {
+            if(arr[i] %2 == 0)
+                sum+=arr[i];
+            else{
+                sum+=arr[i] - 1;
+                odd_count++;
             }
         }
-        return c_e + (c_o > 0 ? 1 : 0);
+        return odd_count>0?sum+1:sum;
     }
 }

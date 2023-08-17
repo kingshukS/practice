@@ -33,6 +33,27 @@ public class MaximumUnitsOnTruck {
         return boxes;
     }
 
+    public static int maximumUnits2(int[][] boxTypes, int truckSize) {
+        if(boxTypes.length == 1)
+            return boxTypes[0][0]*boxTypes[0][1];
+        int total = 0;
+        int[] unitArray = new int[1001];
+        for(int[] box : boxTypes)
+        {
+            unitArray[box[1]] = box[0];
+        }
+
+        for(int i = 1000; i>=1 && truckSize>0; i--){
+            if(unitArray[i] != 0)
+            {
+                int minBox = Math.min(truckSize, unitArray[i]);
+                total+= minBox * i;
+                truckSize-=minBox;
+            }
+        }
+        return total;
+    }
+
     public int maximumUnitsSort(int[][] boxTypes, int truckSize) {
         Arrays.sort(boxTypes, (a,b)->Integer.compare(b[1],a[1]));
         int boxes = 0;
@@ -47,5 +68,10 @@ public class MaximumUnitsOnTruck {
             }
         }
         return boxes;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(maximumUnits2(
+                new int[][]{{2,1},{4,4},{3,1},{4,1},{2,4},{3,4},{1,3},{4,3},{5,3},{5,3}}, 13));
     }
 }

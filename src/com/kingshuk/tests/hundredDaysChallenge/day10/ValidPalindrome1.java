@@ -9,8 +9,8 @@ package com.kingshuk.tests.hundredDaysChallenge.day10;
 public class ValidPalindrome1 {
     public static void main(String[] args) {
         ValidPalindrome1 validPalindrome = new ValidPalindrome1();
-        String s = "A man, a plan, a canal1: Panama";
-        System.out.println(validPalindrome.isPalindrome(s));
+        String s = "A man, a plan, a canal: Panama";
+        System.out.println(validPalindrome.isPalindrome2(s));
     }
 
     public boolean isPalindrome(String s) {
@@ -24,6 +24,26 @@ public class ValidPalindrome1 {
                 right--;
             } else {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isPalindrome2(String s) {
+        if (s.length() <= 1)
+            return true;
+        s = s.toLowerCase();
+        int l = 0, r = s.length() - 1;
+        while (l < r) {
+            while (!((s.charAt(l) >= 48 && s.charAt(l) <= 57) || (s.charAt(l) >= 'a' && s.charAt(l) <= 'z')))
+                l++;
+            while (!((s.charAt(r) >= 48 && s.charAt(r) <= 57) || (s.charAt(r) >= 'a' && s.charAt(r) <= 'z')))
+                r--;
+            if (s.charAt(l) != s.charAt(r))
+                return false;
+            else {
+                l++;
+                r--;
             }
         }
         return true;

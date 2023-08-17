@@ -10,7 +10,7 @@ import java.util.List;
 public class MergeIntervals {
 
     public static void main(String[] args) {
-            Arrays.stream(new MergeIntervals().merge(new int[][]{{7,9},{6,10}, {4,5}, {1,3}, {2,4}})).forEach(a -> System.out.println("{"+a[0]+","+a[1]+"}"));
+            Arrays.stream(new MergeIntervals().merge5(new int[][]{{7,9},{6,10}, {4,5}, {1,3}, {2,4}})).forEach(a -> System.out.println("{"+a[0]+","+a[1]+"}"));
     }
         public int[][] merge(int[][] intervals) {
             if(intervals.length<=1)
@@ -30,6 +30,37 @@ public class MergeIntervals {
             intervals = Arrays.stream(intervals).filter(arr -> arr[0]!=-1).toArray(int[][]::new);
             return intervals;
         }
+
+    public int[][] merge5(int[][] intervals) {
+        List<int[]> res = new ArrayList<>();
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int[] interval : intervals)
+        {
+            min = Math.min(min, interval[0]);
+            max = Math.max(max, interval[0]);
+        }
+        int[] range = new int[max-min+1];
+        for(int[] interval : intervals)
+        {
+            range[interval[0]-min] = Math.max(range[interval[0]-min], interval[1]-min);
+        }
+        int start = 0, end = 0;
+        for(int i = 0; i<range.length; i++)
+        {
+            if(range[i] == 0)
+                continue;
+            if(i<=end)
+                end = Math.max(end, range[i]);
+            else{
+                res.add(new int[]{start+min, end+min});
+                start = i;
+                end = range[i];
+            }
+        }
+        res.add(new int[]{start+min, end+min});
+        return res.toArray(new int[2][]);
+    }
 
     private int[] merge(int[] first, int[] second) {
         int[] mergedInterval = new int[2];

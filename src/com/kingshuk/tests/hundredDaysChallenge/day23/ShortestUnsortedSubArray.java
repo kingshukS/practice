@@ -11,7 +11,7 @@ import java.util.Stack;
  */
 public class ShortestUnsortedSubArray {
     public static void main(String[] args) {
-        new ShortestUnsortedSubArray().findUnsortedSubarray(new int[]{0, 1, 2, 3, 4, 5});
+        new ShortestUnsortedSubArray().findUnsortedSubarrayBest(new int[]{2,6,4,8,10,9,15});
     }
 
     public int findUnsortedSubarray(int[] nums) {

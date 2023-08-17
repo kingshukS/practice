@@ -7,22 +7,21 @@ public class MaximumSumPath {
     TreeNode root;
     static private int res;
 
-    int findMaxUtil(TreeNode node,int res1)
+    int findMaxUtil(TreeNode node)
     {
         if(node == null)
         {
             return 0;
         }
 
-        int l = findMaxUtil(node.left,res);
-        int r = findMaxUtil(node.right,res);
+        int l = findMaxUtil(node.left);
+        int r = findMaxUtil(node.right);
 
         int s1 = Math.max(node.data+Math.max(l,r),node.data);
 
         int s2 = Math.max(s1,(l+r+node.data));
 
-        res1 = Math.max(res,s2);
-        res = res1;
+        res = Math.max(res, s2);
         return s1;
     }
      int FindmaxSum()
@@ -33,7 +32,7 @@ public class MaximumSumPath {
     int FindmaxSum(TreeNode node)
     {
         res = Integer.MIN_VALUE;
-        findMaxUtil(node,res);
+        findMaxUtil(node);
         return res;
     }
     public static void main(String args[])

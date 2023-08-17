@@ -10,7 +10,7 @@ package com.kingshuk.tests.hundredDaysChallenge.day24;
 
 /**
  * Just an explanation for who may get confused how this works:
- * For this question, what this algorithm wants us to do is finding some splitting line so that numbers being left of this line are all small than numbers right of this line.
+ * For this question, what this algorithm wants us to do is finding some splitting line so that numbers being left of this line are all smaller than numbers right of this line.
  * The idea is very similar to quick sort. What the answer of this question is how many lines you can find. So that is why we want the max array, or we can only need a number
  * for storing the maximum number up to now(because original array is 0 to len-1), as long as the max number equals the index, we know that all numbers left to this point are
  * smaller than this point and numbers right to this point are larger than this point, then we count add one.

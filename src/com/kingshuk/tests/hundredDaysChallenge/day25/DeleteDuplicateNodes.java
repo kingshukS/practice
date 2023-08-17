@@ -6,6 +6,16 @@ import com.kingshuk.tests.hundredDaysChallenge.day5.Node;
  * Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.
  */
 public class DeleteDuplicateNodes {
+
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(3);
+        head.next.next.next.next = new Node(4);
+
+        Node res = new DeleteDuplicateNodes().deleteDuplicates(head);
+    }
     public Node deleteDuplicates(Node head) {
         // sentinel
         Node sentinel = new Node(0);

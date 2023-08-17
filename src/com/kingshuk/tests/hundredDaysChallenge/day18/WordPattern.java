@@ -56,4 +56,21 @@ class WordPattern {
                 return false;
         return true;
     }
+
+    public boolean wordPatternBest2(String pattern, String s) {
+    String[] words=s.split(" ");
+        if(pattern.length()!=words.length) return false;
+    HashMap<Character,String> hm=new HashMap<>();
+        for(int i=0;i<pattern.length();i++){
+        if(hm.containsKey(pattern.charAt(i))){
+            if(!hm.get(pattern.charAt(i)).equals(words[i]))
+                return false;
+        }
+        else{
+            if(hm.containsValue(words[i]))
+                return false;
+            hm.put(pattern.charAt(i),words[i]);
+        }
+    }
+        return true;}
 }
