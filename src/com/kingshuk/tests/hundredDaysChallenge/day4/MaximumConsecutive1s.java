@@ -1,7 +1,7 @@
 package com.kingshuk.tests.hundredDaysChallenge.day4;
 
 
-import static com.kingshuk.tests.TestMaxConsecutive1s.findMaximumConsecutive1s;
+import static com.kingshuk.tests.misc.TestMaxConsecutive1s.findMaximumConsecutive1s;
 
 public class MaximumConsecutive1s {
     public static void main(String[] args) {

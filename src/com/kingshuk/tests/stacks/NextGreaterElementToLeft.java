@@ -2,7 +2,7 @@ package com.kingshuk.tests.stacks;
 
 import java.util.Arrays;
 
-import static com.kingshuk.tests.TestNextGreaterElementToLeft.findNextGreaterElementToLeft;
+import static com.kingshuk.tests.misc.TestNextGreaterElementToLeft.findNextGreaterElementToLeft;
 
 public class NextGreaterElementToLeft {
     public static void main(String[] args) {

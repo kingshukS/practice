@@ -1,7 +1,5 @@
 package com.kingshuk.tests.hundredDaysChallenge.day5;
 
-import static com.kingshuk.tests.PalindromeLinkedList.findMiddleNode;
-
 public class FindMiddleNode {
     public static void main(String[] args) {
         Node head = new Node(1);

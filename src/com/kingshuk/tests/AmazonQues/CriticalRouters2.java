@@ -5,13 +5,13 @@ import java.util.*;
 public class CriticalRouters2 {
     public List<Integer> getCriticalRouters(int numNodes, int numEdges, int[][] edges) {
 
-        //construct graph
+        //construct com.kingshuk.tests.graph
         Map<Integer, Set<Integer>> graph = new HashMap<>();
 
-        //initialize graph
+        //initialize com.kingshuk.tests.graph
         for(int i=0;i<numNodes;i++) graph.put(i, new HashSet<>());
 
-        //add edges to graph
+        //add edges to com.kingshuk.tests.graph
         for(int[] edge: edges) {
             int u = edge[0];
             int v = edge[1];
@@ -25,7 +25,7 @@ public class CriticalRouters2 {
         //calculate critical routers
         for(int nodeToRemove=0;nodeToRemove<numNodes;nodeToRemove++) {
 
-            //remove each node and its edges and check if entire graph is connected
+            //remove each node and its edges and check if entire com.kingshuk.tests.graph is connected
             Set<Integer> nodeEdges = graph.get(nodeToRemove);
             int source = 0;
             for(int edge: nodeEdges) {
