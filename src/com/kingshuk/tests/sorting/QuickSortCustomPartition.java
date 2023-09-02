@@ -2,7 +2,7 @@ package com.kingshuk.tests.sorting;
 
 public class QuickSortCustomPartition {
     public static void main(String[] args) {
-        int[] arr = {10, 80, 70, 30, 90, 70, 40, 50, 70};
+        int[] arr = {10,5,1};
         quickSort(arr, 0, arr.length - 1);
         for (int i : arr) {
             System.out.print(i + " ");
@@ -23,9 +23,9 @@ public class QuickSortCustomPartition {
         int start = lo;
         int end = hi;
         while (start < end) {
-            while (arr[start] <= pivot)
+            while (arr[start] <= pivot && start<= hi-1)
                 start++;
-            while (arr[end] > pivot)
+            while (arr[end] > pivot && end>=lo+1)
                 end--;
             if (start < end) {
                 int temp = arr[start];
