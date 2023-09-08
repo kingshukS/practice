@@ -16,7 +16,6 @@ class MaxConnection {
         int n = grid.length;
         DisjointSet disjointSet = new DisjointSet(n * n);
         List<Cell> list = new ArrayList<>();
-        int[][] vis = new int[n][n];
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -28,7 +27,7 @@ class MaxConnection {
                     {
                         int ix = i + dir[0];
                         int jx = j + dir[1];
-                        if(ix<0 || ix>=n || jx<0 || jx>=n || grid[ix][jx] == 0 || vis[ix][jx] == 0 )
+                        if(ix<0 || ix>=n || jx<0 || jx>=n || grid[ix][jx] == 0)
                             continue;
                         int node = i * n + j;
                         int adjNode = ix * n + jx;
@@ -38,7 +37,6 @@ class MaxConnection {
                         }
                     }
                 }
-                vis[i][j] = 1;
             }
         }
         int max = Integer.MIN_VALUE;
