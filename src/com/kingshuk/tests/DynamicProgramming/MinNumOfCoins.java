@@ -17,15 +17,8 @@ public class MinNumOfCoins {
                 }
             }
         }
-        for (int i = 1, j = 1; j <= sum; j++) {
-            if (j % coins[0] == 0) {
-                t[i][j] = j / coins[0];
-            } else {
-                t[i][j] = Integer.MAX_VALUE - 1;
-            }
-        }
 
-        for (int i = 2; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             for (int k = 1; k <= sum; k++) {
                 if (coins[i - 1] > k) {
                     t[i][k] = t[i - 1][k];
@@ -34,6 +27,7 @@ public class MinNumOfCoins {
                             t[i - 1][k]);
             }
         }
+        System.out.println(Integer.MAX_VALUE);
 
         return t[n][sum];
     }
