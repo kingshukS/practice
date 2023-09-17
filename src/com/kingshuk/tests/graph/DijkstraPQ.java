@@ -11,8 +11,6 @@ class DijkstraPQ
         PriorityQueue<Pair> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.distance));
         int[] dis = new int[V];
         Arrays.fill(dis, (int)1e9);
-
-        Set<Integer> set = new TreeSet<>();
         dis[S] = 0;
 
         queue.add(new Pair(S, 0));
