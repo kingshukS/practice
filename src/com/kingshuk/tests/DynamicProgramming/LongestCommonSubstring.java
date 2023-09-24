@@ -18,7 +18,6 @@ public class LongestCommonSubstring {
                 }
             }
         }
-
         return result;
     }
 

@@ -9,7 +9,7 @@ public class LongestPalindromicSubsequence {
     private static int findLongestPalindromicSubsequence(String s) {
         int n = s.length();
         int[][] t = new int[n+1][n+1];
-        String s1 = new StringBuilder().append(s).reverse().toString();
+        String s1 = new StringBuilder(s).reverse().toString();
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= n; j++) {
                 if (i == 0 || j == 0) {

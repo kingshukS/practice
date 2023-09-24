@@ -7,10 +7,6 @@ public class MinimumNumberOfJumpsBest {
         System.out.println("Minimum number of jumps to reach end is " + minJumps(arr, size));
     }
 
-    /*
-
-     */
-
     /**
      * Here is an improvement insight: From any jump point i, we can reach any index from(i + 1) to (i + A[i]),
      * and there will be some value between range A[i + 1] to A[i + A[i]], which can provide the farthest reach from that range.

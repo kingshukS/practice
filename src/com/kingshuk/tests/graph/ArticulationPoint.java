@@ -10,7 +10,6 @@ class ArticulationPoint {
         int[] tin = new int[V];
         int[] low = new int[V];
         int[] mark = new int[V];
-        Set<Integer> set = new HashSet<>();
 
         for(int i = 0; i < V; i++){
             if(vis[i] == 0)

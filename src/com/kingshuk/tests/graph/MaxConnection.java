@@ -15,13 +15,13 @@ class MaxConnection {
         int[][] DIRECTIONS = new int[][]{{0,-1},{0,1},{-1,0},{1,0}};
         int n = grid.length;
         DisjointSet disjointSet = new DisjointSet(n * n);
-        List<Cell> list = new ArrayList<>();
+        List<Cell> listZeroes = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if(grid[i][j] == 0)
                 {
-                    list.add(new Cell(i,j));
+                    listZeroes.add(new Cell(i,j));
                 }else{
                     for(int[] dir : DIRECTIONS)
                     {
@@ -40,10 +40,10 @@ class MaxConnection {
             }
         }
         int max = Integer.MIN_VALUE;
-        for(Cell cx : list)
+        for(Cell cell : listZeroes)
         {
-            int zeroX = cx.x;
-            int zeroY = cx.y;
+            int zeroX = cell.x;
+            int zeroY = cell.y;
             int ans = 0;
             Set<Integer> set = new HashSet<>();
             for(int[] dir : DIRECTIONS)

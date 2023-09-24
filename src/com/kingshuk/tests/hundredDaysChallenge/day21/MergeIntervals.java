@@ -25,11 +25,36 @@ public class MergeIntervals {
                     intervals[i][1] = Math.max(first[1], second[1]);
                     intervals[i-1][0] = -1;
                 }
-                i++;
             }
             intervals = Arrays.stream(intervals).filter(arr -> arr[0]!=-1).toArray(int[][]::new);
             return intervals;
         }
+
+    public int[][] merge3(int[][] intervals) {
+        if(intervals.length<=1)
+            return intervals;
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+        int[] newInterval = intervals[0];
+        List<int[]> result = new ArrayList<>();
+        for(int i = 1; i< intervals.length; i++)
+        {
+            int[] slot = intervals[i];
+
+            if(newInterval[1]<slot[0])
+            {
+                result.add(newInterval);
+                newInterval = slot;
+            }else if(slot[1] < newInterval[0])
+            {
+                result.add(slot);
+            }else{
+                newInterval[0] = Math.min(newInterval[0], slot[0]);
+                newInterval[1] = Math.max(newInterval[1], slot[1]);
+            }
+        }
+        result.add(newInterval);
+        return result.toArray(new int[result.size()][]);
+    }
 
     public int[][] merge5(int[][] intervals) {
         List<int[]> res = new ArrayList<>();
@@ -59,7 +84,7 @@ public class MergeIntervals {
             }
         }
         res.add(new int[]{start+min, end+min});
-        return res.toArray(new int[2][]);
+        return res.toArray(new int[res.size()][]);
     }
 
     private int[] merge(int[] first, int[] second) {
