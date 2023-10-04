@@ -5,29 +5,6 @@ public class LongestIncreasingSubsequence {
     private static int[][] dp;
 
     private static int LIS = Integer.MIN_VALUE;
-    static int longestLength(int arr[], int n) {
-        int i, j, max = 0;
-        int lis[] = new int[n];
-
-        for (i = 0; i < n; i++) {
-            lis[i] = 1;
-        }
-
-        for (i = 0; i < n; i++) {
-            for (j = 0; j < i; j++) {
-                if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
-                    lis[i] = lis[j] + 1;
-                }
-            }
-        }
-
-        for (i = 0; i < n; i++) {
-            if (max < lis[i]) {
-                max = lis[i];
-            }
-        }
-        return max;
-    }
 
     static int longestLengthRecursive(int arr[], int n) {
         if(n == 1)
@@ -48,7 +25,7 @@ public class LongestIncreasingSubsequence {
         return max_ending_here;
     }
 
-    private static int findLis2(int[] arr, int n) {
+    private static int printLisWithBacktrack(int[] arr, int n) {
         int[] dp = new int[n], backtrack = new int[n];
 
         for(int i = 0; i<n; i++)
@@ -88,7 +65,7 @@ public class LongestIncreasingSubsequence {
         return max;
     }
 
-    private static int findLis(int[] arr, int n) {
+    private static int findLisTopDownDP(int[] arr, int n) {
         int[] next = new int[n+1], cur = new int[n+1];
         for(int ind = n-1; ind>=0; ind--)
         {
@@ -105,7 +82,7 @@ public class LongestIncreasingSubsequence {
         return next[0];
     }
 
-    private static int findLis(int[] arr, int index, int prev) {
+    private static int findLisMemoization(int[] arr, int index, int prev) {
         if(index == arr.length)
             return 0;
         int len = dp[index+1][prev+1] != -1? dp[index+1][prev+1]: findLis(arr, index+1, prev);
@@ -116,8 +93,37 @@ public class LongestIncreasingSubsequence {
         return dp[index+1][prev+1] = len;
     }
 
-    
+    private static int findLisBinarySearchBest(int[] arr, int n) {
+        List<Integer> list = new ArrayList<>();
+        list.add(arr[0]);
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > list.get(list.size() - 1)) {
+                list.add(arr[i]);
+            } else {
+                int index = binarySearch(list, arr[i]);
+                list.remove(index);
+                list.add(index, arr[i]);
+            }
+        }
+        return list.size();
+    }
 
+    static int binarySearch(List<Integer> arr, int k) {
+        int low = 0;
+        int high = arr.size() - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr.get(mid) == k)
+                return mid;
+            else if (k < arr.get(mid)) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+    
     public static void main(String args[]) {
         int arr[] = {0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15};
         int n = arr.length;
