@@ -48,9 +48,6 @@ class FloodFill {
         dfs(image, sr, sc+1, startingColor, color);
         dfs(image, sr-1, sc, startingColor, color);
         dfs(image, sr+1, sc, startingColor, color);
-
-        int[] k = new int[1];
-        List<Integer> list = Arrays.stream(k).boxed().filter(i -> i!=0).collect(Collectors.toList());
     }
 
     public static void main(String[] args) {

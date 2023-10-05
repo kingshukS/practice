@@ -46,6 +46,6 @@ public class MedianOfSortedArray {
     }
 
     public static void main(String[] args) {
-        System.out.println(new MedianOfSortedArray().findMedianSortedArrays(new int[]{1,3}, new int[]{2}));
+        System.out.println(new MedianOfSortedArray().findMedianSortedArrays(new int[]{1,3,5,7,9}, new int[]{2,4,6,8}));
     }
 }

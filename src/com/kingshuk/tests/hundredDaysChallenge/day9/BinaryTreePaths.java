@@ -35,16 +35,18 @@ public class BinaryTreePaths {
     }
 
     public void addAllPaths(TreeNode root,  List<Integer> list, List<List<Integer>> list2){
-        if(root != null){
-            list.add(root.key);
-            if(root.left == null && root.right == null)
-            {
-                list2.add(new ArrayList<>(list));
-            }else{
-                addAllPaths(root.left, list, list2);
-                addAllPaths(root.right, list, list2);
-            }
-            list.remove(list.size() - 1);
+        if(root == null)
+        {
+            return;
         }
+        list.add(root.key);
+        if(root.left == null && root.right == null)
+        {
+            list2.add(new ArrayList<>(list));
+        }else {
+            addAllPaths(root.left, list, list2);
+            addAllPaths(root.right, list, list2);
+        }
+        list.remove(list.size()-1);
     }
 }

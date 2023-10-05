@@ -57,6 +57,11 @@ class KthLargest {
             minHeapify(nums, n, min);
         }
     }
+
+    public static void main(String[] args) {
+        KthLargest kth = new KthLargest(3, new int[]{2,1,3,4});
+        System.out.println(kth.add(3));
+    }
 }
 
 /**

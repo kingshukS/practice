@@ -20,4 +20,18 @@ public class LongestCommonPrefix {
         }
         return prefix;
     }
+
+    public String longestCommonPrefix2(String[] strs) {
+        String prefix = strs[0];
+        int count = 1;
+
+        while(count<strs.length){
+            if (strs[count].indexOf(prefix) != 0){
+                prefix = prefix.substring(0, prefix.length() -1);
+            } else {
+                count++;
+            }
+        }
+        return prefix;
+    }
 }
