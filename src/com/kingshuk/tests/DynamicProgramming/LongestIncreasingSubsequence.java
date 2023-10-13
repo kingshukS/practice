@@ -1,6 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,23 +30,23 @@ public class LongestIncreasingSubsequence {
     }
 
     private static int printLisWithBacktrack(int[] arr, int n) {
-        int[] dp = new int[n], backtrack = new int[n];
+        int[] arrDP = new int[n], backtrack = new int[n];
 
         for (int i = 0; i < n; i++) {
-            dp[i] = 1;
+            arrDP[i] = 1;
             backtrack[i] = i;
             for (int j = 0; j < i; j++) {
-                if (arr[i] > arr[j] && dp[j] + 1 > dp[i]) {
-                    dp[i] = dp[j] + 1;
+                if (arrDP[i] > arrDP[j] && arrDP[j] + 1 > arrDP[i]) {
+                    arrDP[i] = arrDP[j] + 1;
                     backtrack[i] = j;
                 }
             }
         }
-        int max = dp[0];
+        int max = arrDP[0];
         int maxIndex = 0;
         for (int i = 1; i < n; i++) {
-            if (dp[i] > max) {
-                max = dp[i];
+            if (arrDP[i] > max) {
+                max = arrDP[i];
                 maxIndex = i;
             }
         }
@@ -53,15 +54,28 @@ public class LongestIncreasingSubsequence {
         List<Integer> lisList = new ArrayList<>();
 
         while (backtrack[maxIndex] != maxIndex) {
-            lisList.add(arr[maxIndex]);
+            lisList.add(arrDP[maxIndex]);
             maxIndex = backtrack[maxIndex];
         }
-        lisList.add(arr[maxIndex]);
+        lisList.add(arrDP[maxIndex]);
         Collections.sort(lisList);
         System.out.println(lisList);
         return max;
     }
 
+    private static int findLisTopDownDPInitial(int[] arr, int n) {
+        int[][] t = new int[n+1][n+1];
+        for (int ind = n - 1; ind >= 0; ind--) {
+            for (int pInd = ind - 1; pInd >= -1; pInd--) {
+                int len = t[ind+1][pInd+1];
+                if (pInd == -1 || arr[ind] > arr[pInd]) {
+                    len = Math.max(1 + t[ind+1][ind+1], len);
+                }
+                t[ind][pInd+1] = len;
+            }
+        }
+        return t[0][-1+1];
+    }
     private static int findLisTopDownDP(int[] arr, int n) {
         int[] next = new int[n + 1], cur = new int[n + 1];
         for (int ind = n - 1; ind >= 0; ind--) {
@@ -80,12 +94,24 @@ public class LongestIncreasingSubsequence {
     private static int findLisMemoization(int[] arr, int index, int prev) {
         if (index == arr.length)
             return 0;
-        int len = dp[index + 1][prev + 1] != -1 ? dp[index + 1][prev + 1] : findLisMemoization(arr, index + 1, prev);
+        // return from here if pre-calculated
+        if(dp[index][prev+1] != -1) return dp[index][prev+1];
+
+        int len = 0 + findLisMemoization(arr, index + 1, prev);
         if (prev == -1 || arr[index] > arr[prev]) {
-            int x = dp[index + 1][index + 1] != -1 ? dp[index + 1][index + 1] : findLisMemoization(arr, index + 1, index);
-            len = Math.max(1 + x, len);
+            len = Math.max(1 + findLisMemoization(arr, index + 1, index), len);
         }
-        return dp[index + 1][prev + 1] = len;
+        return dp[index][prev + 1] = len;
+    }
+
+    private static int findLisRecursive(int[] arr, int index, int prev) {
+        if (index == arr.length)
+            return 0;
+        int len = 0 + findLisRecursive(arr, index + 1, prev);
+        if (prev == -1 || arr[index] > arr[prev]) {
+            len = Math.max(1 + findLisRecursive(arr, index + 1, index), len);
+        }
+        return len;
     }
 
     private static int findLisBinarySearchBest(int[] arr, int n) {
@@ -122,10 +148,12 @@ public class LongestIncreasingSubsequence {
     public static void main(String args[]) {
         int arr[] = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
         int n = arr.length;
-        dp = new int[n + 1][n + 1];
-        /*for(int x = 0; x< dp.length; x++)
-            Arrays.fill(dp[x], -1);*/
-        //System.out.println("LIS::> "+findLis(arr, 0, -1));
+        dp = new int[n ][n + 1];
+        for(int x = 0; x< dp.length; x++)
+            Arrays.fill(dp[x], -1);
+        System.out.println("LIS::> "+findLisMemoization(arr, 0, -1));
         System.out.println(findLisBinarySearchBest(arr, n));
+        System.out.println(findLisRecursive(arr, 0, -1));
+        System.out.println(findLisTopDownDPInitial(arr, n));
     }
 }

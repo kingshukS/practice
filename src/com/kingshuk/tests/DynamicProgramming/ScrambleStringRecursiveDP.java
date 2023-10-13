@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Time Complexity: O(2^k + 2^(n-k)), where k and n-k are the length of the two substrings.
+ * Auxiliary Space: O(2^N), recursion stack.
+ */
 public class ScrambleStringRecursiveDP {
     static Map<String, Boolean> scrambleMap = new HashMap<>();
 

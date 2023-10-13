@@ -7,19 +7,20 @@ public class PalindromePartitioningRecursiveDP {
         long startTime = System.nanoTime();
         String str = "ababbbabbababa";
         System.out.println("Min cuts needed for "
-                + "Palindrome Partitioning is " + minPalindromicPartitionsRecursiveUtil(str, 0, str.length() - 1));
+                + "Palindrome Partitioning is " + minPalindromicPartitionsRecursiveUtil(str));
         long endTime = System.nanoTime();
         System.out.println("Duration:" + (endTime - startTime));
     }
 
-    private static int minPalindromicPartitionsRecursiveUtil(String str, int start, int end) {
+    private static int minPalindromicPartitionsRecursiveUtil(String str) {
+        int end = str.length() - 1;
         t = new int[end + 1][end + 1];
         for (int i = 0; i <= end; i++) {
             for (int j = 0; j <= end; j++) {
                 t[i][j] = -1;
             }
         }
-        return minPalindromicPartitionsRecursive(str, start, end);
+        return minPalindromicPartitionsRecursive(str, 0, end);
     }
 
     private static int minPalindromicPartitionsRecursive(String str, int i, int j) {
