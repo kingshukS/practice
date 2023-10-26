@@ -2,6 +2,62 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class MaxNumOfCoinsWays {
 
+    public static long countWaysToMakeChange(int denominations[], int value){
+        //write your code here
+        int n = denominations.length;
+        return f(denominations, n, value);
+
+    }
+
+    private static long f(int[] denominations, int n, int value)
+    {
+
+        long[][] dp = new long[n][value+1];
+
+        for(int j = 0; j<= value; j++){
+            if(j % denominations[0] == 0) dp[0][j]=1L;
+            else dp[0][j]=0L;
+        }
+
+        for(int i = 1; i<n; i++){
+            for(int j = 0; j<= value; j++)
+            {
+                long notTake = dp[i-1][j];
+                long take = 0L;
+                if(denominations[i]<= j)
+                    take = dp[i][j-denominations[i]];
+
+                dp[i][j]=take + notTake;
+            }
+        }
+        return dp[n-1][value];
+    }
+
+    private static long f1(int[] denominations, int n, int value)
+    {
+
+        long[] dp = new long[value+1];
+
+        for(int j = 0; j<= value; j++){
+            if(j % denominations[0] == 0) dp[j]=1L;
+            else dp[j]=0L;
+        }
+
+        for(int i = 1; i<n; i++){
+            long[] cur = new long[value+1];
+            for(int j = 0; j<= value; j++)
+            {
+                long notTake = dp[j];
+                long take = 0L;
+                if(denominations[i]<= j)
+                    take = cur[j-denominations[i]];
+
+                cur[j]=take + notTake;
+            }
+            dp = cur;
+        }
+        return dp[value];
+    }
 
     static int maxNumCoinsWays(int coins[], int n, int sum) {
         int t[][] = new int[n + 1][sum + 1];
@@ -34,6 +90,8 @@ public class MaxNumOfCoinsWays {
         int coins[] = {1, 2, 3};
         int n = coins.length;
         int sum = 4;
-        System.out.println("the max number of ways are :" + maxNumCoinsWays(coins, n, sum));
+        //System.out.println("the max number of ways are :" + maxNumCoinsWays(coins, n, sum));
+
+        System.out.println("the max number of ways are :" + countWaysToMakeChange(coins, sum));
     }
 }

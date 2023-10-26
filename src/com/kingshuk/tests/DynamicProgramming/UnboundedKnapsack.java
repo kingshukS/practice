@@ -1,7 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 // Unbounded Knapsack/ Rod-cutting problem
-public class Knapsack {
+public class UnboundedKnapsack {
 
     static int knapsack01(int wt[],int value[],int W,int n)
     {

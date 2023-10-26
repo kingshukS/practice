@@ -50,14 +50,66 @@ public class MinimumDiffSubset {
         // Hence, starting from range/2 and we'll have to consider all the n elements. For any t[n][j] = true, where
         // j is maximum
 
-        for(int i=n,j = range1;j>=0;j--){
-            if(t[i][j]==true){
+        for(int j = range1;j>=0;j--){
+            if(t[n][j]==true){
+                    res = range-2*j;
+                break;
+            }
+
+        }
+        return res;
+    }
+
+    public static int minSubsetSumDifferenceSpaceOptimized(int []arr, int n) {
+        int range =0;
+
+        //Calculating the range in which s1 lies
+        for(int x: arr){
+            range+=x;
+        }
+        int range1 = range/2;
+        int res=range;
+        boolean[] dp=new boolean[range1+1];
+        subsetSumSpaceOptimized(arr,range1,n, dp);
+
+        // We have to check for the maximum value of s1 in the range of range/2 e.g. sum/2 to 0.
+        // Hence, starting from range/2 and we'll have to consider all the n elements. For any t[n][j] = true, where
+        // j is maximum
+
+        for(int j = range1;j>=0;j--){
+            if(dp[j]==true){
                 res = range-2*j;
                 break;
             }
 
         }
         return res;
+    }
+
+    private static void subsetSumSpaceOptimized(int[] arr, int sum,int n, boolean[] dp) {
+
+        //base case initialization
+
+        for(int i = 0; i<n; i++)
+            dp[0] = true;
+
+        if(arr[0] <= sum)
+            dp[arr[0]] = true;
+
+        //Choice Diagram code
+
+        for (int i = 1; i < n; i++) {
+            boolean[] cur = new boolean[sum+1];
+            cur[0] = true;
+            for (int j = 1; j <= sum; j++) {
+                boolean notPick = dp[j];
+                boolean pick = false;
+                if(arr[i] <= j)
+                    pick = dp[j - arr[i]];
+                cur[j] = pick || notPick;
+            }
+            dp = cur;
+        }
     }
 
 }
