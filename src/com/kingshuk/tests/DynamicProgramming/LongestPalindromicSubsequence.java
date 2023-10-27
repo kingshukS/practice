@@ -2,7 +2,7 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class LongestPalindromicSubsequence {
     public static void main(String[] args) {
-        String s  = "agbcba";
+        String s  = "abacdfgdcaba";
         System.out.println("Longest Palindromic Subsequence length: "+findLongestPalindromicSubsequence(s));
     }
 

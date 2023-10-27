@@ -5,15 +5,15 @@ public class PrintLCS {
     public static void main(String args[]) {
         String s1 = "ABCDGH";
         String s2 = "AEDFHR";
-        int m = s1.length();
-        int n = s2.length();
-        System.out.println("the longest length of substring is : " + longestCommonSubsequence(s1, s2, m, n));
+        int n = s1.length();
+        int m = s2.length();
+        System.out.println("the longest length of substring is : " + longestCommonSubsequence(s1, s2, n, m));
     }
 
-    private static String longestCommonSubsequence(String s1, String s2, int m, int n) {
-        int[][] t = new int[m+1][n+1];
-        for(int i = 0; i<=m; i++){
-            for(int j = 0; j<=n; j++){
+    private static String longestCommonSubsequence(String s1, String s2, int n, int m) {
+        int[][] t = new int[n+1][m+1];
+        for(int i = 0; i<=n; i++){
+            for(int j = 0; j<=m; j++){
                 if(i == 0 || j == 0)
                 {
                     t[i][j] = 0;
@@ -24,10 +24,10 @@ public class PrintLCS {
                 }
             }
         }
-        char[] lcs = new char[t[m][n]];
+        char[] lcs = new char[t[n][m]];
         int index = lcs.length - 1;
-        int i = m, j = n;
-        while(i!=0 && j != 0)
+        int i = n, j = m;
+        while(index>=0)
         {
             if(s1.charAt(i-1) == s2.charAt(j-1))
             {

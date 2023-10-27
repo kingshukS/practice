@@ -2,6 +2,18 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class LongestCommonSubstring {
 
+    static int longestCommonSubstringLengthRecursive(String x, String y, int index1, int index2, int count) {
+        if (index1 < 0 || index2 < 0)
+            return count;
+        if (x.charAt(index1) == y.charAt(index2)) {
+            count = longestCommonSubstringLengthRecursive(x, y, index1 - 1, index2 - 1, count + 1);
+        }
+
+        count = Math.max(count, Math.max(longestCommonSubstringLengthRecursive(x, y, index1 - 1, index2, 0),
+                longestCommonSubstringLengthRecursive(x, y, index1, index2 - 1, 0)));
+        return count;
+    }
+
     static int longestCommonSubstringLength(String x, String y, int m, int n) {
         int t[][] = new int[m + 1][n + 1];
         int result = 0;

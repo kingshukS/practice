@@ -44,7 +44,7 @@ public class ScrambleStringRecursiveDP {
             scrambleMap.put(a + "$" + b, false);
             return false;
         }
-        for (int i = 1; i <= n - 1; i++) {
+        for (int i = 1; i < n; i++) {
             boolean condSwapPart1 = scrambleMap.containsKey(a.substring(0, i) + "$" + b.substring(n - i, n)) ?
                     scrambleMap.get(a.substring(0, i) + "$" + b.substring(n - i, n)) : isScramble(a.substring(0, i), b.substring(n - i, n));
             boolean condSwapPart2 = scrambleMap.containsKey(a.substring(i, n) + "$" + b.substring(0, n - i)) ?

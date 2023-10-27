@@ -1,54 +1,73 @@
-package com.kingshuk.tests.DynamicProgramming;
+package com.kingshuk.tests.DynamicProgramming;// A Java solution for longest palindrome
 
-public class LongestPalindromeSubstring {
-    static String reverse(String a)
+class LongestPalindromeSubstring {
+
+    // This function prints the
+    // longest palindrome subString
+    // It also returns the length
+    // of the longest palindrome
+    static int longestPalSubstr(String str)
     {
-        char[] b = a.toCharArray();
-        String rev="";
-        for (int i = b.length-1; i>=0; i--)
-             rev  += b[i];
+        // Get length of input string
+        int n = str.length();
 
-        return rev;
-    }
+        // table[i][j] will be false if
+        // substring str[i..j] is not palindrome.
+        // Else table[i][j] will be true
+        boolean table[][] = new boolean[n][n];
 
-    static int longestPalin(char[] s1,char[] s2,int n ,int m)
-    {
-        int t[][] = new int[n+1][m+1];
-        int res = 0;
-        /*
-        for(int i = 0;i<=n;i++)
-        {
-            for(int j =0;j<=m;j++)
-            {
-               if(i==0 || j==0)
-                t[i][j] = 0;
+        // All substrings of length 1 are palindromes
+        int maxLength = 1;
+        for (int i = 0; i < n; ++i)
+            table[i][i] = true;
+
+        // Check for sub-string of length 2.
+        int start = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                table[i][i + 1] = true;
+                start = i;
+                maxLength = 2;
             }
         }
 
-        */
-        for(int i = 1;i<=n;i++) {
-            for (int j = 1; j <= m; j++) {
-                if(s1[i-1] == s2[j-1])
-                {
-                    t[i][j] = 1 + t[i-1][j-1];
-                    res = Math.max(t[i][j],res);
+        // Check for lengths greater than 2.
+        // k is length of substring
+        for (int k = 3; k <= n; ++k) {
+
+            // Fix the starting index
+            for (int i = 0; i < n - k + 1; ++i) {
+
+                // Get the ending index of substring from
+                // starting index i and length k
+                int j = i + k - 1;
+
+                // Checking for sub-string from ith index to
+                // jth index if str.charAt(i+1) to
+                // str.charAt(j-1) is a palindrome
+                if (table[i + 1][j - 1]
+                        && str.charAt(i) == str.charAt(j)) {
+                    table[i][j] = true;
+
+                    if (k > maxLength) {
+                        start = i;
+                        maxLength = k;
+                    }
                 }
-                else
-                    t[i][j] = 0;
             }
         }
 
-        return res;
-    }
-    public static void main(String args[])
-    {
-        String a = "forgeeksskeegfor";
-        String b = new StringBuilder(a).reverse().toString();
-        char[] a1 = a.toCharArray();
-        char[] b1 = b.toCharArray();
-        int n = a.length();
-        int m = a.length();
-        System.out.println("Length of longest palindrome sunstring is : "+longestPalin(a1,b1,n,m));
+        System.out.print(
+                "Longest palindrome substring is: "+str.substring(start, start+maxLength));
 
+        // Return length of LPS
+        return maxLength;
+    }
+
+    public static void main(String[] args)
+    {
+        String str = "forgeeksskeegfor";
+        System.out.print("\nLength is: "
+                + longestPalSubstr(str));
     }
 }
