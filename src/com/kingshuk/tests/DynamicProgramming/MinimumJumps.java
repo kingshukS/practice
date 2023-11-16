@@ -2,10 +2,10 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class MinimumJumps {
 
-    static int minJumpsRequired(int arr[]) {
+    static int minJumpsRequired(int[] arr) {
         int n = arr.length;
         int i, j;
-        int jumps[] = new int[n];
+        int[] jumps = new int[n];
         int[] track = new int[n];
 
         if (n == 0 || arr[0] == 0) {
@@ -36,8 +36,8 @@ public class MinimumJumps {
         return jumps[i - 1];
     }
 
-    public static void main(String args[]) {
-        int arr[] = {2, 3, 1, 1, 2, 4, 2, 0, 1, 1};
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 1, 1, 2, 4, 2, 0, 1, 1};
         System.out.println("Minimum jumps required " + minJumpsRequired(arr));
 
     }

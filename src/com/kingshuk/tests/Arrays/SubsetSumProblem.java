@@ -4,9 +4,9 @@ public class SubsetSumProblem {
     static boolean compare(boolean a,boolean b){
         return a || b;
     }
-    static boolean isSubsetpresent(int arr[],int sum,int length)
+    static boolean isSubsetpresent(int[] arr, int sum, int length)
     {
-        boolean t[][] = new boolean[length+1][sum+1];
+        boolean[][] t = new boolean[length+1][sum+1];
         int i,j;
         for(i = 0;i<=length;i++)
         {
@@ -34,9 +34,9 @@ public class SubsetSumProblem {
         }
         return t[length][sum];
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[]={3, 34, 4, 12, 5, 2};
+        int[] arr ={3, 34, 4, 12, 5, 2};
         int sum = 9;
         int length = arr.length;
         if(isSubsetpresent(arr,sum,length))

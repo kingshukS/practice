@@ -3,7 +3,7 @@ package com.kingshuk.tests.JustPractice;
 import java.util.Arrays;
 
 public class MinimumPlatforms {
-    static int platformsCount(int arr[],int dep[])
+    static int platformsCount(int[] arr, int[] dep)
     {
         int res = 0;
         Arrays.sort(arr);
@@ -30,10 +30,10 @@ public class MinimumPlatforms {
         }
         return res;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {900, 940, 950, 1100, 1500, 1800};
-        int dep[] = {910, 1200, 1120, 1130, 1900, 2000};
+        int[] arr = {900, 940, 950, 1100, 1500, 1800};
+        int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
         System.out.println(platformsCount(arr,dep));
 
     }

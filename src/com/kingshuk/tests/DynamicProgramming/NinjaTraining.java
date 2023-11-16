@@ -11,7 +11,7 @@ public class NinjaTraining {
     //     return ninjaTrainingutil(n-1, 3, points, dp);
     // }
 
-    private static int ninjaTrainingutil(int index, int prev, int points[][], int[][] dp) {
+    private static int ninjaTrainingutil(int index, int prev, int[][] points, int[][] dp) {
         int max = 0;
         if (index == 0) {
             for (int task = 0; task <= 2; task++) {
@@ -56,7 +56,7 @@ public class NinjaTraining {
     //     return dp[n-1][3];
     // }
 
-    public static int ninjaTraining(int n, int points[][]) {
+    public static int ninjaTraining(int n, int[][] points) {
         // base case
         int[] merit = new int[4];
         merit[0] = Math.max(points[0][1], points[0][2]);

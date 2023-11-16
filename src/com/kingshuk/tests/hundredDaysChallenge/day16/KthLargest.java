@@ -1,7 +1,7 @@
 package com.kingshuk.tests.hundredDaysChallenge.day16;
 
 class KthLargest {
-    private int k;
+    private final int k;
     private final int[] minHeap;
 
     public KthLargest(int k, int[] nums) {

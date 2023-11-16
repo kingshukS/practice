@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class RemovingDuplicatesSorted {
 
-    public static int remDups(int arr[],int n)
+    public static int remDups(int[] arr, int n)
     {
         int j =0;
 
@@ -19,9 +19,9 @@ public class RemovingDuplicatesSorted {
         return j;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {1, 2, 2, 3, 4, 4, 4, 5, 5};
+        int[] arr = {1, 2, 2, 3, 4, 4, 4, 5, 5};
         int n = arr.length;
         int j = remDups(arr,n);
         for (int i =0;i<j;i++)
@@ -33,10 +33,10 @@ public class RemovingDuplicatesSorted {
 
     public static class Anagram {
         static int NO_OF_CHARS = 256;
-        public static void main(String args[])
+        public static void main(String[] args)
         {
-            char str1[] = ("TRIANGLE").toCharArray();
-            char str2[] = ("INTEKRAL").toCharArray();
+            char[] str1 = ("TRIANGLE").toCharArray();
+            char[] str2 = ("INTEKRAL").toCharArray();
             if(isAnagram(str1,str2))
             {
                 System.out.println("yes");
@@ -45,9 +45,9 @@ public class RemovingDuplicatesSorted {
                 System.out.println("no");
         }
 
-        static boolean isAnagram(char str1[],char str2[])
+        static boolean isAnagram(char[] str1, char[] str2)
         {
-            int count1[] = new int[NO_OF_CHARS];
+            int[] count1 = new int[NO_OF_CHARS];
             Arrays.fill(count1, 0);
             int i;
 
@@ -73,15 +73,15 @@ public class RemovingDuplicatesSorted {
 
     public static class MatrixNumberSearch {
 
-        public static void main(String args[])
+        public static void main(String[] args)
         {
-            int mat[][] = { { 10, 20, 30, 40 },
+            int[][] mat = { { 10, 20, 30, 40 },
                     { 15, 25, 35, 45 },
                     { 27, 29, 37, 48 },
                     { 32, 33, 39, 50 } };
             searchElement(mat,4,29);
         }
-        static void searchElement(int arr[][],int size,int num)
+        static void searchElement(int[][] arr, int size, int num)
         {
             int i =0;
             int j =size-1;
@@ -101,7 +101,6 @@ public class RemovingDuplicatesSorted {
                     i++;
             }
             System.out.print("n Element not found");
-            return;
         }
     }
 }

@@ -7,7 +7,7 @@ class InversionCount
     // arr[]: Input Array
     // N : Size of the Array arr[]
     //Function to count inversions in the array.
-    static long inversionCount(long arr[], long N)
+    static long inversionCount(long[] arr, long N)
     {
         return mergeSort(arr, 0, (int) (N-1));
     }
@@ -52,7 +52,8 @@ class InversionCount
     }
 
     public static void main(String[] args) {
-        long N = 5, arr[] = {2, 4, 1, 3, 5};
+        long N = 5;
+        long[] arr = {2, 4, 1, 3, 5};
         System.out.println(inversionCount(arr, N));
     }
 }

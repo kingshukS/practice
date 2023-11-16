@@ -3,7 +3,7 @@ package com.kingshuk.tests.misc;
 public class TestMaxAndWithPairInArrayGFG {
     // Utility function to check number of elements
 // having set msb as of pattern
-    static int checkBit(int pattern, int arr[], int n)
+    static int checkBit(int pattern, int[] arr, int n)
     {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -13,7 +13,7 @@ public class TestMaxAndWithPairInArrayGFG {
     }
 
     // Function for finding maximum and value pair
-    static int maxAND (int arr[], int n)
+    static int maxAND (int[] arr, int n)
     {
         int res = 0, count;
 
@@ -35,9 +35,9 @@ public class TestMaxAndWithPairInArrayGFG {
     }
 
     // driver function
-    public static void main(String argc[])
+    public static void main(String[] argc)
     {
-        int arr[] = {16,15,22};
+        int[] arr = {16,15,22};
         int n = arr.length;
         System.out.println("Maximum AND Value = " +
                 maxAND(arr, n));

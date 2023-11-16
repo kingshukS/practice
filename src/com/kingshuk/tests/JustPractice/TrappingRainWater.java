@@ -2,7 +2,7 @@ package com.kingshuk.tests.JustPractice;
 
 public class TrappingRainWater {
 
-    static int waterCapacity(int arr[])
+    static int waterCapacity(int[] arr)
     {
         int prev_index = 0;
         int prev = arr[0];
@@ -43,9 +43,9 @@ public class TrappingRainWater {
 
         return water;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        int[] arr = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
         System.out.println(waterCapacity(arr));
     }
 }

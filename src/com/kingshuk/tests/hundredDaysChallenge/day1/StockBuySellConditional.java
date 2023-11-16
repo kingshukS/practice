@@ -10,7 +10,7 @@ import java.util.List;
 public class StockBuySellConditional {
 
     public static void main(String[] args) {
-        List<Integer> prices = Arrays.asList(new Integer[]{7, 1, 5, 3, 6, 4});
+        List<Integer> prices = Arrays.asList(7, 1, 5, 3, 6, 4);
         long maxProfit = stockMax(prices);
         System.out.println("Profit will be: "+maxProfit);
     }

@@ -60,22 +60,22 @@ public class IntersectionLL {
         }
         return count;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         IntersectionLL intersectionLL = new IntersectionLL();
-        intersectionLL.head1 = new Node1(3);
-        intersectionLL.head1.next= new Node1(5);
-        intersectionLL.head1.next.next = new Node1(10);
-        intersectionLL.head1.next.next.next = new Node1(15);
-        intersectionLL.head1.next.next.next.next = new Node1(25);
-        intersectionLL.head1.next.next.next.next = new Node1(115);
+        head1 = new Node1(3);
+        head1.next= new Node1(5);
+        head1.next.next = new Node1(10);
+        head1.next.next.next = new Node1(15);
+        head1.next.next.next.next = new Node1(25);
+        head1.next.next.next.next = new Node1(115);
 
 
-        intersectionLL.head2 = new Node1(23);
-        intersectionLL.head2.next = new Node1(11);
-        intersectionLL.head2.next.next = new Node1(15);
-        intersectionLL.head2.next.next.next = new Node1(25);
-        intersectionLL.head1.next.next.next.next = new Node1(115);
+        head2 = new Node1(23);
+        head2.next = new Node1(11);
+        head2.next.next = new Node1(15);
+        head2.next.next.next = new Node1(25);
+        head1.next.next.next.next = new Node1(115);
 
         System.out.println("The intersection between 2 linked lists is "+intersectionLL.getNode());
 

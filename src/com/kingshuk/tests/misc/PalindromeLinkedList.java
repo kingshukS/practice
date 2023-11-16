@@ -91,7 +91,7 @@ public class PalindromeLinkedList {
         }
         System.out.println();
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
 
         PalindromeLinkedList palin = new PalindromeLinkedList();
@@ -105,7 +105,7 @@ public class PalindromeLinkedList {
 
         palin.printList();
 
-        System.out.println("The list entered is palindrome or not "+ palin.checkIfpalindrome(head));
+        System.out.println("The list entered is palindrome or not "+ checkIfpalindrome(head));
 
 
 

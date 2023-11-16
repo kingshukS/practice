@@ -39,11 +39,8 @@ class WordPattern {
             return false;
         String word = s.substring(lastSpaceIndex+1);
         if(patternMap.containsKey(word)){
-            if(patternMap.get(word) != pattern.charAt(j))
-                return false;
-        }else if(charSet.contains(pattern.charAt(j)))
-            return false;
-        return true;
+            return patternMap.get(word) == pattern.charAt(j);
+        }else return !charSet.contains(pattern.charAt(j));
     }
 
     public boolean wordPatternBest(String pattern, String str) {

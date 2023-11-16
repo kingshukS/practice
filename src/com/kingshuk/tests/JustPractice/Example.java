@@ -35,7 +35,7 @@ class Dog implements Comparator<Dog>, Comparable<Dog> {
 
 public class Example {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // Takes a list o Dog objects
         List<Dog> list = new ArrayList<Dog>();
 

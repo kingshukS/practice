@@ -21,14 +21,14 @@ public class WordBreakProblem {
             if (dictionary.contains(words.substring(0, i + 1))) {
                 validWords[i] = true;
             }
-            if (validWords[i] == true && (i == n - 1))
+            if (validWords[i] && (i == n - 1))
                 return true;
-            if (validWords[i] == true) {
+            if (validWords[i]) {
                 for (int j = i + 1; j < n; j++) {
                     if (dictionary.contains(words.substring(i + 1, j + 1))) {
                         validWords[j] = true;
                     }
-                    if (j == n - 1 && validWords[j] == true) {
+                    if (j == n - 1 && validWords[j]) {
                         return true;
                     }
                 }

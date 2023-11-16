@@ -2,7 +2,7 @@ package com.kingshuk.tests.JustPractice;
 
 public class LinkedLPalindrome {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         LLNode n1 = new LLNode(5);
         n1.next = new LLNode(8);
         n1.next.next = new LLNode(7);
@@ -76,12 +76,10 @@ public class LinkedLPalindrome {
             } else
                 return false;
         }
-        if (temp1 == null && temp2 == null)
-            return true;
+        return temp1 == null && temp2 == null;
 
         /* Will reach here when one is NULL
            and other is not */
-        return false;
     }
 }
 

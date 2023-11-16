@@ -23,7 +23,7 @@ public class LeftView {
 
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root = new TreeNode(1);
         LeftView leftView = new LeftView();

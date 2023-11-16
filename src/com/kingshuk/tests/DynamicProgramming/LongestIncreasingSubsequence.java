@@ -11,7 +11,7 @@ public class LongestIncreasingSubsequence {
 
     private static int LIS = Integer.MIN_VALUE;
 
-    static int longestLengthRecursive(int arr[], int n) {
+    static int longestLengthRecursive(int[] arr, int n) {
         if (n == 1)
             return 1;
 
@@ -96,7 +96,7 @@ public class LongestIncreasingSubsequence {
         // return from here if pre-calculated, prev index starts form -1, so adding +1 to it (during storing and fetching)
         if (dp[index][prev + 1] != -1) return dp[index][prev + 1];
 
-        int len = 0 + findLisMemoization(arr, index + 1, prev);
+        int len = findLisMemoization(arr, index + 1, prev);
         if (prev == -1 || arr[index] > arr[prev]) {
             len = Math.max(1 + findLisMemoization(arr, index + 1, index), len);
         }
@@ -106,7 +106,7 @@ public class LongestIncreasingSubsequence {
     private static int findLisRecursive(int[] arr, int index, int prev) {
         if (index == arr.length)
             return 0;
-        int len = 0 + findLisRecursive(arr, index + 1, prev);
+        int len = findLisRecursive(arr, index + 1, prev);
         if (prev == -1 || arr[index] > arr[prev]) {
             len = Math.max(1 + findLisRecursive(arr, index + 1, index), len);
         }
@@ -144,8 +144,8 @@ public class LongestIncreasingSubsequence {
         return low;
     }
 
-    public static void main(String args[]) {
-        int arr[] = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+    public static void main(String[] args) {
+        int[] arr = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
         int n = arr.length;
         dp = new int[n][n];
         for (int x = 0; x < dp.length; x++)

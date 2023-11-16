@@ -44,11 +44,11 @@ class CherryPick {
   // Function to find the maximum number of chocolates
   static int maximumChocolates(int n, int m, int[][] grid) {
     // Create a 3D array to store computed results
-    int dp[][][] = new int[n][m][m];
+    int[][][] dp = new int[n][m][m];
 
     // Initialize the dp array with -1
-    for (int row1[][] : dp) {
-      for (int row2[] : row1) {
+    for (int[][] row1 : dp) {
+      for (int[] row2 : row1) {
         Arrays.fill(row2, -1);
       }
     }
@@ -57,8 +57,8 @@ class CherryPick {
     return maxChocoUtil(0, 0, m - 1, n, m, grid, dp);
   }
 
-  public static void main(String args[]) {
-    int matrix[][] = {{2, 3, 1, 2},
+  public static void main(String[] args) {
+    int[][] matrix = {{2, 3, 1, 2},
                       {3, 4, 2, 2},
                       {5, 6, 3, 5}};
     int n = matrix.length;

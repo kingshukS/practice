@@ -2,7 +2,7 @@ package com.kingshuk.tests.DynamicProgramming;
 
 
 public class PrintLCS {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String s1 = "ABCDGH";
         String s2 = "AEDFHR";
         int n = s1.length();

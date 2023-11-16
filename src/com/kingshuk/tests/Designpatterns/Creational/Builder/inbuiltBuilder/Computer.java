@@ -105,12 +105,12 @@ public class Computer {
 
     public static class ComputerBuilder{
         // required fields
-        private int ssd;
-        private int ram;
-        private String processor;
-        private String cabinet;
-        private String keyboard;
-        private String mouse;
+        private final int ssd;
+        private final int ram;
+        private final String processor;
+        private final String cabinet;
+        private final String keyboard;
+        private final String mouse;
 
         // optional fields
         private boolean isGameMode;

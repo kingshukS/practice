@@ -26,15 +26,11 @@ public class CheckForBST {
 
         for(int i = 0;i<al.size();i++)
         {
-          if(al.get(i)>al.get(i+1))
-            {
-                return false;
-            }
-            return true;
+            return al.get(i) <= al.get(i + 1);
         }
         return false;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Node1 root = new Node1(4);
         root.left= new Node1(2);

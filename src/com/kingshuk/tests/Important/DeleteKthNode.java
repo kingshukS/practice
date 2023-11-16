@@ -38,7 +38,7 @@ public class DeleteKthNode {
             temp = temp.next;
         }
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         ListNode head = new ListNode(5);
         head.next = new ListNode(3);

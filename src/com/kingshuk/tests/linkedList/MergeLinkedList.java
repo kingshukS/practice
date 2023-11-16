@@ -50,20 +50,20 @@ public class MergeLinkedList {
         }
         System.out.println();
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         MergeLinkedList mergeLinkedList = new MergeLinkedList();
-        mergeLinkedList.headA = new Node(5);
-        mergeLinkedList.headA.next = new Node(15);
-        mergeLinkedList.headA.next.next = new Node(25);
-        mergeLinkedList.headA.next.next.next = new Node(35);
-        mergeLinkedList.headA.next.next.next.next = new Node(45);
+        headA = new Node(5);
+        headA.next = new Node(15);
+        headA.next.next = new Node(25);
+        headA.next.next.next = new Node(35);
+        headA.next.next.next.next = new Node(45);
 
-        mergeLinkedList.headB = new Node(7);
-        mergeLinkedList.headB.next = new Node(14);
-        mergeLinkedList.headB.next.next = new Node(17);
-        mergeLinkedList.headB.next.next.next = new Node(28);
-        mergeLinkedList.headB.next.next.next.next = new Node(33);
+        headB = new Node(7);
+        headB.next = new Node(14);
+        headB.next.next = new Node(17);
+        headB.next.next.next = new Node(28);
+        headB.next.next.next.next = new Node(33);
 
        head = mergeLinkedList.sortedMerge(headA,headB);
        mergeLinkedList.printList();

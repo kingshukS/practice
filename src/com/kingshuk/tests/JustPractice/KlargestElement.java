@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class KlargestElement {
-    static int kLargest(int arr[],int k)
+    static int kLargest(int[] arr, int k)
     {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
@@ -20,9 +20,9 @@ public class KlargestElement {
           // System.out.print(pq + " ");
         return pq.peek();
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = { 1, 23, 12, 9,
+        int[] arr = { 1, 23, 12, 9,
                 30, 2, 50 };
         int k = 2;
         System.out.print(kLargest(arr,k));

@@ -13,7 +13,7 @@ public class TestSieveOfEratosthenes {
 
     private static List<Integer> findAllPrimeNumbersTillN(int n) {
         List<Integer> list = new ArrayList<>();
-        boolean isPrime[] = new boolean[n+1];
+        boolean[] isPrime = new boolean[n+1];
         Arrays.fill(isPrime,true);
         for(int i = 2; i*i<=n; i++){
             if(isPrime[i]){
@@ -34,7 +34,7 @@ public class TestSieveOfEratosthenes {
 
     private static List<Integer> findAllPrimeNumbersTillNV2(int n) {
         List<Integer> list = new ArrayList<>();
-        boolean isPrime[] = new boolean[n+1];
+        boolean[] isPrime = new boolean[n+1];
         Arrays.fill(isPrime,true);
         for(int i = 2; i<=n; i++){
             if(isPrime[i]){

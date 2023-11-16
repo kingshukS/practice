@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 class PathWithMinimumEffort {
 
     private final int[][] DIRECTIONS = {{0,-1}, {0,1}, {-1,0}, {1,0}};
-    int MinimumEffort(int heights[][]) {
+    int MinimumEffort(int[][] heights) {
         int n = heights.length;
         int m = heights[0].length;
 

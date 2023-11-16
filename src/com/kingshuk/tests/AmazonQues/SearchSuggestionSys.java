@@ -31,9 +31,9 @@ public class SearchSuggestionSys {
         return result;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        String products[] = {"mobile","mouse","moneypot","monitor","mousepad"};
+        String[] products = {"mobile","mouse","moneypot","monitor","mousepad"};
         String searchWord = "mouse";
         List<List<String>> list = suggestedProducts(products,searchWord);
         System.out.println(list);

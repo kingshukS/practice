@@ -3,9 +3,9 @@ package com.kingshuk.tests.misc;
 public class TestPythagoreanTriplet {
     public static void main(String[] args)
     {
-        int arr[] = { 3, 1, 4, 6, 5 };
+        int[] arr = { 3, 1, 4, 6, 5 };
         int arr_size = arr.length;
-        if (isTriplet(arr, arr_size) == true)
+        if (isTriplet(arr, arr_size))
             System.out.println("Yes");
         else
             System.out.println("No");
@@ -16,7 +16,7 @@ public class TestPythagoreanTriplet {
         for(int i = 0; i<arr_size; i++){
             arr[i] = arr[i] * arr[i];
         }
-        testFindTripletSum.quickSort(arr,0,arr_size-1);
+        TestFindTripletSum.quickSort(arr,0,arr_size-1);
         for(int i = arr_size-1; i>=2; i--){
             int c = arr[i];
             int low = 0;

@@ -9,9 +9,9 @@ class MaxConnection {
 
     public static void main(String[] args) {
         int[][] grid = new int[][] {{1,0,1},{1,0,1}, {1,0,1}};
-        System.out.println(new MaxConnection().MaxConnection(grid));;
+        System.out.println(new MaxConnection().MaxConnection(grid));
     }
-    public int MaxConnection(int grid[][]) {
+    public int MaxConnection(int[][] grid) {
         int[][] DIRECTIONS = new int[][]{{0,-1},{0,1},{-1,0},{1,0}};
         int n = grid.length;
         DisjointSet disjointSet = new DisjointSet(n * n);

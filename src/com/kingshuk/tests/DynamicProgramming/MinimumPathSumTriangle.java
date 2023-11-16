@@ -30,8 +30,7 @@ public class MinimumPathSumTriangle {
      {
          int[][] dp = new int[n][n];
 
-         for(int i = 0; i<n; i++)
-             dp[n-1][i] = triangle[n-1][i];
+         System.arraycopy(triangle[n - 1], 0, dp[n - 1], 0, n);
         
          for(int i = n-2; i>= 0; i--)
          {
@@ -50,8 +49,7 @@ public class MinimumPathSumTriangle {
     {
         int[] next = new int[n];
 
-        for(int i = 0; i<n; i++)
-            next[i] = triangle[n-1][i];
+        System.arraycopy(triangle[n - 1], 0, next, 0, n);
         
         for(int i = n-2; i>= 0; i--)
         {

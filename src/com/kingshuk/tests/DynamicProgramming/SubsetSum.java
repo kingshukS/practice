@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SubsetSum {
 
-    static boolean subSetProb( int n, int k, int arr[]) {
+    static boolean subSetProb(int n, int k, int[] arr) {
         boolean[][] dp = new boolean[n][k+1];
 
         //base case: if(k == 0) return true;
@@ -28,7 +28,7 @@ public class SubsetSum {
         return dp[n-1][k];
     }
 
-    static boolean subSetProbSpaceOptimized( int n, int k, int arr[]) {
+    static boolean subSetProbSpaceOptimized(int n, int k, int[] arr) {
         boolean[] prev = new boolean[k+1];
 
         //base case: if(k == 0) return true;
@@ -54,14 +54,14 @@ public class SubsetSum {
         return prev[k];
     }
 
-    public static boolean subsetSumToK(int n, int k, int arr[]) {
+    public static boolean subsetSumToK(int n, int k, int[] arr) {
         int[][] dp = new int[n][k + 1];
         for (int[] x : dp)
             Arrays.fill(x, -1);
         return subset(arr, n - 1, k, dp);
     }
 
-    private static boolean subset(int arr[], int index, int k, int[][] dp) {
+    private static boolean subset(int[] arr, int index, int k, int[][] dp) {
         if (k == 0)
             return true;
         if (index == 0)
@@ -76,8 +76,8 @@ public class SubsetSum {
         return res;
     }
 
-    public static void main(String args[]) {
-        int arr[] = {300, 34, 4, 12, 5, 2};
+    public static void main(String[] args) {
+        int[] arr = {300, 34, 4, 12, 5, 2};
         int sum = 46;
         int n = arr.length;
         boolean ans = subSetProb(6, sum, arr);//subSetProb(arr, sum, n);

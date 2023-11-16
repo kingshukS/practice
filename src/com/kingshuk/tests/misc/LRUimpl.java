@@ -30,7 +30,7 @@ public class LRUimpl {
         }
         set.add(key);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         LRUimpl ca = new LRUimpl(4);
         ca.get(1);

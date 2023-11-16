@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class LongSubArrwithSumK {
 
-    static int longestSubArraylength(int arr[],int k)
+    static int longestSubArraylength(int[] arr, int k)
     {
         HashMap<Integer,Integer> hm = new HashMap<>();
         int sum = 0;
@@ -33,9 +33,9 @@ public class LongSubArrwithSumK {
         }
         return maxlen;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[]={15, -2, 2, -8, 1, 7, 10, 23};
+        int[] arr ={15, -2, 2, -8, 1, 7, 10, 23};
         int k = 0;
         System.out.print(longestSubArraylength(arr,k));
     }

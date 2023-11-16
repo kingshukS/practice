@@ -9,7 +9,7 @@ public class TestMedianOfSortedArrays {
         System.out.println("Median is = "+median);
     }
     //Time Complexity=BigO(log(min(n1,n2)))
-    public static int findMedian(int nums1[], int n, int nums2[], int m)
+    public static int findMedian(int[] nums1, int n, int[] nums2, int m)
     {
         //Your code here
         if(n<=m)
@@ -17,7 +17,7 @@ public class TestMedianOfSortedArrays {
         else
             return findMedianUtil(nums2,nums1);
     }
-    public static int findMedianUtil(int a1[],int a2[])
+    public static int findMedianUtil(int[] a1, int[] a2)
     {
         int n1 = a1.length;
         int n2 = a2.length;

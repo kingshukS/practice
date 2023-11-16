@@ -15,14 +15,10 @@ public class ChildrenSumProperty {
             if(node.right!=null)
             right_data = node.right.data;
 
-            if(node.data == left_data+right_data && isSumProp(node.left) && isSumProp(node.right))
-            {
-                return true;
-            }
+            return node.data == left_data + right_data && isSumProp(node.left) && isSumProp(node.right);
         }
-        return false;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root = new TreeNode(10);
         root.left= new TreeNode(8);

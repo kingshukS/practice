@@ -22,7 +22,7 @@ public class NthNode {
 
         System.out.println("The 3rd node from last in the linked list is : "+slow.data);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Node1 n1 = new Node1(9);
         n1.next = new Node1(8);

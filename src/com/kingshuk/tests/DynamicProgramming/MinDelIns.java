@@ -4,7 +4,7 @@ public class MinDelIns {
 
     static void minInsDel(char[] a,char[] b,int n,int m)
     {
-        int t[][] = new int[n+1][m+1];
+        int[][] t = new int[n+1][m+1];
 
         for(int i = 0;i<=n;i++)
         {
@@ -31,7 +31,7 @@ public class MinDelIns {
         System.out.println("The number of insertions required : "+ (m - t[n][m]));
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         String s1 = "heap";
         String s2 = "pea";

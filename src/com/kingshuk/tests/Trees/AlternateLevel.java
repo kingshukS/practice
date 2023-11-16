@@ -32,7 +32,7 @@ public class AlternateLevel {
         System.out.print( root.data + " ");
         printInorder(root.right);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         NodeN root = new NodeN('a');
         root.left = new NodeN('b');

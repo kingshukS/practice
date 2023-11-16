@@ -2,7 +2,7 @@ package com.kingshuk.tests.JustPractice;
 
 public class StringReverse {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         String name = "SurajNehal";
         char[] nameChar = name.toCharArray();

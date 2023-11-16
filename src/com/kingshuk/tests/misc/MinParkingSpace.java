@@ -11,8 +11,8 @@ public class MinParkingSpace {
         int minSlot = 1;
         int res = 0;
         int length = parkingStartEndTimes.length;
-        int arr[] = new int[length];
-        int dep[] = new int[length];
+        int[] arr = new int[length];
+        int[] dep = new int[length];
         for(int k  = 0;k<length;k++)
         {
             arr[k] = parkingStartEndTimes[k][0];
@@ -42,9 +42,9 @@ public class MinParkingSpace {
 
         return res;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int park[][] ={{0,10},
+        int[][] park ={{0,10},
                        {5,20}};
 
         System.out.print(minParkingSpaces(park));

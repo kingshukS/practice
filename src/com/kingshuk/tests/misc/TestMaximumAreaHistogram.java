@@ -63,8 +63,8 @@ public class TestMaximumAreaHistogram {
 }
 
 class Element {
-    private int value;
-    private int index;
+    private final int value;
+    private final int index;
 
     Element(int value, int index) {
         this.value = value;

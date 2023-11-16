@@ -13,11 +13,7 @@ public class BalancedParanthesis {
         {
             return true;
         }
-        if(c1 == '[' && c2 == ']')
-        {
-            return true;
-        }
-        return false;
+        return c1 == '[' && c2 == ']';
     }
     static boolean isBalancedParan(char[] paran)
     {
@@ -44,7 +40,7 @@ public class BalancedParanthesis {
         }
         return false;
     }
-    public  static void main(String args[])
+    public  static void main(String[] args)
     {
         char[] paran = {'[','(',']',')'};
         if(isBalancedParan(paran))

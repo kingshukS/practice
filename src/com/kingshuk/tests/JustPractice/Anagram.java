@@ -8,7 +8,7 @@ public class Anagram {
     {
         char[] str1 = s1.toCharArray();
         char[] str2 = s2.toCharArray();
-        int count1[] = new int[NO_OF_CHARS];
+        int[] count1 = new int[NO_OF_CHARS];
         Arrays.fill(count1,0);
 
         if(s1.length()!=s2.length())
@@ -33,7 +33,7 @@ public class Anagram {
     return true;
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         String s1 = "NEHAL";
         String s2 = "HALYN";

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class EvaluateExpressionToTrue {
 
-    static int dp[][][];
+    static int[][][] dp;
 
     public static void main(String[] args) {
         String a = "";
@@ -19,8 +19,8 @@ public class EvaluateExpressionToTrue {
         int i = 0;
         int j = expr.length() - 1;
         dp = new int[j + 2][j + 2][2];
-        for (int row[][] : dp)
-            for (int col[] : row)
+        for (int[][] row : dp)
+            for (int[] col : row)
                 Arrays.fill(col, -1);
         return findWays(expr, i, j, 1);
     }

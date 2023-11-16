@@ -29,8 +29,6 @@ public class CountingSort {
             count[arr[i]]--;
         }
 
-        for(int i = n-1; i>=0; i--){
-            arr[i] = output[i] ;
-        }
+        System.arraycopy(output, 0, arr, 0, n - 1 + 1);
     }
 }

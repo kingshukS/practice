@@ -8,7 +8,7 @@ public class MaxRectangleArea {
         int R = 4;
         int C = 4;
 
-        int A[][] = {
+        int[][] A = {
                 { 0, 1, 1, 0 },
                 { 1, 1, 1, 1 },
                 { 1, 1, 1, 1 },

@@ -53,10 +53,7 @@ public class PalindromeLL {
              } else
                  return false;
          }
-         if (temp == null && temp2 == null)
-             return true;
-
-         return false;
+         return temp == null && temp2 == null;
      }
      Node1 reverList()
     {
@@ -75,7 +72,7 @@ public class PalindromeLL {
         secondHalf = prev;
         return prev;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Node1 n1 = new Node1(9);
         n1.next = new Node1(8);

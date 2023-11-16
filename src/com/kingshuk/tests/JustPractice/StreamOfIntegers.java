@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 
 public class StreamOfIntegers {
 
-    static void medianOfStream(int arr[])
+    static void medianOfStream(int[] arr)
     {
         double median = arr[0];
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -59,9 +59,9 @@ public class StreamOfIntegers {
             System.out.println(median);
         }
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {5, 10, 15};
+        int[] arr = {5, 10, 15};
         medianOfStream(arr);
     }
 }

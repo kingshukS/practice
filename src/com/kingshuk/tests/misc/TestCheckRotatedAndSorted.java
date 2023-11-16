@@ -6,7 +6,7 @@ public class TestCheckRotatedAndSorted {
         System.out.println(checkRotatedAndSorted(arr, arr.length));
     }
 
-    public static boolean checkRotatedAndSorted(int arr[], int num){
+    public static boolean checkRotatedAndSorted(int[] arr, int num){
 
         // Your code here
         int min = arr[0];

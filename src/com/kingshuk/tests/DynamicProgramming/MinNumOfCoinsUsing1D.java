@@ -3,7 +3,7 @@ package com.kingshuk.tests.DynamicProgramming;
 public class MinNumOfCoinsUsing1D {
 
 
-    static int minNumCoins(int coins[], int n, int sum) {
+    static int minNumCoins(int[] coins, int n, int sum) {
         int[] t = new int[sum+1];
 
         // Initialize the array with infinity except for the value sum of 0, which needs 0 coins
@@ -28,8 +28,8 @@ public class MinNumOfCoinsUsing1D {
         return t[sum];
     }
 
-    public static void main(String args[]) {
-        int coins[] = {1, 3, 5};
+    public static void main(String[] args) {
+        int[] coins = {1, 3, 5};
         int n = coins.length;
         int sum = 19;
         System.out.println("the min number of coins req is :" + minNumCoins(coins, n, sum));

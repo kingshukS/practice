@@ -3,7 +3,7 @@ package com.kingshuk.tests.misc;
 public class TestPageAllocationExp {
     public static void main(String[] args) {
 
-        int arr[] = {12, 34, 67, 90};// pages
+        int[] arr = {12, 34, 67, 90};// pages
         int m = 2; //No. of students
         System.out.println("Minimum number of pages = " +findPages(arr, arr.length, m));
     }

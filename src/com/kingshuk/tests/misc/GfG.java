@@ -9,7 +9,7 @@ class GfG {
     {
         // convert first number into string
         String s1 = Integer.toString(n);
-        int a[] = new int[26];
+        int[] a = new int[26];
 
         // Insert elements from 1st number
         // to hash

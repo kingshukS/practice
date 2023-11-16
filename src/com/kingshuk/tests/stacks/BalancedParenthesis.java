@@ -28,9 +28,7 @@ public class BalancedParenthesis {
                 return false;
             }
         }
-        if (stack.isEmpty())
-            return true;
-        return false;
+        return stack.isEmpty();
     }
 
     private static boolean isNotMatching(char presentChar, char topChar) {

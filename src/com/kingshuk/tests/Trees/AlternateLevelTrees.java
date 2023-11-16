@@ -31,7 +31,7 @@ public class AlternateLevelTrees {
             System.out.println();
         }
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         NodeT root = new NodeT(15);
         root.left = new NodeT(13);

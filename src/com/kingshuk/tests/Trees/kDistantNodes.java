@@ -57,7 +57,7 @@ public class kDistantNodes {
             if (dr + 1 == k)
             {
                 System.out.print(root.data);
-                System.out.println("");
+                System.out.println();
             }
             else
                 printknodeDistanceDown(root.left, k - dr - 2);
@@ -66,7 +66,7 @@ public class kDistantNodes {
         return -1;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root = new TreeNode(20);
         root.left = new TreeNode(8);

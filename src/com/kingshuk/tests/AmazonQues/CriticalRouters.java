@@ -30,7 +30,7 @@ public class CriticalRouters {
         Set<Integer> set = new HashSet<>();
         int[] low = new int[numRouters];
         int[] ids = new int[numRouters];
-        int parent[] = new int[numRouters];
+        int[] parent = new int[numRouters];
         Arrays.fill(ids, -1);
         Arrays.fill(parent, -1);
         for(int i=0;i<numRouters;i++) {

@@ -41,7 +41,7 @@ class Bridges {
 
         for(int it : adjList.get(node))
         {
-            if(it == parent) continue;;
+            if(it == parent) continue;
             if(vis[it] == 0)
             {
                 dfs(it, node, vis, adjList, tin, low, bridges);

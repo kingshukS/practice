@@ -3,9 +3,9 @@ package com.kingshuk.tests.DynamicProgramming;
 // Unbounded Knapsack/ Rod-cutting problem
 public class UnboundedKnapsack {
 
-    static int knapsack01(int wt[],int value[],int W,int n)
+    static int knapsack01(int[] wt, int[] value, int W, int n)
     {
-        int t[][] = new int[n+1][W+1];
+        int[][] t = new int[n+1][W+1];
         int i,j;
         for(i=0;i<=n;i++)
         {
@@ -36,10 +36,10 @@ public class UnboundedKnapsack {
         }
         return t[n][W];
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int wt[] = { 10, 20, 30 };
-        int val[] = { 60, 100, 120 };
+        int[] wt = { 10, 20, 30 };
+        int[] val = { 60, 100, 120 };
         int W = 50;
         int n = val.length;
         System.out.print(knapsack01(wt,val,W,n));

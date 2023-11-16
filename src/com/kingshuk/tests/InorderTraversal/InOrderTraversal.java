@@ -28,7 +28,7 @@ public class InOrderTraversal {
         InOrederTest(rootNode.getRight());
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         new InOrderTraversal();
     }
@@ -37,7 +37,7 @@ public class InOrderTraversal {
         if(rootNode==null)
         {
             TreeNode temp = new TreeNode(data);
-            this.rootNode = temp;
+            InOrderTraversal.rootNode = temp;
         }
         else
         {

@@ -15,7 +15,7 @@ public class TreeDecreasingOrder {
         System.out.print(root.data+" ");
         decreasingOrder(root.left);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root = new TreeNode(15);
         root.left = new TreeNode(13);

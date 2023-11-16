@@ -90,7 +90,7 @@ class LinkedList {
     }
 
     /* Driver program to test above functions */
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         LinkedList llist = new LinkedList();
         llist.push(11);

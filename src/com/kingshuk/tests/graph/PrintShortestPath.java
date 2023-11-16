@@ -3,7 +3,7 @@ package com.kingshuk.tests.graph;
 import java.util.*;
 
 class PrintShortestPath {
-    public static List<Integer> shortestPath(int n, int m, int edges[][]) {
+    public static List<Integer> shortestPath(int n, int m, int[][] edges) {
 
         List<List<Pair>> adjList = new ArrayList<>();
         for(int i = 0; i <= n; i++)

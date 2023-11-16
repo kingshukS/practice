@@ -4,9 +4,9 @@ import java.util.Stack;
 
 public class NextGreaterElement {
 
-    static void nextGreater(int arr[])
+    static void nextGreater(int[] arr)
     {
-        int arr1[] = new int[arr.length];
+        int[] arr1 = new int[arr.length];
         Stack<Integer> s = new Stack<>();
         for(int i = arr.length-1;i>=0;i--)
         {
@@ -26,9 +26,9 @@ public class NextGreaterElement {
         for(int i=0;i <arr.length;i++)
         System.out.print(arr1[i]+" ");
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = { 11, 13, 21, 3 };
+        int[] arr = { 11, 13, 21, 3 };
         nextGreater(arr);
     }
 }

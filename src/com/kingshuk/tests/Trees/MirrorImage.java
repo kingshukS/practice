@@ -16,7 +16,7 @@ public class MirrorImage {
                 &&isMirror(a.left,b.right)
                 &&isMirror(a.right,b.left);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode a = new TreeNode(5);
         TreeNode b = new TreeNode(5);
@@ -30,7 +30,7 @@ public class MirrorImage {
         b.right.left = new TreeNode(5);
         b.right.right = new TreeNode(4);
 
-        if(isMirror(a,b)==true)
+        if(isMirror(a, b))
         {
             System.out.print("Yes");
         }

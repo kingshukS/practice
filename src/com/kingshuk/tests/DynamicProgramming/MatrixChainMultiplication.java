@@ -6,7 +6,7 @@ public class MatrixChainMultiplication {
     static int count = 0;
     static int[][] t;
     public static void main(String[] args) {
-        int arr[] = new int[]{1, 2, 3, 4, 5, 6,7,8};
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6,7,8};
         int n = arr.length;
         System.out.println("Minimum number of multiplications is "
                 + matrixChainOrder(arr));

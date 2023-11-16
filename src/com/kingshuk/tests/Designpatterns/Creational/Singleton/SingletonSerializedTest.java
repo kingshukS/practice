@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 
 public class SingletonSerializedTest {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         ThreadSafeSingleton instanceOne = ThreadSafeSingleton.getInstance();
         ObjectOutput out = new ObjectOutputStream(new FileOutputStream(
                 "filename.ser"));

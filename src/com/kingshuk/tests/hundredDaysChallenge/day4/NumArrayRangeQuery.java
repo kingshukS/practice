@@ -2,7 +2,7 @@ package com.kingshuk.tests.hundredDaysChallenge.day4;
 
 class NumArrayRangeQuery {
     
-    private int[] prefixSum;
+    private final int[] prefixSum;
     
     public NumArrayRangeQuery(int[] nums) {
         prefixSum = nums;

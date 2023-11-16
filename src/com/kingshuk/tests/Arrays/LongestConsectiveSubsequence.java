@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class LongestConsectiveSubsequence {
 
-    static int subsequence(int arr[])
+    static int subsequence(int[] arr)
     {
         int ans=0;
         HashSet<Integer> hs = new HashSet<>();
@@ -31,9 +31,9 @@ public class LongestConsectiveSubsequence {
         return ans;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {36, 41, 56, 35, 44, 33, 34, 92, 43, 32, 42};
+        int[] arr = {36, 41, 56, 35, 44, 33, 34, 92, 43, 32, 42};
 
         System.out.print(subsequence(arr));
     }

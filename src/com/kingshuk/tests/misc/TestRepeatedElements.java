@@ -5,7 +5,7 @@ public class TestRepeatedElements {
         int[] arr = new int[]{1,1,2,2};
         twoRepeated(arr,arr.length);
     }
-    public static void twoRepeated(int arr[], int N)
+    public static void twoRepeated(int[] arr, int N)
     {
         // Your code here
         for(int i=0; i<N; i++){

@@ -55,7 +55,7 @@ public class EvenOddAggreagtion {
             head = head.next;
         }
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
 
         Node1 n1 = new Node1(9);

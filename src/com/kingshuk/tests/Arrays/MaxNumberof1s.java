@@ -3,14 +3,14 @@ package com.kingshuk.tests.Arrays;
 public class MaxNumberof1s {
     static final int N = 4;
 
-    public static void main(String args[]) {
-        int arr[][] = {{0, 0, 0, 1},
+    public static void main(String[] args) {
+        int[][] arr = {{0, 0, 0, 1},
                 {0, 0, 0, 1},
                 {0, 0, 0, 0},
                 {0, 1, 1, 1}};
         max1sRowname(arr);
     }
-    static void max1sRowname(int arr[][])
+    static void max1sRowname(int[][] arr)
     {
         int i=0,j=arr.length-1;
         int row=0;

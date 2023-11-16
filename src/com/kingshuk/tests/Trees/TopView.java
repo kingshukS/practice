@@ -46,7 +46,7 @@ public class TopView {
             System.out.print(me.getValue() + " ");
         }
     }
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         NodeT root = new NodeT(1);
         root.left = new NodeT(2);
         root.right = new NodeT(3);

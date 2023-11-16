@@ -2,10 +2,10 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class CountGivenDiffSubset {
 
-    static int subsetCount(int arr[],int n,int sumCount)
+    static int subsetCount(int[] arr, int n, int sumCount)
     {
         int i,j;
-        int t[][] = new int[n+1][sumCount+1];
+        int[][] t = new int[n+1][sumCount+1];
         for(i=0;i<=n;i++)
         {
             for(j=0;j<=sumCount;j++) {
@@ -33,7 +33,7 @@ public class CountGivenDiffSubset {
         }
         return t[n][sumCount];
     }
-    static int countGivenDiff(int arr[],int n,int diff)
+    static int countGivenDiff(int[] arr, int n, int diff)
     {
         int sum = 0;
         int sumCount;
@@ -46,9 +46,9 @@ public class CountGivenDiffSubset {
         return ans;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {1,1,2,3};
+        int[] arr = {1,1,2,3};
         int n = arr.length;
         int diff = 1;
         int ans = countGivenDiff(arr,n,diff);

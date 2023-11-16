@@ -3,7 +3,7 @@ package com.kingshuk.tests.misc;
 import java.util.*;
 
 public class MovieRating {
-    private static Map<String, List<Double>> movieMap = new HashMap<>();
+    private static final Map<String, List<Double>> movieMap = new HashMap<>();
 
     static void putRating(String movie, double rating) {
         List<Double> ratingList = movieMap.get(movie);
@@ -53,7 +53,7 @@ public class MovieRating {
 
         Iterator<String> itr = movieMap.keySet().iterator();
         while(itr.hasNext()){
-            System.out.println(movieMap.get((String)itr.next()));
+            System.out.println(movieMap.get(itr.next()));
         }
     }
     }

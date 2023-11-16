@@ -25,7 +25,7 @@ public class StackUsingQueues {
        else
            q.poll();
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         StackUsingQueues stackUsingQueues = new StackUsingQueues();
         stackUsingQueues.push(5);

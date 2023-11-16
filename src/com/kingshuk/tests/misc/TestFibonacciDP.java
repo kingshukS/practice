@@ -9,7 +9,7 @@ public class TestFibonacciDP {
 }
 class Solution
 {
-    static int f[];
+    static int[] f;
     static int fibonacci(int n)
     {
         f = new int[n+1];

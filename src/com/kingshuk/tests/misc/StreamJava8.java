@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StreamJava8 {
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         List<EmployeeTest> al = new ArrayList<>();
         al.add(new EmployeeTest("nehal", 25, 150000.0));

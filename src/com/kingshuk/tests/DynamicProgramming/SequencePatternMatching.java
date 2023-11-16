@@ -24,9 +24,6 @@ public class SequencePatternMatching {
                 }
             }
         }
-        if(s1.length() == t[m][n])
-            return true;
-
-        return false;
+        return s1.length() == t[m][n];
     }
 }

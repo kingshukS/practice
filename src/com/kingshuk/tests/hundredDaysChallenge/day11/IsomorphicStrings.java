@@ -16,7 +16,7 @@ public class IsomorphicStrings {
         for(int i = 0; i<s.length(); i++){
             char sChar = s.charAt(i);
             char tChar = t.charAt(i);
-            if(charMapping.keySet().contains(sChar)){
+            if(charMapping.containsKey(sChar)){
                  if(charMapping.get(sChar) != tChar ){
                      return false;
                  }

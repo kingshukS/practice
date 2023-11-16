@@ -2,7 +2,7 @@ package com.kingshuk.tests.Arrays;
 
 public class Segreagte012 {
 
-    static void segregate(int arr[])
+    static void segregate(int[] arr)
     {
         int n = arr.length;
         int low = 0;
@@ -39,9 +39,9 @@ public class Segreagte012 {
         }
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+        int[] arr = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
         segregate(arr);
     }
 }

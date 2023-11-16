@@ -8,7 +8,7 @@ public class FirstBadVersion{
 
         while(s<=e){
             int mid = s + (e-s)/2;
-            if(isBadVersion[mid] == true){
+            if(isBadVersion[mid]){
                 ans = mid;
                 e = mid -1;
             }

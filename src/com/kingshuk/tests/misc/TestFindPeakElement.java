@@ -3,7 +3,7 @@ package com.kingshuk.tests.misc;
 public class TestFindPeakElement {
     // A binary search based function
     // that returns index of a peak element
-    static int findPeak(int arr[], int n) {
+    static int findPeak(int[] arr, int n) {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
@@ -38,7 +38,7 @@ public class TestFindPeakElement {
     // Driver method
     public static void main(String[] args)
     {
-        int arr[] = { 5,9,7,8,10,20,30,40,50 };
+        int[] arr = { 5,9,7,8,10,20,30,40,50 };
         int n = arr.length;
         System.out.println(
                 "Index of a peak point is " + findPeak(arr, n));

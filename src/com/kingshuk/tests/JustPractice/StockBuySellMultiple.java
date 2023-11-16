@@ -8,7 +8,7 @@ class Interval{
 }
 public class StockBuySellMultiple {
 
-    static void maxProfit(int arr[],int n){
+    static void maxProfit(int[] arr, int n){
         if(n==1)
             return;
         int count = 0;
@@ -53,9 +53,9 @@ public class StockBuySellMultiple {
         }
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {100, 180, 260, 310, 40, 535, 695};
+        int[] arr = {100, 180, 260, 310, 40, 535, 695};
         int n = arr.length;
         maxProfit(arr,n);
     }

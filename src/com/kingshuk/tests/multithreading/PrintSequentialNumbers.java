@@ -32,7 +32,7 @@ public class PrintSequentialNumbers implements Runnable {
             }
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         PrintSequentialNumbers runnable1 = new PrintSequentialNumbers(1);
         PrintSequentialNumbers runnable2 = new PrintSequentialNumbers(2);

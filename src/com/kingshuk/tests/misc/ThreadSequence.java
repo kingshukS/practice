@@ -13,7 +13,7 @@ class SequentialRun implements  Runnable {
 
 public class ThreadSequence{
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         SequentialRun sqr = new SequentialRun();
         Thread t1 = new Thread(sqr, "Thread1");
         Thread t2 = new Thread(sqr, "Thread2");

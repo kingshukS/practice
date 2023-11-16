@@ -11,10 +11,10 @@ public class TestCountOfOccurrences {
     private static int findCountOfOccurrences(int[] arr, int length, int searchKey) {
         TestIndexOfFirstOccurrence firstOccurrence = new TestIndexOfFirstOccurrence();
         TestIndexOfLastOccurrence lastOccurrence = new TestIndexOfLastOccurrence();
-        int indexFirst = firstOccurrence.findFirstOccurrence(arr,length,searchKey);
+        int indexFirst = TestIndexOfFirstOccurrence.findFirstOccurrence(arr,length,searchKey);
         if(indexFirst==-1)
             return 0;
-        int indexLast = lastOccurrence.findLastOccurrence(arr,length,searchKey);
+        int indexLast = TestIndexOfLastOccurrence.findLastOccurrence(arr,length,searchKey);
         return indexLast-indexFirst+1;
     }
 }

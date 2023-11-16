@@ -2,7 +2,7 @@ package com.kingshuk.tests.Important;
 
 public class SearchingInRoatedArray {
 
-    static int search(int arr[], int l, int h, int key)
+    static int search(int[] arr, int l, int h, int key)
     {
 
         if (l > h)
@@ -34,9 +34,9 @@ public class SearchingInRoatedArray {
 
         return search(arr, l, mid-1, key);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[]={5 ,6, 7, 8 ,9, 10 ,1 ,2, 3};
+        int[] arr ={5 ,6, 7, 8 ,9, 10 ,1 ,2, 3};
         int n = arr.length;
         int key = 6;
         int i = search(arr, 0, n-1, key);

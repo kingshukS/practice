@@ -17,7 +17,7 @@ public class LLmiddlepoint {
         }
                 return false;
     }
-    public static void main(String agrs[])
+    public static void main(String[] agrs)
     {
         Node1 n1 = new Node1(10);
         Node1 n2 = new Node1(20);

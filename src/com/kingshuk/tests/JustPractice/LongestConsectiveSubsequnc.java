@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class LongestConsectiveSubsequnc {
 
-    static int longestSeq(int arr[])
+    static int longestSeq(int[] arr)
     {
         Set<Integer> set = new HashSet<>();
         int res= 0;
@@ -30,9 +30,9 @@ public class LongestConsectiveSubsequnc {
         }
         return res;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {1, 9, 3, 10, 4, 5, 2};
+        int[] arr = {1, 9, 3, 10, 4, 5, 2};
         System.out.println(longestSeq(arr));
     }
 }

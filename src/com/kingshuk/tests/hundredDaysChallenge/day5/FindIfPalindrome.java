@@ -66,9 +66,7 @@ public class FindIfPalindrome {
             c1 = c1.next;
             c2 = c2.next;
         }
-        if(c1 == null && c2 == null)
-            return true;
-        return false;
+        return c1 == null && c2 == null;
     }
 
     private static Node reverse(Node second) {

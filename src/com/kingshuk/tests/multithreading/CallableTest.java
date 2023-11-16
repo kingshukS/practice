@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 
 public class CallableTest implements Callable<Integer> {
 
-    private int number;
+    private final int number;
 
     CallableTest(int number)
     {
@@ -33,7 +33,7 @@ public class CallableTest implements Callable<Integer> {
         return result;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         ExecutorService executor = Executors.newFixedThreadPool(2);
         List<Future<Integer>> resultList = new ArrayList<>();

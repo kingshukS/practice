@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class RadixSort {
     public static void main(String[] args) {
-        int arr[] = {170, 45, 75, 90, 802, 24, 2, 66};
+        int[] arr = {170, 45, 75, 90, 802, 24, 2, 66};
         radixSort(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -38,8 +38,6 @@ public class RadixSort {
             count[(arr[i]/exp)%10]--;
         }
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = output[i];
-        }
+        System.arraycopy(output, 0, arr, 0, n);
     }
 }

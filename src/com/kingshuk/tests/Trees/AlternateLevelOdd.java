@@ -17,7 +17,7 @@ static class Node {
             return;
 
         // If current node is of odd level
-        if (isOdd == true)
+        if (isOdd)
             System.out.print(root.data + " ");
 
         // Recur for children with isOdd

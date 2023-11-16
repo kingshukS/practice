@@ -4,9 +4,9 @@ package com.kingshuk.tests.stacks;
  * N Stacks implementation in an array
  */
 public class NStacksImplementation {
-    private int[] arr;
-    private int[] top;
-    private int[] next;
+    private final int[] arr;
+    private final int[] top;
+    private final int[] next;
     private int freeSlot;
 
     /**

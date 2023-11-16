@@ -6,7 +6,7 @@ import java.util.Queue;
 
 class ShortestDistanceInBinaryMaze {
 
-    private static int[][] DIRCTIONS = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+    private static final int[][] DIRCTIONS = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 
     int shortestPath(int[][] grid, int[] source, int[] destination) {
 

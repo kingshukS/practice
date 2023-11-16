@@ -4,7 +4,7 @@ import com.kingshuk.tests.JustPractice.LLNode;
 
 public class LinkedListLoop {
     private LLNode startNode;
-public static void main(String args[]) {
+public static void main(String[] args) {
     LinkedListLoop linkedListLoop = new LinkedListLoop();
 
     LLNode n1 = new LLNode(10);

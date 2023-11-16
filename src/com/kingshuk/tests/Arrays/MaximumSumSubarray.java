@@ -2,13 +2,13 @@ package com.kingshuk.tests.Arrays;
 
 public class MaximumSumSubarray {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = new int[] {-2, -3, 4, -1, -2, 1, 5, -3};
+        int[] arr = new int[] {-2, -3, 4, -1, -2, 1, 5, -3};
         maxSubarray(arr);
     }
 
-    static void maxSubarray(int arr[])
+    static void maxSubarray(int[] arr)
     {
         int n = arr.length;
         int sum_till_now =0 ;

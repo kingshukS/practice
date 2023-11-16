@@ -14,7 +14,7 @@ class LongestPalindromeSubstring {
         // table[i][j] will be false if
         // substring str[i..j] is not palindrome.
         // Else table[i][j] will be true
-        boolean table[][] = new boolean[n][n];
+        boolean[][] table = new boolean[n][n];
 
         // All substrings of length 1 are palindromes
         int maxLength = 1;

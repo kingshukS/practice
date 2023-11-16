@@ -31,7 +31,7 @@ public class InOrderWithoutRecursion {
 
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         InOrderWithoutRecursion inOrderWithoutRecursion = new InOrderWithoutRecursion();
         inOrderWithoutRecursion.root = new TreeNode(1);

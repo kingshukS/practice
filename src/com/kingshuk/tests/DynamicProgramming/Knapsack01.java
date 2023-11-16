@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Knapsack01 {
 
-    static int knapsack01(int wt[], int value[], int W, int n) {
-        int t[][] = new int[n + 1][W + 1];
+    static int knapsack01(int[] wt, int[] value, int W, int n) {
+        int[][] t = new int[n + 1][W + 1];
         int i, j;
 
         // either the knapsack has no capacity, i.e. W=0 or there are no objects present, i.e. n=0, so mac profit = 0
@@ -44,7 +44,7 @@ public class Knapsack01 {
         }
 
         if (dp[index][W] != -1) return dp[index][W];
-        int notTake = 0 + knapsackRecursive(weight, value, index - 1, W, dp);
+        int notTake = knapsackRecursive(weight, value, index - 1, W, dp);
         int take = Integer.MIN_VALUE;
         if (weight[index] <= W)
             take = value[index] + knapsackRecursive(weight, value, index - 1, W - weight[index], dp);
@@ -65,7 +65,7 @@ public class Knapsack01 {
 
         for (int i = 1; i < n; i++) {
             for (int j = 0; j <= W; j++) {
-                int notTake = 0 + dp[i - 1][j];
+                int notTake = dp[i - 1][j];
                 int take = Integer.MIN_VALUE;
                 if (weight[i] <= j)
                     take = value[i] + dp[i - 1][j - weight[i]];
@@ -86,7 +86,7 @@ public class Knapsack01 {
         for (int i = 1; i < n; i++) {
             int[] cur = new int[W + 1];
             for (int j = 0; j <= W; j++) {
-                int notTake = 0 + prev[j];
+                int notTake = prev[j];
                 int take = Integer.MIN_VALUE;
                 if (weight[i] <= j)
                     take = value[i] + prev[j - weight[i]];
@@ -113,7 +113,7 @@ public class Knapsack01 {
 
         for (int i = 1; i < n; i++) {
             for (int j = W; j >= 0; j--) {
-                int notTake = 0 + prev[j];
+                int notTake = prev[j];
                 int take = Integer.MIN_VALUE;
                 if (weight[i] <= j)
                     take = value[i] + prev[j - weight[i]];
@@ -124,9 +124,9 @@ public class Knapsack01 {
         return prev[W];
     }
 
-    public static void main(String args[]) {
-        int wt[] = {10, 20, 30};
-        int val[] = {60, 100, 120};
+    public static void main(String[] args) {
+        int[] wt = {10, 20, 30};
+        int[] val = {60, 100, 120};
         int W = 50;
         int n = val.length;
         System.out.print(knapsack01(wt, val, W, n));

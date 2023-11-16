@@ -22,7 +22,7 @@ public class SubbtreeSum {
 
         return Integer.MIN_VALUE;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root = new TreeNode(26);
         root.left= new TreeNode(10);

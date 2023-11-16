@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ThreadTest {
-    private static HashMap<String,List<Integer>> objects = new HashMap<>();
+    private static final HashMap<String,List<Integer>> objects = new HashMap<>();
     private static int i;
     static {
         objects.put("t1", new ArrayList<Integer>());
@@ -29,7 +29,7 @@ public class ThreadTest {
         objects.put(name, list);
     }
 
-    private static Runnable t1 = new Runnable() {
+    private static final Runnable t1 = new Runnable() {
         public void run() {
             try {
                 for (int i = 0; i < 5; i++) {
@@ -41,7 +41,7 @@ public class ThreadTest {
             System.out.println(objects);
         }
     };
-    private static Runnable t2 = new Runnable() {
+    private static final Runnable t2 = new Runnable() {
         public void run() {
             try {
                 for (int i = 0; i < 5; i++) {

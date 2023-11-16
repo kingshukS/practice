@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class TestUnsortedArrayPairSum {
     public static void main(String[] args) {
-        int A[] = { 1, 4, 45, 6, 10, 8,12 };
+        int[] A = { 1, 4, 45, 6, 10, 8,12 };
         int n = 16;
         printpairs(A, n);
     }

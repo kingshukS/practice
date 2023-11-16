@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class QueueUsingOneStack {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         QueueProg queueUsingOneStack = new QueueProg();
         queueUsingOneStack.enqueue(10);

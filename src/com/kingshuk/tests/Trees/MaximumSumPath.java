@@ -35,7 +35,7 @@ public class MaximumSumPath {
         findMaxUtil(node);
         return res;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         MaximumSumPath m = new MaximumSumPath();
         m.root = new TreeNode(10);

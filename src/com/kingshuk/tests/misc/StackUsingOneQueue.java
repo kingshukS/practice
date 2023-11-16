@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class StackUsingOneQueue {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         StackUsingOneQueue stackUsingOneQueue = new StackUsingOneQueue();
         stackUsingOneQueue.push(10);

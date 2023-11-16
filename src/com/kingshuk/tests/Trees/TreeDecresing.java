@@ -29,7 +29,7 @@ public class TreeDecresing {
 
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         TreeNode root = new TreeNode(15);
         root.left = new TreeNode(13);
         root.right = new TreeNode(18);

@@ -25,10 +25,7 @@ public class MaxSumFallingPath {
 		int[][] dp = new int[n][m];
 
 		// first row
-		for(int i = 0; i<m; i++)
-		{
-			dp[0][i] = matrix[0][i];
-		}
+        System.arraycopy(matrix[0], 0, dp[0], 0, m);
 
 		for(int i = 1; i<n; i++)
 		{
@@ -58,10 +55,7 @@ public class MaxSumFallingPath {
 		int[] dp = new int[m];
 
 		// first row
-		for(int i = 0; i<m; i++)
-		{
-			dp[i] = matrix[0][i];
-		}
+        System.arraycopy(matrix[0], 0, dp, 0, m);
 
 		for(int i = 1; i<n; i++)
 		{

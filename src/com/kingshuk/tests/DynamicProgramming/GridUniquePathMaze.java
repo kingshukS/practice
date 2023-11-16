@@ -3,7 +3,7 @@ package com.kingshuk.tests.DynamicProgramming;
 import java.util.ArrayList;
 
 public class GridUniquePathMaze {
-    private static int mod = (int) (1e9 + 7);
+    private static final int mod = (int) (1e9 + 7);
 
     private static int mazeObstaclesUtil(int i, int j, ArrayList<ArrayList<Integer>> mat) {
         if (i >= 0 && j >= 0 && mat.get(i).get(j) == -1)

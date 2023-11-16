@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class TestMaximumOccurredInteger {
     public static void main(String[] args) {
-        int L[] = {1,4,3,1};
-        int R[] = {15,8,5,999};
+        int[] L = {1,4,3,1};
+        int[] R = {15,8,5,999};
         System.out.println(maxOccured(L,R,L.length));
     }
 

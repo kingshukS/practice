@@ -9,7 +9,7 @@ public class TestCount1sInBinarySortedArray {
 
     private static int findCountOfOccurrencesOf1s(int[] arr, int length) {
         TestIndexOfFirstOccurrence firstOccurrence = new TestIndexOfFirstOccurrence();
-        int indexFirst = firstOccurrence.findFirstOccurrence(arr,length,1);
+        int indexFirst = TestIndexOfFirstOccurrence.findFirstOccurrence(arr,length,1);
         if(indexFirst==-1)
             return 0;
         return length-indexFirst;

@@ -1,7 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 public class FrogJump {
-    public static int frogJump(int n, int heights[]) {
+    public static int frogJump(int n, int[] heights) {
 
         int[] dp = new int[n];
          /*
@@ -13,7 +13,7 @@ public class FrogJump {
         return frogJumpUtil(n-1, heights, dp, 2);
     }
 
-    public static int frogJumpUtil(int n, int heights[], int[] dp) {
+    public static int frogJumpUtil(int n, int[] heights, int[] dp) {
 
         if(n == 0)
             return 0;
@@ -29,7 +29,7 @@ public class FrogJump {
         return dp[n]=Math.min(step1, step2);
     }
 
-    public static int frogJumpUtil2(int n, int heights[], int[] dp) {
+    public static int frogJumpUtil2(int n, int[] heights, int[] dp) {
 
         for(int i = 0; i<=n; i++)
         {
@@ -50,7 +50,7 @@ public class FrogJump {
         return dp[n];
     }
 
-    public static int frogJumpUtil(int n, int heights[], int[] dp, int k) {
+    public static int frogJumpUtil(int n, int[] heights, int[] dp, int k) {
 
         for(int i = 0; i<=n; i++)
         {
@@ -68,7 +68,7 @@ public class FrogJump {
         return dp[n];
     }
 
-    public static int frogJumpUtil3(int n, int heights[]) {
+    public static int frogJumpUtil3(int n, int[] heights) {
         int prev2 = 0;
         int prev = Math.abs(heights[1] - heights[0]);
         for(int i = 2; i<=n; i++)

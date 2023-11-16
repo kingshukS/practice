@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class MergeSortedArrays {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr1[] = new int[]{1, 5, 9, 10, 15, 20};
-        int arr2[] = new int[]{2, 3, 8, 13};
+        int[] arr1 = new int[]{1, 5, 9, 10, 15, 20};
+        int[] arr2 = new int[]{2, 3, 8, 13};
         mergeArrays(arr1,arr2);
     }
 
-    static void mergeArrays(int arr1[],int arr2[])
+    static void mergeArrays(int[] arr1, int[] arr2)
     {
         int size1 = arr1.length;
         int size2 = arr2.length;

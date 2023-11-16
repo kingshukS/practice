@@ -1,9 +1,7 @@
 package com.kingshuk.tests.JustPractice;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 public class Segregate01s {
-    static void segregate(int arr[])
+    static void segregate(int[] arr)
     {
         int start = 0,end = arr.length-1;
         while(start<end)
@@ -28,10 +26,10 @@ public class Segregate01s {
             System.out.print(arr[i]+" ");
         }
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
       //  int arr[] = {0, 1, 0, 1, 0, 0, 1, 1, 1, 0};
-        int arr[] = {0,1,0,0,1,1,1,0,1};
+        int[] arr = {0,1,0,0,1,1,1,0,1};
 
         segregate(arr);
     }

@@ -2,7 +2,7 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class MinimumJumpsRecursion {
 
-    static int minJumpsRequired(int arr[], int start, int end) {
+    static int minJumpsRequired(int[] arr, int start, int end) {
         if (start == end)
             return 0;
         if (arr[start] == 0)
@@ -16,8 +16,8 @@ public class MinimumJumpsRecursion {
         return minJumps;
     }
 
-    public static void main(String args[]) {
-        int arr[] = {2, 3, 1, 1, 2, 4, 2, 0, 1, 1};
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 1, 1, 2, 4, 2, 0, 1, 1};
         int n = arr.length;
         System.out.println("Minimum jumps required " + minJumpsRequired(arr, 0, n - 1));
 

@@ -35,9 +35,9 @@ public class CountOfSubset {
     }
 
     // in terms of size
-    static int countSubset(int arr[],int sum,int n)
+    static int countSubset(int[] arr, int sum, int n)
     {
-        int t[][] = new int[n+1][sum+1];
+        int[][] t = new int[n+1][sum+1];
         int i,j;
         for(i = 0; i<n; i++)
             t[i][0] = 1;
@@ -58,9 +58,9 @@ public class CountOfSubset {
     }
 
     // in terms of index
-    static int countSubset2(int arr[],int sum,int n)
+    static int countSubset2(int[] arr, int sum, int n)
     {
-        int t[][] = new int[n][sum+1];
+        int[][] t = new int[n][sum+1];
         for(int i = 0; i<n; i++)
             t[i][0] = 1;
         if(arr[0] <= sum)
@@ -77,9 +77,9 @@ public class CountOfSubset {
         return t[n-1][sum];
     }
 
-    static int countSubset2SpaceOptimized(int arr[],int sum,int n)
+    static int countSubset2SpaceOptimized(int[] arr, int sum, int n)
     {
-        int t[] = new int[sum+1];
+        int[] t = new int[sum+1];
         t[0] = 1;
         if(arr[0] <= sum)
             t[arr[0]] = 1;
@@ -99,7 +99,7 @@ public class CountOfSubset {
     }
 
     // case: XXXX: considering elements 0
-    static int subsetCountSpecialCase(int arr[], int n, int sum){
+    static int subsetCountSpecialCase(int[] arr, int n, int sum){
         int[][] dp = new int[n][sum+1];
 
         if(arr[0] == 0)
@@ -122,7 +122,7 @@ public class CountOfSubset {
     }
 
     // case: XXXX: considering elements 0
-    static int subsetCountSpecialCaseSpaceOptimized(int arr[], int n, int sum){
+    static int subsetCountSpecialCaseSpaceOptimized(int[] arr, int n, int sum){
         int[] dp = new int[sum+1];
 
         if(arr[0] == 0)
@@ -145,9 +145,9 @@ public class CountOfSubset {
         }
         return dp[sum];
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {1, 2, 3, 3};
+        int[] arr = {1, 2, 3, 3};
         int sum = 3;
         int n = arr.length;
         int ans = countSubset(arr,sum,n);

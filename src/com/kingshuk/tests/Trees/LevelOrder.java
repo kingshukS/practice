@@ -28,7 +28,7 @@ public class LevelOrder {
         }
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         LevelOrder tree_level = new LevelOrder();
         tree_level.root = new TreeNode(1);

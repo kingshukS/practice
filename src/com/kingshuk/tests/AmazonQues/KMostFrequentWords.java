@@ -30,16 +30,16 @@ public class KMostFrequentWords {
         return Arrays.copyOfRange(frequencyArray, 0, k);
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         int k = 2;
-        String keywords[] = {"anacell", "betacellular", "cetracular", "deltacellular", "eurocell"};
-        String reviews[] = {"I love anacell Best services; Best services provided by anacell",
+        String[] keywords = {"anacell", "betacellular", "cetracular", "deltacellular", "eurocell"};
+        String[] reviews = {"I love anacell Best services; Best services provided by anacell",
                 "betacellular has great services",
                 "deltacellular provides much better services than betacellular",
                 "cetracular is worse than anacell",
                 "Betacellular is better than deltacellular."};
-        String result [] = getMostFrequentCommonwords(reviews,keywords,k);
+        String[] result = getMostFrequentCommonwords(reviews,keywords,k);
         for(int i =0;i<result.length;i++)
         {
             System.out.print(result[i]+" ");

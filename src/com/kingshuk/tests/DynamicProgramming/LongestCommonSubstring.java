@@ -15,7 +15,7 @@ public class LongestCommonSubstring {
     }
 
     static int longestCommonSubstringLength(String x, String y, int m, int n) {
-        int t[][] = new int[m + 1][n + 1];
+        int[][] t = new int[m + 1][n + 1];
         int result = 0;
         for (int i = 0; i <= m; i++) {
             for (int j = 0; j <= n; j++) {
@@ -33,7 +33,7 @@ public class LongestCommonSubstring {
         return result;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String s1 = "ABCDGHIJK";
         String s2 = "ABDFHRIJK";
         int m = s1.length();

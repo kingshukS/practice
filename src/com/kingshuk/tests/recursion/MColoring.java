@@ -2,21 +2,17 @@ package com.kingshuk.tests.recursion;
 
 class MColoring {
 
-    boolean graphColoring(boolean graph[][], int m, int n) {
-        int color[] = new int[n];
-        if (graphColoringUtil(graph, m, color, 0, n) == false) {
-            return false;
-        }
-
-        return true;
+    boolean graphColoring(boolean[][] graph, int m, int n) {
+        int[] color = new int[n];
+        return graphColoringUtil(graph, m, color, 0, n);
     }
-    boolean isSafe(int v, boolean graph[][], int color[], int c, int V) {
+    boolean isSafe(int v, boolean[][] graph, int[] color, int c, int V) {
         for (int i = 0; i < V; i++)
             if (graph[v][i] && c == color[i]) return false;
         // returning true if no connected node has same colour.
         return true;
     }
-    boolean graphColoringUtil(boolean graph[][], int m, int color[], int v,
+    boolean graphColoringUtil(boolean[][] graph, int m, int[] color, int v,
                               int V) {
         // if all vertices have been assigned colour then we return true.
         if (v == V) return true;
@@ -29,7 +25,7 @@ class MColoring {
 
                 // calling function recursively and checking if other nodes
                 // can be assigned other colours.
-                if (graphColoringUtil(graph, m, color, v + 1, V) == true)
+                if (graphColoringUtil(graph, m, color, v + 1, V))
                     // returning true if the current allocation was successful.
                     return true;
 

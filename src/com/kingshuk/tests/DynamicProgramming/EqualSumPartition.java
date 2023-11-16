@@ -2,14 +2,14 @@ package com.kingshuk.tests.DynamicProgramming;
 
 
     public class EqualSumPartition {
-        static boolean isEqualSumPossible(int arr[],int n)
+        static boolean isEqualSumPossible(int[] arr, int n)
         {
             int sum = 0;
             for(int i =0;i<n;i++)
             {
                 sum = sum + arr[i];
             }
-            boolean t[][] = new boolean[n+1][(sum/2)+1];
+            boolean[][] t = new boolean[n+1][(sum/2)+1];
             if(sum%2!=0)
             {
                 return false;
@@ -45,8 +45,8 @@ package com.kingshuk.tests.DynamicProgramming;
             return t[n][sum/2];
         }
 
-        public static void main(String args[]){
-            int arr[] = {3, 1, 2, 2,1};
+        public static void main(String[] args){
+            int[] arr = {3, 1, 2, 2,1};
             int n = arr.length;
             if(isEqualSumPossible(arr,n))
             {

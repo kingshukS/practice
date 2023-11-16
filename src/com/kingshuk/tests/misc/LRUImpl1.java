@@ -41,7 +41,7 @@ public class LRUImpl1 {
         cache.add(key);
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         LRUImpl1 ca = new LRUImpl1(4);
         ca.get(1);

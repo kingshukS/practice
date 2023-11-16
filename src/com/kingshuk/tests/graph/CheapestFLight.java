@@ -4,7 +4,7 @@ import java.util.*;
 
 class CheapestFLight {
 
-    public int CheapestFLight(int n, int flights[][], int src, int dst, int k) {
+    public int CheapestFLight(int n, int[][] flights, int src, int dst, int k) {
         List<List<Pair>> adjList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             adjList.add(new ArrayList<>());

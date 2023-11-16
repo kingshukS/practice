@@ -1,7 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 public class MinimumDiffSubset {
-    static boolean t[][];
+    static boolean[][] t;
     private static void subsetSum(int[] arr, int sum,int n) {
 
         //base case initialization
@@ -27,9 +27,9 @@ public class MinimumDiffSubset {
             }
         }
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[]={3, 1, 4, 2, 2, 1};
+        int[] arr ={3, 1, 4, 2, 2, 1};
         int n = arr.length;
         System.out.println(getMinimumSubsetSum(arr));
     }
@@ -51,7 +51,7 @@ public class MinimumDiffSubset {
         // j is maximum
 
         for(int j = range1;j>=0;j--){
-            if(t[n][j]==true){
+            if(t[n][j]){
                     res = range-2*j;
                 break;
             }
@@ -77,7 +77,7 @@ public class MinimumDiffSubset {
         // j is maximum
 
         for(int j = range1;j>=0;j--){
-            if(dp[j]==true){
+            if(dp[j]){
                 res = range-2*j;
                 break;
             }

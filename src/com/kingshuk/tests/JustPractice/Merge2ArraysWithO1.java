@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Merge2ArraysWithO1 {
 
-    static void mergerArrays(int arr1[],int m,int arr2[],int n)
+    static void mergerArrays(int[] arr1, int m, int[] arr2, int n)
     {
 
         for(int i=n-1 ;i>=0;i--) //arr2
@@ -22,10 +22,10 @@ public class Merge2ArraysWithO1 {
         System.out.println(Arrays.toString(arr2));
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr1[] = {1, 5, 9, 10, 15, 20};
-        int arr2[] = {2, 3, 8, 13};
+        int[] arr1 = {1, 5, 9, 10, 15, 20};
+        int[] arr2 = {2, 3, 8, 13};
         int m = arr1.length;
         int n = arr2.length;
         mergerArrays(arr1,m,arr2,n);

@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Producer implements Runnable {
 
-    private Queue<Integer> queue;
-    private int maxSize;
+    private final Queue<Integer> queue;
+    private final int maxSize;
     public Producer(Queue<Integer> queue,int maxSize)
     {
         this.queue = queue;

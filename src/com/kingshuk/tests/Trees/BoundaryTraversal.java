@@ -58,7 +58,7 @@ public class BoundaryTraversal {
             System.out.print(root.data + " ");
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         NodeT root = new NodeT(100);
         root.left = new NodeT(50);
         root.right = new NodeT(150);

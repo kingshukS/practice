@@ -2,7 +2,7 @@ package com.kingshuk.tests.JustPractice;
 
 public class MaxNum1s {
 
-    static int max1s(int arr[][])
+    static int max1s(int[][] arr)
     {
         int row = 0;
         int j = arr.length-1;
@@ -16,9 +16,9 @@ public class MaxNum1s {
         }
         return row+1;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[][]={{ 0, 0, 0, 1 },
+        int[][] arr ={{ 0, 0, 0, 1 },
                 { 0, 1, 1, 1 },
                 { 0, 0, 1, 1 },
                 { 0, 0, 0, 0 }};

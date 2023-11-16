@@ -2,7 +2,7 @@ package com.kingshuk.tests.DynamicProgramming;
 
 public class MaxNumOfCoinsWays {
 
-    public static long countWaysToMakeChange(int denominations[], int value){
+    public static long countWaysToMakeChange(int[] denominations, int value){
         //write your code here
         int n = denominations.length;
         return f(denominations, n, value);
@@ -59,8 +59,8 @@ public class MaxNumOfCoinsWays {
         return dp[value];
     }
 
-    static int maxNumCoinsWays(int coins[], int n, int sum) {
-        int t[][] = new int[n + 1][sum + 1];
+    static int maxNumCoinsWays(int[] coins, int n, int sum) {
+        int[][] t = new int[n + 1][sum + 1];
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= sum; j++) {
                 // for a valid sum, if there are no coins, then it can't be done, so assigning INFINITY(-1 for calculation purpose)
@@ -86,8 +86,8 @@ public class MaxNumOfCoinsWays {
         return t[n][sum];
     }
 
-    public static void main(String args[]) {
-        int coins[] = {1, 2, 3};
+    public static void main(String[] args) {
+        int[] coins = {1, 2, 3};
         int n = coins.length;
         int sum = 4;
         //System.out.println("the max number of ways are :" + maxNumCoinsWays(coins, n, sum));

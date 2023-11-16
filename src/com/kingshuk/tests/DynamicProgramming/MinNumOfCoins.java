@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class MinNumOfCoins {
 
 
-    static int minNumCoins(int coins[], int n, int sum) {
-        int t[][] = new int[n + 1][sum + 1];
+    static int minNumCoins(int[] coins, int n, int sum) {
+        int[][] t = new int[n + 1][sum + 1];
         for (int i = 0; i <= n; i++) {
             for (int k = 0; k <= sum; k++) {
                 // for a valid sum, if there are no coins, then it can't be done, so assigning INFINITY(-1 for calculation purpose)
@@ -34,7 +34,7 @@ public class MinNumOfCoins {
         return t[n][sum];
     }
 
-    public static int minimumElements(int num[], int x) {
+    public static int minimumElements(int[] num, int x) {
         int[][] dp = new int[num.length][x+1];
         for(int[] dpi : dp)
             Arrays.fill(dpi, -1);
@@ -55,7 +55,7 @@ public class MinNumOfCoins {
         }
         if(dp[index][target] != -1) return dp[index][target];
 
-        int notTake = 0 + coinChangeRecursion(num, target, index-1, dp);
+        int notTake = coinChangeRecursion(num, target, index - 1, dp);
         int take = (int)1e9;
         if(num[index] <= target)
         {
@@ -80,7 +80,7 @@ public class MinNumOfCoins {
         {
             for(int j = 1; j<=target; j++)
             {
-                int notTake = 0 + dp[i-1][j];
+                int notTake = dp[i - 1][j];
                 int take = (int)1e9;
                 if(num[i] <= j)
                 {
@@ -109,7 +109,7 @@ public class MinNumOfCoins {
             int[] cur = new int[target+1];
             for(int j = 1; j<=target; j++)
             {
-                int notTake = 0 + prev[j];
+                int notTake = prev[j];
                 int take = (int)1e9;
                 if(num[i] <= j)
                 {
@@ -122,8 +122,8 @@ public class MinNumOfCoins {
         return prev[target];
     }
 
-    public static void main(String args[]) {
-        int coins[] = {1, 3, 5};
+    public static void main(String[] args) {
+        int[] coins = {1, 3, 5};
         int n = coins.length;
         int sum = 19;
         System.out.println("the min number of coins req is :" + minNumCoins(coins, n, sum));

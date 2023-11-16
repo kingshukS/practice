@@ -13,16 +13,12 @@ public class TestLeftRotateArrayByD {
 
     private static void doRotateLeft(int[] arr, int n, int d) {
         int[] arr2 = new int[d];
-        for(int i = 0; i<d; i++){
-            arr2[i] = arr[i];
-        }
+        System.arraycopy(arr, 0, arr2, 0, d);
 
         for(int i = d; i<n;i++){
             arr[i-d] = arr[i];
         }
 
-        for(int j=0;j<d;j++){
-            arr[n-d+j] = arr2[j];
-        }
+        System.arraycopy(arr2, 0, arr, n - d + 0, d);
     }
 }

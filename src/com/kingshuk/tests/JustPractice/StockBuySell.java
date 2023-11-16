@@ -2,7 +2,7 @@ package com.kingshuk.tests.JustPractice;
 
 public class StockBuySell {
 
-    static void maxprofit(int arr[],int n)
+    static void maxprofit(int[] arr, int n)
     {
         int max_diff = arr[1] - arr[0];
         int min_ele = arr[0];
@@ -23,9 +23,9 @@ public class StockBuySell {
 
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {80, 2, 6, 3, 100};
+        int[] arr = {80, 2, 6, 3, 100};
         int n = arr.length;
         maxprofit(arr,n);
     }

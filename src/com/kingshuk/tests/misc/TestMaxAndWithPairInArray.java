@@ -5,7 +5,7 @@ public class TestMaxAndWithPairInArray {
         int[] arr = {16,15,22};
         System.out.println(maxAND(arr,3));
     }
-    public static int maxAND (int arr[], int n) {
+    public static int maxAND (int[] arr, int n) {
         int res = 0;
         int maxValue = findMaxElement(arr,n);
         int log2 = findLog2ValueOfMaxElement(maxValue);

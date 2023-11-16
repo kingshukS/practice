@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class MaxNumOfWaysUsingCoins1D {
 
 
-    static int MaxNumCoinsWays(int coins[], int n, int sum) {
+    static int MaxNumCoinsWays(int[] coins, int n, int sum) {
         int[] t = new int[sum+1];
 
         // Initialize the array with 0 except for the value sum of 0, which needs 0 coins, 1 way
@@ -19,8 +19,8 @@ public class MaxNumOfWaysUsingCoins1D {
         return t[sum];
     }
 
-    public static void main(String args[]) {
-        int coins[] = {1, 2, 3};
+    public static void main(String[] args) {
+        int[] coins = {1, 2, 3};
         int n = coins.length;
         int sum = 4;
         System.out.println("the max number of ways are :" + MaxNumCoinsWays(coins, n, sum));

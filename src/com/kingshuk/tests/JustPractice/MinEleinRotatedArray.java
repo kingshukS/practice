@@ -2,7 +2,7 @@ package com.kingshuk.tests.JustPractice;
 
 public class MinEleinRotatedArray {
 
-    static int minEle(int arr[],int low,int high)
+    static int minEle(int[] arr, int low, int high)
     {
         if(high<low)
         {
@@ -29,9 +29,9 @@ public class MinEleinRotatedArray {
         return minEle(arr,mid+1,high);
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {2, 3, 4, 5, 6, 7, 8, 1};
+        int[] arr = {2, 3, 4, 5, 6, 7, 8, 1};
         int low = 0;
         int high = arr.length-1;
         System.out.println("min element is at position: "+minEle(arr,low,high));

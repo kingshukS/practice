@@ -10,7 +10,7 @@ public class SumOftree {
             return 0;
             return (root.data+SumTree(root.left)+SumTree(root.right));
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);

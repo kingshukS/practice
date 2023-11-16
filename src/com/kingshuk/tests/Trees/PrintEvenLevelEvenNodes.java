@@ -10,7 +10,7 @@ public class PrintEvenLevelEvenNodes {
     {
         int data;
         Node left, right;
-    };
+    }
 
     static void printEvenLevelEvenNodes(Node root)
     {

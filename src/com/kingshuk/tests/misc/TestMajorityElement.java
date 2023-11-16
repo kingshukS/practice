@@ -3,7 +3,7 @@ package com.kingshuk.tests.misc;
 // Moore’s Voting Algorithm
 public class TestMajorityElement {
     public static void main(String[] args) {
-        int a[] = new int[] { 1, 3, 3, 1, 2 };
+        int[] a = new int[] { 1, 3, 3, 1, 2 };
 
         // Function call
         int size = a.length;

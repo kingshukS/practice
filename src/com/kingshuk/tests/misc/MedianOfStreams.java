@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 
 public class MedianOfStreams {
 
-    static void findMedian(int arr[])
+    static void findMedian(int[] arr)
     {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -60,9 +60,9 @@ public class MedianOfStreams {
         }
 
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {5, 15, 10, 20, 3};
+        int[] arr = {5, 15, 10, 20, 3};
         findMedian(arr);
     }
 }

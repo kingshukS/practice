@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BundledShapeCache {
-    private Map<String, Shape> cache = new HashMap<>();
+    private final Map<String, Shape> cache = new HashMap<>();
 
     public BundledShapeCache() {
         Circle circle = new Circle();

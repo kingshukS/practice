@@ -30,6 +30,5 @@ public class TestSubarrayGivenSumAllExtraSpace {
             map.put(cur_sum,i);
         }
         System.out.println("No Subarray");
-        return;
     }
 }

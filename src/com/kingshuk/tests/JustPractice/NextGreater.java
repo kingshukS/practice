@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class NextGreater
 {
     // Utility function to swap two digit
-    static void swap(char ar[], int i, int j)
+    static void swap(char[] ar, int i, int j)
     {
         char temp = ar[i];
         ar[i] = ar[j];
@@ -15,7 +15,7 @@ public class NextGreater
     // Given a number as a char array number[],
     // this function finds the next greater number.
     // It modifies the same array to store the result
-    static void findNext(char ar[], int n)
+    static void findNext(char[] ar, int n)
     {
         int i;
 
@@ -68,7 +68,7 @@ public class NextGreater
 
     public static void main(String[] args)
     {
-        char digits[] = { '5','3','4','9','7','6' };
+        char[] digits = { '5','3','4','9','7','6' };
         int n = digits.length;
         findNext(digits, n);
     }

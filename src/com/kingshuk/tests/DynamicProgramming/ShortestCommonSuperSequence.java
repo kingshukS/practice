@@ -4,7 +4,7 @@ public class ShortestCommonSuperSequence {
 
     static int shortestCommonSuperSequence(char[] s1,char[] s2,int n ,int m)
     {
-       int t[][] = new int[n+1][m+1];
+       int[][] t = new int[n+1][m+1];
        int totalLen = n+m;
 
         for(int i = 1;i<=n;i++) {
@@ -21,7 +21,7 @@ public class ShortestCommonSuperSequence {
         return totalLen - t[n][m];
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         String a = "AGGTAB";
         String b = "GXTXAYB";

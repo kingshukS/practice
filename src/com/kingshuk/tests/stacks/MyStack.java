@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.StringJoiner;
 
 public class MyStack {
-    private int[] arr;
+    private final int[] arr;
     private int counter;
-    private int max_size;
+    private final int max_size;
 
     public MyStack(int max_size) {
         this.max_size = max_size;

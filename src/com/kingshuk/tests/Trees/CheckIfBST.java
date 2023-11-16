@@ -37,7 +37,7 @@ public class CheckIfBST {
         }
        return true;
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         NodeT root = new NodeT(15);
         root.left = new NodeT(13);

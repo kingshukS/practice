@@ -17,6 +17,6 @@ public class TestLeaderInArray {
                 sb.append(leader+" ");
             }
         }
-        System.out.println(sb.reverse().toString());
+        System.out.println(sb.reverse());
     }
 }

@@ -36,7 +36,7 @@ public class MirrorNode {
         }
         return mirrorNodeRecursion(left.right,right.left,target);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         TreeNode root  = new TreeNode(1);
         root.left  = new TreeNode(2);

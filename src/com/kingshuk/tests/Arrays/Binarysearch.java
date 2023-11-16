@@ -1,9 +1,9 @@
 package com.kingshuk.tests.Arrays;
 
 public class Binarysearch {
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = { 2, 3, 4, 10, 40 };
+        int[] arr = { 2, 3, 4, 10, 40 };
         int n = arr.length;
         int x = 4;
         Binarysearch binarysearch = new Binarysearch();
@@ -11,7 +11,7 @@ public class Binarysearch {
         System.out.println("The element is at "+result+" index");
     }
 
-    public int binarySearch(int arr[],int l,int r,int x)
+    public int binarySearch(int[] arr, int l, int r, int x)
     {
        if(r>=l)
        {

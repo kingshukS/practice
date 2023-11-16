@@ -2,7 +2,7 @@ package com.kingshuk.tests.misc;
 
 public class TestFindTripletSum {
     public static void main(String[] args) {
-        int A[] = { 1, 4, 45, 6, 10, 8 };
+        int[] A = { 1, 4, 45, 6, 10, 8 };
         int sum = 15;
         int arr_size = A.length;
 

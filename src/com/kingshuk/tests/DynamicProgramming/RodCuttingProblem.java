@@ -3,14 +3,14 @@ package com.kingshuk.tests.DynamicProgramming;
 import java.util.Arrays;
 
 public class RodCuttingProblem {
-	 public static int cutRodRecursionAndMemoization(int price[], int n) {
+	 public static int cutRodRecursionAndMemoization(int[] price, int n) {
 	 	int[][] dp = new int[n][n+1];
 	 	for(int[] dpi : dp)
 	 		Arrays.fill(dpi, -1);
 	 	return f(price, n-1, n, dp);
 	 }
 
-	public static int cutRodTabulationSpaceOptimized(int price[], int n) {
+	public static int cutRodTabulationSpaceOptimized(int[] price, int n) {
 		int[] dp = new int[n+1];
 		
 		for(int i = 0; i<=n; i++)
@@ -34,7 +34,7 @@ public class RodCuttingProblem {
 		return dp[n];
 	}
 
-	public static int cutRodTabulation(int price[], int n) {
+	public static int cutRodTabulation(int[] price, int n) {
 		int[][] dp = new int[n][n+1];
 
 		for(int i = 0; i<=n; i++)
@@ -66,7 +66,7 @@ public class RodCuttingProblem {
 		}
 		if(dp[index][length] != -1) return dp[index][length];
 
-		int notTake = 0 + f(price, index-1, length, dp);
+		int notTake = f(price, index - 1, length, dp);
 		int take = 0;
 		int rodLength = index+1;
 		if(rodLength<=length)

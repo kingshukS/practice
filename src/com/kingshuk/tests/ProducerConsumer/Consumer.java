@@ -3,8 +3,8 @@ package com.kingshuk.tests.ProducerConsumer;
 import java.util.Queue;
 
 public class Consumer implements Runnable {
-    private Queue<Integer> queue;
-    private int maxSize;
+    private final Queue<Integer> queue;
+    private final int maxSize;
     public Consumer(Queue<Integer> queue,int maxSize)
     {
      //   super(name);

@@ -1,7 +1,7 @@
 package com.kingshuk.tests.JustPractice;
 
 public class SearchInRotatedArray {
-    static int search(int arr[],int ele,int low,int high)
+    static int search(int[] arr, int ele, int low, int high)
     {
         if(high<low)
             return -1;
@@ -23,9 +23,9 @@ public class SearchInRotatedArray {
 
             return search(arr,ele,low,mid-1);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        int arr[] = {5, 6, 7, 8, 9, 10, 1, 2, 3};
+        int[] arr = {5, 6, 7, 8, 9, 10, 1, 2, 3};
         int ele = 10;
         int low = 0;
         int high = arr.length-1;

@@ -3,7 +3,7 @@ package com.kingshuk.tests.misc;
 public class TestPageAllocationBinarySearch {
     public static void main(String[] args) {
 
-        int arr[] = {10,20,10,30};// pages
+        int[] arr = {10,20,10,30};// pages
         int m = 2; //No. of students
         System.out.println("Minimum number of pages = " +findPages(arr, arr.length, m));
     }

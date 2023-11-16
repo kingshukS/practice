@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class TestAndWriteFrequencyCount {
     public static void main(String[] args) {
-        int arr[] = {2, 3, 2, 3, 5,0,-10,25,11,-1,6};
+        int[] arr = {2, 3, 2, 3, 5,0,-10,25,11,-1,6};
         int N = arr.length;
         int P = 25;
         frequencyCount( arr,  N, P);

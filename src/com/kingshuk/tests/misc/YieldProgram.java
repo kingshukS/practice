@@ -1,6 +1,6 @@
 package com.kingshuk.tests.misc;
 public class YieldProgram {
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Thread t1 = new Producer1();
         Thread t2 = new Consumer1();

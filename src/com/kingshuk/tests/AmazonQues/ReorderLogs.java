@@ -35,10 +35,10 @@ public class ReorderLogs {
         return ans;
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        String logs[] = {"dig1 8 1 5 1","let4 art zero","dig2 3 6","let2 own kit dig","let3 art zero"};
-        String output[] = reorderLogFiles(logs);
+        String[] logs = {"dig1 8 1 5 1","let4 art zero","dig2 3 6","let2 own kit dig","let3 art zero"};
+        String[] output = reorderLogFiles(logs);
         for(int i =0;i<output.length;i++)
         {
             System.out.println(output[i]);

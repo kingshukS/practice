@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CountInversions {
     public static void main(String[] args) {
-        int arr[] = {8, 4, 2, 1};
+        int[] arr = {8, 4, 2, 1};
         int count = findInversionCount(arr);
         System.out.println("Count of Inversions: " + count);
     }

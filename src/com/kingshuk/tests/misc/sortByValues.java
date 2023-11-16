@@ -4,7 +4,7 @@ import java.util.*;
 
 public class sortByValues {
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         HashMap<String,Integer> hm = new HashMap<>();
         hm.put("Math", 98);
