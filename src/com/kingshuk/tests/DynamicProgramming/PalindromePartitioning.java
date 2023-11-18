@@ -1,11 +1,13 @@
 package com.kingshuk.tests.DynamicProgramming;
 
+import java.util.Arrays;
+
 public class PalindromePartitioning {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
         String str = "ababbbabbababa";
         System.out.println("Min cuts needed for "
-                + "Palindrome Partitioning is " + minPalindromicPartitions(str, str.length()));
+                + "Palindrome Partitioning is " + palindromePartitioning(str));
         long endTime = System.nanoTime();
         System.out.println("Duration:" + (endTime - startTime));
     }
@@ -18,22 +20,75 @@ public class PalindromePartitioning {
                     dp[j][i] = true;
             }
         }
-        return minPalindromicPartitionsRecursive( 0, s.length()-1,dp);
+        return palindromicPartitionsRecursive( 0, s.length()-1,dp);
     }
 
-    private static int minPalindromicPartitionsRecursive( int i, int j, boolean[][] dp) {
+    private static int palindromicPartitionsRecursive(int i, int j, boolean[][] dp) {
         if (i >= j || dp[i][j])
             return 0;
         int min = Integer.MAX_VALUE;
         for (int k = i; k < j; k++) {
-            int temp = dp[i][k]? 0 : minPalindromicPartitionsRecursive(i, k, dp);
-            temp += dp[k + 1][j]?0 : minPalindromicPartitionsRecursive(k + 1, j, dp);
+            int temp = dp[i][k]? 0 : palindromicPartitionsRecursive(i, k, dp);
+            temp += dp[k + 1][j]?0 : palindromicPartitionsRecursive(k + 1, j, dp);
             min = Math.min(temp + 1, min);
         }
         return min;
     }
 
-    private static int minPalindromicPartitions(String str, int n) {
+    public static int palindromePartitioning(String str) {
+        int n = str.length();
+        int[] dp = new int[n];
+        Arrays.fill(dp, -1);
+        return f(0, n, str, dp) - 1;
+    }
+
+    private static int f(int ind, int n, String str, int[] dp)
+    {
+        if(ind == n)
+            return 0;
+        if(dp[ind] != -1) return dp[ind];
+
+        int min = Integer.MAX_VALUE;
+        for(int p = ind; p<n; p++)
+        {
+            if(isPalindrome(str, ind, p))
+            {
+                int cost = 1 + f(p+1, n, str, dp);
+                min = Math.min(cost, min);
+            }
+        }
+        return dp[ind]=min;
+    }
+    private static boolean isPalindrome(String s, int l, int r) {
+        if(l>=r)
+            return true;
+        if(s.charAt(l) != s.charAt(r))
+            return false;
+        return isPalindrome(s, l+1, r-1);
+    }
+
+    public static int palindromePartitioningTabulation2(String str) {
+        int n = str.length();
+        int[] dp = new int[n+1];
+        dp[n] = 0;
+
+        for(int ind = n-1; ind>=0; ind--)
+        {
+            int min = Integer.MAX_VALUE;
+            for(int p = ind; p<n; p++)
+            {
+                if(isPalindrome(str, ind, p))
+                {
+                    int cost = 1 + dp[p+1];
+                    min = Math.min(cost, min);
+                }
+            }
+            dp[ind]=min;
+        }
+        return dp[0] - 1;
+    }
+
+    private static int palindromePartitioningTabulation(String str, int l, int r, int n) {
         int[][] t = new int[n][n];
         boolean[][] p = new boolean[n][n];
         for (int i = 0; i < n; i++) {

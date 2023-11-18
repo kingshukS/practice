@@ -73,4 +73,19 @@ public class MatrixChainMultiplication {
         }
         return t[1][n - 1];
     }
+
+    private static int mcm(int[] arr, int n) {
+        int[][] t = new int[n][n];
+
+        for (int i = n-1; i >= 1; i--) {
+            for (int j = i+1; j<n; j++) {
+                int temp = (int)1e9;
+                for (int k = i; k < j; k++) {
+                    temp = Math.min(temp,t[i][k] + t[k + 1][j] + arr[i - 1] * arr[k] * arr[j]);
+                }
+                t[i][j] = temp;
+            }
+        }
+        return t[1][n - 1];
+    }
 }

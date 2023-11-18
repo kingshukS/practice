@@ -7,18 +7,16 @@ public class EvaluateExpressionToTrue {
     static int[][][] dp;
 
     public static void main(String[] args) {
-        String a = "";
-        String b = "";
-        System.out.println(a.equals(b));
         String expr = "T^F&T";
         int countWays = findWays(expr);
         System.out.print("Boolean parenthesize : count of ways = " + countWays);
     }
 
     private static int findWays(String expr) {
+        int n = expr.length();
         int i = 0;
-        int j = expr.length() - 1;
-        dp = new int[j + 2][j + 2][2];
+        int j = n - 1;
+        dp = new int[n][n][2];
         for (int[][] row : dp)
             for (int[] col : row)
                 Arrays.fill(col, -1);
@@ -41,6 +39,8 @@ public class EvaluateExpressionToTrue {
                     return 0;
             }
         }
+
+        if(dp[i][j][isTrue] != -1) return dp[i][j][isTrue];
 
         int ans = 0;
         for (int k = i + 1; k < j; k = k + 2) {
