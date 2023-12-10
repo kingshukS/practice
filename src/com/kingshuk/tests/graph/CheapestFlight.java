@@ -2,7 +2,7 @@ package com.kingshuk.tests.graph;
 
 import java.util.*;
 
-class CheapestFLight {
+class CheapestFlight {
 
     public int CheapestFLight(int n, int[][] flights, int src, int dst, int k) {
         List<List<Pair>> adjList = new ArrayList<>();

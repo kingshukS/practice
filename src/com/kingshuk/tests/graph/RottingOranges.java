@@ -38,7 +38,6 @@ class RottingOranges {
             int jx = tux.y;
             int tx = tux.t;
             time = Math.max(time, tx);
-            grid[ix][jx] = 2;
             for(int[] x : add)
             {
                 int newI = ix + x[0];
@@ -55,7 +54,7 @@ class RottingOranges {
     }
 
     public static void main(String[] args) {
-        int[][] grid = {{0,2}};
+        int[][] grid = {{0,1,2},{0,1,2},{2,1,1}};
         System.out.println(new RottingOranges().orangesRotting(grid));
     }
 }
