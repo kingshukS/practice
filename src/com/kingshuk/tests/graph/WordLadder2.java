@@ -7,10 +7,10 @@ class WordLadder2
     public ArrayList<ArrayList<String>> findSequences(String startWord, String targetWord, String[] wordList)
     {
         ArrayList<ArrayList<String>> ans = new ArrayList<>();
-        Queue<ArrayList<String>> queue = new ArrayDeque<>();
 
         ArrayList<String> startingList = new ArrayList<>();
         startingList.add(startWord);
+        Queue<ArrayList<String>> queue = new ArrayDeque<>();
         queue.add(startingList);
 
         ArrayList<String> deletionList = new ArrayList<>();
@@ -49,7 +49,6 @@ class WordLadder2
                         }
                     }
                 }
-
             }
             if(ans.size() > 0)
                 return ans;

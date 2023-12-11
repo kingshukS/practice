@@ -47,8 +47,8 @@ class WordLadder1
     }
 
     public static void main(String[] args) {
-        String[] wordList = {"geek", "gefk"};
-        String startWord = "geek", targetWord= "gefk";
+        String[] wordList = {"des","der","dfr","dgt","dfs"};
+        String startWord = "der", targetWord= "dfs";
         System.out.println(new WordLadder1().wordLadderLength(startWord, targetWord, wordList));
     }
 }
