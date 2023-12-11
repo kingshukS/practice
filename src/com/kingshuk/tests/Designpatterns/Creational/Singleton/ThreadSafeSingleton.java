@@ -7,7 +7,7 @@ import java.io.Serializable;
  * one without locking and other with locking (inside synchronized) block.
  *
  * Note the local variable "localRef", which seems unnecessary. The effect of this is that in cases where helper is already initialized
- * (i.e., most of the time), the volatile field is only accessed once (due to "return localRef;" instead of "return helper;"),
+ * (i.e., most of the time), the volatile field is only accessed once (due to "return localRef;" instead of "return instance;"),
  * which can improve the method's overall performance by as much as 40 percent.
  */
 public class ThreadSafeSingleton implements Serializable {

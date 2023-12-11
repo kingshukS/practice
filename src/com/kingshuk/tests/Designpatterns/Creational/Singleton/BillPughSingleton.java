@@ -8,7 +8,7 @@ package com.kingshuk.tests.Designpatterns.Creational.Singleton;
  * The "loading" is the process of initialising the inner class (BillPughSingletonHelper).
  *
  * "until they are referenced" means the inner class (BillPughSingletonHelper) is not initialised until the BillPughSingletonHelper.INSTANCE static field
- * is referenced ("used somewhere") in this case.
+ * is referenced in this case.
  *
  * So the call to getInstance() references BillPughSingletonHelper.INSTANCE and starts the initialisation of the BillPughSingletonHelper inner class.
  *

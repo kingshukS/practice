@@ -6,10 +6,10 @@ class ArticulationPoint {
     private int insertionTime = 1;
     public ArrayList<Integer> articulationPoints(int V,ArrayList<ArrayList<Integer>> adj)
     {
-        int[] vis = new int[V];
-        int[] tin = new int[V];
-        int[] low = new int[V];
-        int[] mark = new int[V];
+        int[] vis = new int[V]; // visited array
+        int[] tin = new int[V]; // time of insertion
+        int[] low = new int[V]; // lowest time of insertion
+        int[] mark = new int[V]; // marks articulation point
 
         for(int i = 0; i < V; i++){
             if(vis[i] == 0)

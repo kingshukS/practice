@@ -38,19 +38,10 @@ class SCC
             if(vis[node] == 0)
             {
                 scc++;
-                dsf(node, adjT, vis);
+                dfs(node, adjT, vis, null);
             }
         }
         return scc;
-    }
-
-    private void dsf(int node, ArrayList<ArrayList<Integer>> adjT, int[] vis) {
-        vis[node] = 1;
-        for(int x : adjT.get(node))
-        {
-            if(vis[x] == 0)
-                dsf(x, adjT, vis);
-        }
     }
 
     private void dfs(int node, ArrayList<ArrayList<Integer>> adj, int[] vis, Stack<Integer> stack) {
@@ -60,6 +51,7 @@ class SCC
             if(vis[x] == 0)
                 dfs(x, adj, vis, stack);
         }
-        stack.push(node);
+        if(stack != null)
+            stack.push(node);
     }
 }

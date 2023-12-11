@@ -19,9 +19,10 @@ class Bridges {
             adjList.get(connection.get(1)).add(connection.get(0));
         }
 
-        int[] vis = new int[n];
-        int[] tin = new int[n];
-        int[] low = new int[n];
+        int[] vis = new int[n]; // visited array
+        int[] tin = new int[n]; // time of insertion
+        int[] low = new int[n]; // lowest time of insertion
+
         List<List<Integer>> bridges = new ArrayList<>();
 
         for(int i = 0; i < n; i++){
@@ -30,7 +31,6 @@ class Bridges {
                 dfs(i, -1, vis, adjList, tin, low, bridges);
             }
         }
-
         return bridges;
     }
 

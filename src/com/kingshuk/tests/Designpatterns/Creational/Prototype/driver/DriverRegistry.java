@@ -1,4 +1,4 @@
-package com.kingshuk.tests.Designpatterns.Creational.Prototype;
+package com.kingshuk.tests.Designpatterns.Creational.Prototype.driver;
 
 import com.kingshuk.tests.Designpatterns.Creational.Prototype.model.Shape;
 
