@@ -1,11 +1,7 @@
 package com.kingshuk.tests.Trees;
 
-import com.kingshuk.tests.InorderTraversal.TreeNode;
-
-import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Stack;
 
 public class ZigZagTree2 {
 

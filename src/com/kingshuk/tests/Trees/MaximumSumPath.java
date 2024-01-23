@@ -1,8 +1,6 @@
 package com.kingshuk.tests.Trees;
 
 
-import com.kingshuk.tests.InorderTraversal.TreeNode;
-
 public class MaximumSumPath {
     TreeNode root;
     static private int res;

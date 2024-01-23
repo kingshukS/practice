@@ -1,9 +1,7 @@
 package com.kingshuk.tests.Trees;
 
 
-import com.kingshuk.tests.InorderTraversal.TreeNode;
-
-public class rootToLeaf {
+public class RootToLeafSum {
 
     static boolean isRootToLeafPath(TreeNode node, int sum)
     {
@@ -23,7 +21,6 @@ public class rootToLeaf {
         root.left.left = new TreeNode(3);
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(2);
-       // root.right.right = new Node(7);
         int sum = 21;
        System.out.println("Whether sum is possible : "+isRootToLeafPath(root,sum));
     }

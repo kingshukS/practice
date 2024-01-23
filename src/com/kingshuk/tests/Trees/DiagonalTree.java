@@ -1,7 +1,5 @@
 package com.kingshuk.tests.Trees;
 
-import com.kingshuk.tests.InorderTraversal.TreeNode;
-
 import java.util.*;
 
 public class DiagonalTree {

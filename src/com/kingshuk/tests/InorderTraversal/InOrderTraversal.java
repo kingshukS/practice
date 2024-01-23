@@ -1,5 +1,7 @@
 package com.kingshuk.tests.InorderTraversal;
 
+import com.kingshuk.tests.Trees.TreeNode;
+
 public class InOrderTraversal {
     static TreeNode rootNode;
     public InOrderTraversal()

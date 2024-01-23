@@ -1,7 +1,5 @@
 package com.kingshuk.tests.Trees;
 
-import com.kingshuk.tests.InorderTraversal.TreeNode;
-
 public class SubbtreeSum {
 
     static int isSubtreeSum(TreeNode node)

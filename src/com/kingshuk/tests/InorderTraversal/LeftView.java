@@ -1,8 +1,9 @@
 package com.kingshuk.tests.InorderTraversal;
 
+import com.kingshuk.tests.Trees.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class LeftView {
 

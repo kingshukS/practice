@@ -1,6 +1,6 @@
 package com.kingshuk.tests.JustPractice;
 
-import com.kingshuk.tests.InorderTraversal.TreeNode;
+import com.kingshuk.tests.Trees.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

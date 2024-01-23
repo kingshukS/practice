@@ -1,4 +1,4 @@
-package com.kingshuk.tests.InorderTraversal;
+package com.kingshuk.tests.Trees;
 
 public class TreeNode {
     public int data;
