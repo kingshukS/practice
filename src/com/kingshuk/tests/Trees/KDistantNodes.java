@@ -10,7 +10,6 @@ public class KDistantNodes {
 
         if (k == 0) {
             System.out.println(root.data);
-            System.out.println(" ");
             return;
         }
 
@@ -33,7 +32,6 @@ public class KDistantNodes {
         if (dl != -1) {
             if (dl + 1 == k) {
                 System.out.println(root.data);
-                System.out.println(" ");
             } else {
                 printKDistanceNodeDown(root.right, k - dl - 2);
             }
