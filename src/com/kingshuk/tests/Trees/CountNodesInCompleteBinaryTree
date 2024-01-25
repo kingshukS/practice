@@ -1,3 +1,5 @@
+package com.kingshuk.tests.Trees;
+
 public class CountNodesInCompleteBinaryTree{
   public int countNodes(TreeNode root) {
         if(root == null) return 0;
