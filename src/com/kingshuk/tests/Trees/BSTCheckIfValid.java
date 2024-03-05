@@ -1,11 +1,9 @@
 package com.kingshuk.tests.Trees;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Stack;
 
-public class CheckIfBST {
+public class BSTCheckIfValid {
 
     static boolean checkForBST(NodeT root) {
         if (root == null) {
