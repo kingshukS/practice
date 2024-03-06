@@ -2,6 +2,8 @@ package com.kingshuk.tests.Trees;
 
 public class BSTTwoSum {
     public boolean findTarget(TreeNode root, int k) {
+        if(root == null) return false;
+
         BSTIteratorReverseSupport left = new BSTIteratorReverseSupport(root, false);
         BSTIteratorReverseSupport right = new BSTIteratorReverseSupport(root, true);
 
