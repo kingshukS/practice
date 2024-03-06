@@ -3,13 +3,15 @@ package com.kingshuk.tests.recursion;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 // time complexity: O(2^n)
 public class PrintAllSubsets {
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 3};
         List<List<Integer>> result = findAllSubsets(arr, true);
-        System.out.println(result);
+        //System.out.println(result);
+        printSubsequences("abc");
     }
 
     private static List<List<Integer>> findAllSubsets(int[] arr, boolean byBit) {
@@ -57,5 +59,40 @@ public class PrintAllSubsets {
         findAllSubsets(arr, index + 1, length, tempList, result);
         tempList.remove(tempList.size() - 1);
         findAllSubsets(arr, index + 1, length, tempList, result);
+    }
+
+    public static void printSubsequences(String input) {
+		int index =0;
+		List<Character> list = new ArrayList<>();
+		//printSubsequences(index,input, list);
+        printSub(input.toCharArray(), input.length());
+	}
+
+	private static void printSubsequences(int index, String input, List<Character> tempList)
+	{
+		if(index == input.length())
+		{
+			System.out.println(tempList.stream().map(String::valueOf).collect(Collectors.joining()));
+			return;
+		}
+        tempList.add(input.charAt(index));
+        printSubsequences(index+1, input, tempList);
+        tempList.remove(tempList.size()-1);
+        printSubsequences(index+1, input, tempList);
+	}
+
+    private static void printSub(char[] chars, int n)
+    {
+        for (int i = 0; i < (1<<n); i++) {
+            StringBuilder sb = new StringBuilder();
+            for(int j = 0; j < n; j++)
+            {
+                if((i & (1<<j)) != 0)
+                {
+                    sb.append(chars[j]);
+                }
+            }
+            System.out.println(sb);
+        }
     }
 }
