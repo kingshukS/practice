@@ -1,4 +1,4 @@
-class Solution {
+class RatInMaze {
     private static final String[] DIRECTION_STRING= {"D", "L", "R", "U"};
     private static final int[][] DIRECTIONS = {{1,0}, {0,-1}, {0,1}, {-1,0}};
     public static ArrayList<String> findPath(int[][] m, int n) {
