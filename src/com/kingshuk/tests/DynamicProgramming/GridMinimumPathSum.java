@@ -1,28 +1,28 @@
 package com.kingshuk.tests.DynamicProgramming;
 
-public class MinimumPathSumInGrid {
-    private static int minSumPathUtil(int i, int j, int[][] grid)
+public class GridMinimumPathSum {
+    private static int minSumPathUtilRecursion(int i, int j, int[][] grid)
     {
         if(i == 0 && j == 0)
             return grid[i][j];
         if(i<0 || j<0)
             return (int)1e9;
         
-        int up = grid[i][j] + minSumPathUtil(i-1, j, grid);
-        int left = grid[i][j] + minSumPathUtil(i, j-1, grid);
+        int up = grid[i][j] + minSumPathUtilRecursion(i-1, j, grid);
+        int left = grid[i][j] + minSumPathUtilRecursion(i, j-1, grid);
 
         return Math.min(up, left);
     }
 
-    // public static int minSumPath(int[][] grid) {
-    //     int n = grid.length;
-    //     int m = grid[0].length;
-    //     int[][] dp = new int[n][m];
-    //     for(int i = 0; i<n; i++)
-    //         for(int j = 0; j<m; j++)
-    //             dp[i][j] = -1;
-    // 	return minSumPathUtil(n-1, m-1, grid, dp);
-    // }
+     public static int minSumPathMemoization(int[][] grid) {
+         int n = grid.length;
+         int m = grid[0].length;
+         int[][] dp = new int[n][m];
+         for(int i = 0; i<n; i++)
+             for(int j = 0; j<m; j++)
+                 dp[i][j] = -1;
+     	return minSumPathUtil(n-1, m-1, grid, dp);
+     }
 
     private static int minSumPathUtil(int i, int j, int[][] grid, int[][] dp)
     {
@@ -37,33 +37,33 @@ public class MinimumPathSumInGrid {
         return dp[i][j] = Math.min(up, left);
     }
 
-    // public static int minSumPath(int[][] grid)
-    // {
-    //     int n = grid.length;
-    //     int m = grid[0].length;
-    //     int[][] dp = new int[n][m];
+     public static int minSumPathTabulation(int[][] grid)
+     {
+         int n = grid.length;
+         int m = grid[0].length;
+         int[][] dp = new int[n][m];
 
-    //     for(int i = 0; i<n; i++)
-    //     {
-    //         for(int j = 0; j<m; j++)
-    //         {
-    //             if(i == 0 && j == 0) dp[i][j] = grid[i][j];
-    //             else{
-    //                 int up = grid[i][j];
-    //                 int left = grid[i][j];
+         for(int i = 0; i<n; i++)
+         {
+             for(int j = 0; j<m; j++)
+             {
+                 if(i == 0 && j == 0) dp[i][j] = grid[i][j];
+                 else{
+                     int up = grid[i][j];
+                     int left = grid[i][j];
 
-    //                 if(i==0) up = (int)1e9;
-    //                 else up+=dp[i-1][j];
+                     if(i==0) up = (int)1e9;
+                     else up+=dp[i-1][j];
 
-    //                 if(j==0)left = (int)1e9;
-    //                 else left+= dp[i][j-1];
+                     if(j==0)left = (int)1e9;
+                     else left+= dp[i][j-1];
 
-    //                 dp[i][j] = Math.min(up, left);
-    //             }
-    //         }
-    //     }
-    //     return dp[n-1][m-1];
-    // }
+                     dp[i][j] = Math.min(up, left);
+                 }
+             }
+         }
+         return dp[n-1][m-1];
+     }
 
     public static int minSumPath(int[][] grid)
     {

@@ -1,4 +1,4 @@
-package com.kingshuk.tests.DynamicProgramming;
+package com.kingshuk.tests.AmazonQues;
 
 import java.util.Arrays;
 import java.util.HashSet;

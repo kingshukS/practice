@@ -1,14 +1,13 @@
 package com.kingshuk.tests.DynamicProgramming;
 
-public class MinimumPathSumTriangle {
+import java.util.Arrays;
+
+public class GridMinimumPathSumTriangle {
      public static int minimumPathSumTriangle(int[][] triangle, int n) {
          int[][] dp = new int[n][n];
          for(int i = 0; i<n; i++)
          {
-             for(int j = 0; j<n; j++)
-             {
-                 dp[i][j] = -1;
-             }
+             Arrays.fill(dp[i], -1);
          }
          return minimumPathSumTriangleUtilMemoized(0,0, triangle, n, dp);
      }
@@ -30,6 +29,7 @@ public class MinimumPathSumTriangle {
      {
          int[][] dp = new int[n][n];
 
+         // Copying the last row to dp array
          System.arraycopy(triangle[n - 1], 0, dp[n - 1], 0, n);
         
          for(int i = n-2; i>= 0; i--)

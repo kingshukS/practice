@@ -1,37 +1,39 @@
 package com.kingshuk.tests.DynamicProgramming;
 
+import java.util.Arrays;
+
 public class FrogJump {
     public static int frogJump(int n, int[] heights) {
 
         int[] dp = new int[n];
-         /*
         Arrays.fill(dp, -1);
-        frogJumpUtil2(n-1, heights, dp);
-        frogJumpUtil(n-1, heights, dp);
-        */
-        //return frogJumpUtil3(n-1, heights);
-        return frogJumpUtil(n-1, heights, dp, 2);
+        System.out.println(frogJumpUtil2(n-1, heights, dp));
+        System.out.println(frogJumpUtil(n-1, heights, dp));
+        System.out.println(frogJumpUtil3(n-1, heights));
+        return frogJumpUtilWithKJumps(n-1, heights, dp, 2);
     }
 
-    public static int frogJumpUtil(int n, int[] heights, int[] dp) {
+    // Memoization
+    public static int frogJumpUtil(int index, int[] heights, int[] dp) {
 
-        if(n == 0)
+        if(index == 0)
             return 0;
         
-        int x = dp[n-1] != -1? dp[n-1] : frogJumpUtil(n-1, heights, dp);
-        int step1 =  x + Math.abs(heights[n] - heights[n-1]);
+        int x = dp[index-1] != -1? dp[index-1] : frogJumpUtil(index-1, heights, dp);
+        int step1 =  x + Math.abs(heights[index] - heights[index-1]);
         int step2 = Integer.MAX_VALUE;
-        if(n >= 2)
+        if(index >= 2)
         {
-            int y = (dp[n-2] != -1? dp[n-2] : frogJumpUtil(n-2, heights, dp));
-            step2 =  y + Math.abs(heights[n] - heights[n-2]);
+            int y = (dp[index-2] != -1? dp[index-2] : frogJumpUtil(index-2, heights, dp));
+            step2 =  y + Math.abs(heights[index] - heights[index-2]);
         }
-        return dp[n]=Math.min(step1, step2);
+        return dp[index]=Math.min(step1, step2);
     }
 
-    public static int frogJumpUtil2(int n, int[] heights, int[] dp) {
+    // Tabulation
+    public static int frogJumpUtil2(int index, int[] heights, int[] dp) {
 
-        for(int i = 0; i<=n; i++)
+        for(int i = 0; i<=index; i++)
         {
             if(i == 0)
             {
@@ -41,16 +43,15 @@ public class FrogJump {
                 dp[i] = Math.abs(heights[1] - heights[0]);
             }else{
                 int step1 = Math.abs(heights[i] - heights[i-1]) + dp[i-1];
-                int step2 = Integer.MAX_VALUE;
-                if(i>1)
-                    step2 = Math.abs(heights[i] - heights[i-2]) + dp[i-2];
+                int step2 = Math.abs(heights[i] - heights[i-2]) + dp[i-2];
                 dp[i] = Math.min(step1, step2);
             }
         }
-        return dp[n];
+        return dp[index];
     }
 
-    public static int frogJumpUtil(int n, int[] heights, int[] dp, int k) {
+    // With K jumps allowed
+    public static int frogJumpUtilWithKJumps(int n, int[] heights, int[] dp, int k) {
 
         for(int i = 0; i<=n; i++)
         {
@@ -68,6 +69,7 @@ public class FrogJump {
         return dp[n];
     }
 
+    // Tabulation Optimized
     public static int frogJumpUtil3(int n, int[] heights) {
         int prev2 = 0;
         int prev = Math.abs(heights[1] - heights[0]);

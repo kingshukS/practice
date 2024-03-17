@@ -13,35 +13,36 @@ public class GridUniquePathMaze {
         if (i < 0 || j < 0)
             return 0;
 
-
         int up = mazeObstaclesUtil(i - 1, j, mat);
         int left = mazeObstaclesUtil(i, j - 1, mat);
 
         return up + left;
     }
 
-    /*public static int mazeObstacles(int m, int n) {
-        // Write your code here.
+    public static int mazeObstaclesMemoization(int m, int n, ArrayList<ArrayList<Integer>> mat) {
         int[][] dp = new int[m][n];
         for(int i = 0; i<m; i++)
             for(int j = 0; j<n; j++)
                 dp[i][j] = -1;
-        return mazeObstaclesUtil(m-1, n-1, dp);
-    }*/
+        return mazeObstaclesUtil(m-1, n-1, dp, mat);
+    }
 
-    private static int mazeObstaclesUtil(int i, int j, int[][] dp) {
+    private static int mazeObstaclesUtil(int i, int j, int[][] dp,  ArrayList<ArrayList<Integer>> mat) {
+        if (i >= 0 && j >= 0 && mat.get(i).get(j) == -1)
+            return 0;
         if (i == 0 && j == 0)
             return 1;
         if (i < 0 || j < 0)
             return 0;
+
         if (dp[i][j] != -1) return dp[i][j];
-        int up = mazeObstaclesUtil(i - 1, j, dp);
-        int left = mazeObstaclesUtil(i, j - 1, dp);
+        int up = mazeObstaclesUtil(i - 1, j, dp, mat);
+        int left = mazeObstaclesUtil(i, j - 1, dp, mat);
 
         return dp[i][j] = (up + left) % mod;
     }
 
-    public static int mazeObstacles(int n, int m, ArrayList<ArrayList<Integer>> mat) {
+    public static int mazeObstaclesTab(int n, int m, ArrayList<ArrayList<Integer>> mat) {
         int[][] dp = new int[n][m];
 
         for (int i = 0; i < n; i++) {
@@ -51,7 +52,6 @@ public class GridUniquePathMaze {
                 else {
                     int up = i > 0 ? dp[i - 1][j] : 0;
                     int left = j > 0 ? dp[i][j - 1] : 0;
-
                     dp[i][j] = (up + left) % mod;
                 }
             }

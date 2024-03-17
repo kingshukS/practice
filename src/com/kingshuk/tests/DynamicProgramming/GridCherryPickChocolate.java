@@ -2,7 +2,7 @@ package com.kingshuk.tests.DynamicProgramming;
 
 import java.util.*;
 
-class CherryPick {
+class GridCherryPickChocolate {
   // Function to find the maximum number of chocolates using dynamic programming
   static int maxChocoUtil(int i, int j1, int j2, int n, int m, int[][] grid,
                           int[][][] dp) {

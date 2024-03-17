@@ -1,6 +1,6 @@
 package com.kingshuk.tests.DynamicProgramming;
 
-public class MaxSumFallingPath {
+public class GridMaxSumFallingPath {
 	public static int getMaxPathSum(int[][] matrix) {
 		int n = matrix.length;
 		int m = matrix[n-1].length;
