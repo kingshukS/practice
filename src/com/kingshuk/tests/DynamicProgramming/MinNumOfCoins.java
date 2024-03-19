@@ -38,7 +38,7 @@ public class MinNumOfCoins {
         int[][] dp = new int[num.length][x+1];
         for(int[] dpi : dp)
             Arrays.fill(dpi, -1);
-        int y = coinChangeTabulationSpaceOptimized(num, x, num.length);
+        int y = coinChangeTabulationSpaceOptimized(num, x);
         if(y == (int)1e9)
             return -1;
         return y;
@@ -64,7 +64,7 @@ public class MinNumOfCoins {
         return dp[index][target]=Math.min(take, notTake);
     }
 
-    private static int coinChangeTabulation(int[] num, int target, int index)
+    private static int coinChangeTabulation(int[] num, int target)
     {
         int n = num.length;
         int[][] dp = new int[n][target+1];
@@ -92,7 +92,7 @@ public class MinNumOfCoins {
         return dp[n-1][target];
     }
 
-    private static int coinChangeTabulationSpaceOptimized(int[] num, int target, int index)
+    private static int coinChangeTabulationSpaceOptimized(int[] num, int target)
     {
         int n = num.length;
         int[] prev = new int[target+1];
@@ -126,6 +126,6 @@ public class MinNumOfCoins {
         int[] coins = {1, 3, 5};
         int n = coins.length;
         int sum = 19;
-        System.out.println("the min number of coins req is :" + minNumCoins(coins, n, sum));
+        System.out.println("the min number of coins req is :" + coinChangeTabulation(coins, sum));
     }
 }

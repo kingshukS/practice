@@ -33,11 +33,33 @@ public class LongestCommonSubstring {
         return result;
     }
 
+    // Space Optimized
+    static int longestCommonSubstringLengthSO(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+
+        int[] prev = new int[m + 1];
+        int[] cur = new int[m+1];
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    cur[j] = 1 + prev[j - 1];
+                    result = Math.max(result, cur[j]);
+                } else {
+                    cur[j] = 0;
+                }
+            }
+            prev = cur.clone ();
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         String s1 = "ABCDGHIJK";
         String s2 = "ABDFHRIJK";
         int m = s1.length();
         int n = s2.length();
-        System.out.println("the longest length of substring is : " + longestCommonSubstringLength(s1, s2, m, n));
+        System.out.println("the longest length of substring is : " + longestCommonSubstringLengthSO(s1, s2));
     }
 }

@@ -42,7 +42,8 @@ public class GridUniquePathMaze {
         return dp[i][j] = (up + left) % mod;
     }
 
-    public static int mazeObstaclesTab(int n, int m, ArrayList<ArrayList<Integer>> mat) {
+    // Tabulation
+    public static int mazeObstaclesTabulation(int n, int m, ArrayList<ArrayList<Integer>> mat) {
         int[][] dp = new int[n][m];
 
         for (int i = 0; i < n; i++) {
@@ -59,7 +60,8 @@ public class GridUniquePathMaze {
         return dp[n - 1][m - 1];
     }
 
-    public static int mazeObstacles2(int n, int m, ArrayList<ArrayList<Integer>> mat) {
+    // Space Optimized
+    public static int mazeObstaclesSO(int n, int m, ArrayList<ArrayList<Integer>> mat) {
         int[] prev = new int[m];
 
         for (int i = 0; i < n; i++) {

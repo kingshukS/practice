@@ -34,7 +34,7 @@ public class Knapsack01 {
         for (int[] x : dp) {
             Arrays.fill(x, -1);
         }
-        return knapsackTabulation(weight, value, n, maxWeight);
+        return knapsackRecursive(weight, value, n-1, maxWeight, dp);
     }
 
     static int knapsackRecursive(int[] weight, int[] value, int index, int W, int[][] dp) {

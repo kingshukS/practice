@@ -45,7 +45,8 @@ public class GridMinimumPathSumTriangle {
          return dp[0][0];
      }
 
-    public static int minimumPathSumTriangleSpaceOptimized(int[][] triangle, int n)
+     // Space Optimized
+    public static int minimumPathSumTriangleSO(int[][] triangle, int n)
     {
         int[] next = new int[n];
 

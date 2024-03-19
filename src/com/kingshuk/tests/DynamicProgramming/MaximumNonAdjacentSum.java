@@ -45,7 +45,7 @@ public class MaximumNonAdjacentSum {
 	}
 
 	// Tabulation Space Optimized
-	public static int maximumNonAdjacentSumTabulationSpaceOptimized(ArrayList<Integer> nums)
+	public static int maximumNonAdjacentSumTabulationSO ( ArrayList<Integer> nums)
 	{
 		int n = nums.size();
 		int prev = nums.get(0);
@@ -70,6 +70,6 @@ public class MaximumNonAdjacentSum {
 		//list.add(9);
 		System.out.println(maximumNonAdjacentSumTabulation(list));
 		System.out.println(maximumNonAdjacentSum(list));
-		System.out.println(maximumNonAdjacentSumTabulationSpaceOptimized(list));
+		System.out.println( maximumNonAdjacentSumTabulationSO (list));
 	}
 }

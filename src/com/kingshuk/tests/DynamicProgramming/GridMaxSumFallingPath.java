@@ -1,5 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
+import java.util.Arrays;
+
 public class GridMaxSumFallingPath {
 	public static int getMaxPathSum(int[][] matrix) {
 		int n = matrix.length;
@@ -31,8 +33,7 @@ public class GridMaxSumFallingPath {
 		{
 			for(int j = 0; j<m; j++)
 			{
-				int max = Integer.MIN_VALUE;
-				max = Math.max(max, matrix[i][j]+dp[i-1][j]);
+				int max = matrix[i][j]+dp[i-1][j];
 				if(j!=0)
 					max = Math.max(max, matrix[i][j] + dp[i-1][j-1]);
 				if(j!=m-1)
@@ -62,8 +63,7 @@ public class GridMaxSumFallingPath {
 			int[] temp = new int[m];
 			for(int j = 0; j<m; j++)
 			{
-				int max = Integer.MIN_VALUE;
-				max = Math.max(max, matrix[i][j]+dp[j]);
+				int max = matrix[i][j]+dp[j];
 				if(j!=0)
 					max = Math.max(max, matrix[i][j] + dp[j-1]);
 				if(j!=m-1)
@@ -84,10 +84,7 @@ public class GridMaxSumFallingPath {
 	{
 		for(int i = 0; i<n; i++)
 		{
-			for(int j = 0; j<m; j++)
-			{
-				dp[i][j] = -1;
-			}
+			Arrays.fill ( dp[i], -1);
 		}
 	}
 

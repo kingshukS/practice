@@ -41,8 +41,9 @@ public class CountGivenDiffSubset {
         {
             sum = sum+arr[i];
         }
-        sumCount = (sum + diff)/2;
-        int ans = subsetCount(arr,n,sumCount);
+        int x = (sum + diff);
+		if(x < 0 || x%2 == 1) return 0;
+        int ans = subsetCount(arr,n,x/2);
         return ans;
     }
 

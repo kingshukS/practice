@@ -1,5 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
+import java.util.Arrays;
+
 public class GridMinimumPathSum {
     private static int minSumPathUtilRecursion(int i, int j, int[][] grid)
     {
@@ -19,8 +21,7 @@ public class GridMinimumPathSum {
          int m = grid[0].length;
          int[][] dp = new int[n][m];
          for(int i = 0; i<n; i++)
-             for(int j = 0; j<m; j++)
-                 dp[i][j] = -1;
+             Arrays.fill (dp[i], -1);
      	return minSumPathUtil(n-1, m-1, grid, dp);
      }
 

@@ -2,7 +2,7 @@ package com.kingshuk.tests.DynamicProgramming;
 
 import java.util.ArrayList;
 
-import static com.kingshuk.tests.DynamicProgramming.MaximumNonAdjacentSum.maximumNonAdjacentSumTabulationSpaceOptimized;
+import static com.kingshuk.tests.DynamicProgramming.MaximumNonAdjacentSum.maximumNonAdjacentSumTabulationSO;
 
 public class HouseRobber {
 	public static long houseRobber(int[] valueInHouse) {
@@ -14,7 +14,7 @@ public class HouseRobber {
 			if(i != 0) list2.add(valueInHouse[i]);
 			if(i != n-1) list1.add(valueInHouse[i]);
 		}
-		return Math.max(maximumNonAdjacentSumTabulationSpaceOptimized(list1),
-				maximumNonAdjacentSumTabulationSpaceOptimized(list2));
+		return Math.max( maximumNonAdjacentSumTabulationSO (list1),
+				maximumNonAdjacentSumTabulationSO (list2));
 	}	
 }

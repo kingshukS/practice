@@ -1,27 +1,26 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 public class GridUniquePath {
-    private static int gridUniquePathUtil(int i, int j)
+    private static int gridUniquePathUtil(int row, int col)
     {
-        if(i == 0 && j == 0)
+        if(row == 0 && col == 0)
             return 1;
-        if(i<0 || j<0)
+        if(row<0 || col<0)
             return 0;
         
-        int up = gridUniquePathUtil(i-1, j);
-        int left = gridUniquePathUtil(i, j-1);
+        int up = gridUniquePathUtil(row-1, col);
+        int left = gridUniquePathUtil(row, col-1);
 
         return Math.min(up, left);
     }
 
-    /*public static int uniquePaths(int m, int n) {
-        // Write your code here.
+    public static int uniquePathsMemoization(int m, int n) {
         int[][] dp = new int[m][n];
         for(int i = 0; i<m; i++)
             for(int j = 0; j<n; j++)
                 dp[i][j] = -1;
         return gridUniquePathUtil(m-1, n-1, dp);
-    }*/
+    }
 
     private static int gridUniquePathUtil(int i, int j, int[][] dp)
     {
@@ -36,6 +35,7 @@ public class GridUniquePath {
         return dp[i][j] = up+left;
     }
 
+    // Tabulation
      public static int uniquePaths(int m, int n)
      {
          int[][] dp = new int[m][n];
@@ -55,7 +55,7 @@ public class GridUniquePath {
          return dp[m-1][n-1];
      }
 
-    public static int uniquePaths2(int m, int n)
+    public static int uniquePathsSpaceOptimized(int m, int n)
     {
         int[] prev = new int[n];
 
