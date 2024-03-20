@@ -4,13 +4,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// unlimited transactions
+// unlimited transactions, once bought, it must be sold first before another buy
 public class StockBuySell2 {
     public static long getMaximumProfit(int n, long[] price) {
         long[][] dp = new long[n][2];
         for (long[] dpi : dp)
             Arrays.fill(dpi, -1L);
         return f(0, 1, n, price, dp);
+    }
+
+    private static long f(int index, int canBuy, int n, long[] price, long[][] dp) {
+        if (index == n)
+            return 0L;
+
+        if (dp[index][canBuy] != -1L) return dp[index][canBuy];
+        long profit = 0L;
+        if (canBuy == 1) {
+            profit = Math.max(-price[index] + f(index + 1, 0, n, price, dp), f(index + 1, 1, n, price, dp));
+        } else {
+            profit = Math.max(price[index] + f(index + 1, 1, n, price, dp), f(index + 1, 0, n, price, dp));
+        }
+        return dp[index][canBuy] = profit;
     }
 
     public static long getMaximumProfitTabulation(int n, long[] price) {
@@ -52,32 +66,18 @@ public class StockBuySell2 {
         return next[1];
     }
 
-    public static long getMaximumProfitSpaceOptimization2(int n, long[] price) {
-        long aheadBuy = 0L, aheadNotBuy = 0L;
+    public static long getMaximumProfitSpaceOptimizationMax(int n, long[] price) {
+        long nextBuy = 0L, nextNotBuy = 0L;
         long curBuy, curNotBuy;
 
         for (int index = n - 1; index >= 0; index--)
         {
-            curBuy = Math.max(-price[index] + aheadNotBuy, aheadBuy);
-            curNotBuy = Math.max(price[index] + aheadBuy, aheadNotBuy);
-            aheadNotBuy = curNotBuy;
-            aheadBuy = curBuy;
+            curBuy = Math.max(-price[index] + nextNotBuy, nextBuy);
+            curNotBuy = Math.max(price[index] + nextBuy, nextNotBuy);
+            nextNotBuy = curNotBuy;
+            nextBuy = curBuy;
         }
-        return aheadBuy;
-    }
-
-    private static long f(int index, int buy, int n, long[] price, long[][] dp) {
-        if (index == n)
-            return 0L;
-
-        if (dp[index][buy] != -1L) return dp[index][buy];
-        long profit = 0L;
-        if (buy == 1) {
-            profit = Math.max(-price[index] + f(index + 1, 0, n, price, dp), f(index + 1, 1, n, price, dp));
-        } else {
-            profit = Math.max(price[index] + f(index + 1, 1, n, price, dp), f(index + 1, 0, n, price, dp));
-        }
-        return dp[index][buy] = profit;
+        return nextBuy;
     }
 
     private static void findMaxProfitForMultipleTxns(int[] price, int n) {

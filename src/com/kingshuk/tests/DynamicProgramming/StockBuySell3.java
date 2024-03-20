@@ -64,10 +64,11 @@ public class StockBuySell3 {
     public static int maxProfitTxnSpaceOptimization(int[] prices) {
         int n = prices.length;
         int[] next = new int[5];
-        int[] cur = new int[5];
+        int[] cur;
 
         for(int index = n-1; index>=0; index-- )
         {
+            cur = new int[5];
             for(int txn = 3; txn>=0; txn--)
             {
                 int profit;
@@ -163,7 +164,7 @@ public class StockBuySell3 {
 
     public static int maxProfitSpaceOptimization(int[] prices) {
         int n = prices.length;
-        int[][] after = new int[2][3];
+        int[][] next = new int[2][3];
         int[][] cur = new int[2][3];
 
         for(int index=n-1; index>=0; index--)
@@ -175,15 +176,15 @@ public class StockBuySell3 {
                     int profit = 0;
                     if(buy == 1)
                     {
-                        profit = Math.max(-prices[index] + after[0] [cap], after[1] [cap]);
+                        profit = Math.max(-prices[index] + next[0] [cap], next[1] [cap]);
                     }else{
-                        profit = Math.max(prices[index] + after[1] [cap-1], after[0] [cap]);
+                        profit = Math.max(prices[index] + next[1] [cap-1], next[0] [cap]);
                     }
                     cur[buy][cap]=profit;
                 }
             }
-            after = cur;
+            next = cur;
         }
-        return after[1][2];
+        return next[1][2];
     }
 }

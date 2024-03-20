@@ -27,6 +27,7 @@ public class PrintSCS {
         int scsLength = m + n - t[m][n];
         int index = scsLength - 1;
         char[] scs = new char[scsLength];
+        // index doesn't end or becomes -1 when any of i or j becomes 0, can have the remaining part of s1 or s2
         while (i != 0 && j != 0) {
             if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
                 scs[index--]= s1.charAt(i - 1);

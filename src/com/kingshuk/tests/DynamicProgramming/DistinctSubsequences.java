@@ -12,22 +12,22 @@ class DistinctSubsequences {
         return f(n, m, s, t, dp);
     }
 
-    private int f(int index1, int index2, String s, String t, int[][] dp)
+    private int f(int ptr1, int ptr2, String s, String t, int[][] dp)
     {
-        if(index2==0)
+        if(ptr2==0)
             return 1;
 
-        if(index1==0)
+        if(ptr1==0)
             return 0;
         
-        if(dp[index1][index2] != -1) return dp[index1][index2];
+        if(dp[ptr1][ptr2] != -1) return dp[ptr1][ptr2];
 
-        if(s.charAt(index1-1) == t.charAt(index2-1))
+        if(s.charAt(ptr1-1) == t.charAt(ptr2-1))
         {
-            return dp[index1][index2]=f(index1-1, index2-1, s, t, dp) + f(index1-1, index2, s, t, dp);
+            return dp[ptr1][ptr2]=f(ptr1-1, ptr2-1, s, t, dp) + f(ptr1-1, ptr2, s, t, dp);
         }
         else
-            return dp[index1][index2]=f(index1-1, index2, s, t, dp);
+            return dp[ptr1][ptr2]=f(ptr1-1, ptr2, s, t, dp);
     }
 
     public int numDistinctTabulation(String s, String t) {
@@ -69,6 +69,7 @@ class DistinctSubsequences {
                 {
                     dp[j]=dp[j-1] + dp[j];
                 }
+                // else no need to override the value stored in dp[j] (already computed){dp[j] = dp[j] -> useless}
             }
         }
 

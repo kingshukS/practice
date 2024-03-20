@@ -8,30 +8,30 @@ import java.util.Arrays;
  * Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times)
  * with the following restrictions:
  *
- * After you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).
+ * After you sell your stock, you cannot buy stock on the next day (i.e., cool-down one day).
  * Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
  */
 public class StockBuySell5 {
     public static int stockProfit(int[] price) {
         int n = price.length;
-       int[][] dp = new int[n][2];
+        int[][] dp = new int[n][2];
         for (int[] dpi : dp)
             Arrays.fill(dpi, -1);
         return f(0, 1, n, price, dp);
     }
 
-    private static int f(int index, int buy, int n, int[] price, int[][] dp) {
+    private static int f(int index, int canBuy, int n, int[] price, int[][] dp) {
         if (index >= n)
             return 0;
 
-        if (dp[index][buy] != -1) return dp[index][buy];
+        if (dp[index][canBuy] != -1) return dp[index][canBuy];
         int profit = 0;
-        if (buy == 1) {
+        if (canBuy == 1) {
             profit = Math.max(-price[index] + f(index + 1, 0, n, price, dp), f(index + 1, 1, n, price, dp));
         } else {
             profit = Math.max(price[index] + f(index + 2, 1, n, price, dp), f(index + 1, 0, n, price, dp));
         }
-        return dp[index][buy] = profit;
+        return dp[index][canBuy] = profit;
     }
 
     public static int stockProfitTabulation(int[] price) {

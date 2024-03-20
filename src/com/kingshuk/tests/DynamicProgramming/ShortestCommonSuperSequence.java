@@ -4,21 +4,23 @@ public class ShortestCommonSuperSequence {
 
     static int shortestCommonSuperSequence(char[] s1,char[] s2,int n ,int m)
     {
-       int[][] t = new int[n+1][m+1];
+       int[] t = new int[m+1];
        int totalLen = n+m;
 
         for(int i = 1;i<=n;i++) {
+            int[] cur = new int[m+1];
             for (int j = 1; j <= m; j++) {
                 if(s1[i-1] == s2[j-1])
                 {
-                    t[i][j] = 1 + t[i-1][j-1];
+                    cur[j] = 1 + t[j-1];
                 }
                 else
-                    t[i][j] = Math.max(t[i-1][j] , t[i][j-1]);
+                    cur[j] = Math.max(t[j] , cur[j-1]);
             }
+            t = cur;
         }
 
-        return totalLen - t[n][m];
+        return totalLen - t[m];
     }
 
     public static void main(String[] args)

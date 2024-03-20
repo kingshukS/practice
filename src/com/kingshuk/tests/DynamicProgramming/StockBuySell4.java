@@ -7,9 +7,10 @@ public class StockBuySell4 {
     public static int maximumProfit(int[] prices, int n, int k) {
         // 2*k states of txns => 0 to 2 * k - 1 =  : B(0)  S(1)   B(2)   S(3) ....
         int[] next = new int[2 * k + 1];
-        int[] cur = new int[2 * k + 1];
+        int[] cur;
 
         for (int index = n - 1; index >= 0; index--) {
+            cur = new int[2 * k + 1];
             for (int txn = 2 * k - 1; txn >= 0; txn--) {
                 int profit;
                 if (txn % 2 == 0) {

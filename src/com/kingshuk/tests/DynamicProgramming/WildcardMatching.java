@@ -8,12 +8,10 @@ public class WildcardMatching {
         while (sIdx < s.length()) {
             if (pIdx < p.length() && (p.charAt(pIdx) == '?' || p.charAt(pIdx) == s.charAt(sIdx))) {
                 // chars match
-
                 ++sIdx;
                 ++pIdx;
             } else if (pIdx < p.length() && p.charAt(pIdx) == '*') {
                 // wildcard, so chars match - store index.
-
                 lastWildcardIdx = pIdx;
                 nextToWildcardIdx = ++pIdx;
                 sBacktrackIdx = sIdx;
@@ -21,11 +19,9 @@ public class WildcardMatching {
 
             } else if (lastWildcardIdx == -1) {
                 // no match, and no wildcard has been found.
-
                 return false;
             } else {
                 // backtrack - no match, but a previous wildcard was found.
-
                 pIdx = nextToWildcardIdx;
                 sIdx = ++sBacktrackIdx;
                 //backtrack string from previousbacktrackidx + 1 index to see if then new pidx and sidx have same chars,
@@ -53,8 +49,8 @@ public class WildcardMatching {
     private static boolean f(int sIdx, int pIdx, String s, String p, int[][] dp) {
 
         if(sIdx<0 && pIdx<0) return true;
-        if(sIdx>=0 && pIdx<0) return false;
-        if(sIdx<0 && pIdx>=0)
+        if(pIdx<0) return false;
+        if(sIdx<0)
         {
             for(int i = 0; i<=pIdx; i++)
             {
@@ -88,17 +84,12 @@ public class WildcardMatching {
 
         for(int i = 1; i<=n; i++)
             dp[i][0] = false;
+
+        boolean prev = true;
         for(int j = 1; j<= m; j++)
         {
-            boolean flag = true;
-            for(int i = 1; i<=j; i++)
-            {
-                if(p.charAt(i-1) != '*') {
-                    flag = false;
-                    break;
-                }
-            }
-            dp[0][j] = flag;
+            prev = prev && p.charAt(j-1) == '*';
+            dp[0][j] = prev;
         }
 
         for(int i = 1; i<=n; i++)
@@ -121,19 +112,14 @@ public class WildcardMatching {
         int n = s.length();
         int m = p.length();
         boolean[] dp = new boolean[m+1];
+
         dp[0] = true;
 
+        boolean prev = true;
         for(int j = 1; j<= m; j++)
         {
-            boolean flag = true;
-            for(int i = 1; i<=j; i++)
-            {
-                if(p.charAt(i-1) != '*') {
-                    flag = false;
-                    break;
-                }
-            }
-            dp[j] = flag;
+            prev = prev && p.charAt(j-1) == '*';
+            dp[j] = prev;
         }
 
         for(int i = 1; i<=n; i++)

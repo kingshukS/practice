@@ -26,4 +26,20 @@ public class StockBuySell1 {
         }
         return maxProfit;
     }
+
+    private static int findMaxProfit2(int[] prices) {
+        int n = prices.length;
+        int maxProfit = 0;
+        int maxSellingPrice = prices[n-1];
+        for(int i = n-2; i>=0; i--)
+        {
+            if(prices[i]<maxSellingPrice)
+            {
+                maxProfit = Math.max ( maxProfit, maxSellingPrice-prices[i] );
+            }else{
+                maxSellingPrice = prices[i];
+            }
+        }
+        return maxProfit;
+    }
 }

@@ -27,6 +27,7 @@ public class PrintLCS {
         char[] lcs = new char[t[n][m]];
         int index = lcs.length - 1;
         int i = n, j = m;
+        // index ends, becomes -1 when any of i or j becomes 0
         while(index>=0)
         {
             if(s1.charAt(i-1) == s2.charAt(j-1))
