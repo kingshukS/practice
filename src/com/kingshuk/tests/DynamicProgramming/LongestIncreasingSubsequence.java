@@ -11,6 +11,7 @@ public class LongestIncreasingSubsequence {
 
     private static int LIS = Integer.MIN_VALUE;
 
+    // not comprehensive
     static int longestLengthRecursive(int[] arr, int n) {
         if (n == 1)
             return 1;
@@ -49,15 +50,15 @@ public class LongestIncreasingSubsequence {
             }
         }
 
-        List<Integer> lis = new ArrayList<>();
-
+        int[] lis = new int[max];
+        int index = max - 1;
         while (backtrack[maxIndex] != maxIndex) {
-            lis.add(arr[maxIndex]);
+            lis[index--]= arr[maxIndex];
             maxIndex = backtrack[maxIndex];
         }
-        lis.add(arr[maxIndex]);
-        Collections.sort(lis);
-        System.out.println(lis);
+        lis[index]= arr[maxIndex];
+        Arrays.stream ( lis ).forEach ( x -> System.out.print (x+" ") );
+        System.out.println ();
         return max;
     }
 
@@ -76,8 +77,9 @@ public class LongestIncreasingSubsequence {
     }
 
     private static int findLisTopDownDPSpaceOptimized(int[] arr, int n) {
-        int[] next = new int[n + 1], cur = new int[n + 1];
+        int[] next = new int[n + 1], cur;
         for (int ind = n - 1; ind >= 0; ind--) {
+            cur = new int[n + 1];
             for (int pInd = ind - 1; pInd >= -1; pInd--) {
                 int len = next[pInd + 1];
                 if (pInd == -1 || arr[ind] > arr[pInd]) {
@@ -93,7 +95,8 @@ public class LongestIncreasingSubsequence {
     private static int findLisMemoization(int[] arr, int index, int prev) {
         if (index == arr.length)
             return 0;
-        // return from here if pre-calculated, prev index starts form -1, so adding +1 to it (during storing and fetching)
+        // return from here if pre-calculated, prev index starts form -1,
+        // so adding +1 to it (during storing and fetching)
         if (dp[index][prev + 1] != -1) return dp[index][prev + 1];
 
         int len = findLisMemoization(arr, index + 1, prev);
@@ -128,14 +131,14 @@ public class LongestIncreasingSubsequence {
         return list.size();
     }
 
-    static int binarySearch(List<Integer> arr, int k) {
+    static int binarySearch(List<Integer> list, int k) {
         int low = 0;
-        int high = arr.size() - 1;
+        int high = list.size() - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (arr.get(mid) == k)
+            if (list.get(mid) == k)
                 return mid;
-            else if (k < arr.get(mid)) {
+            else if (k < list.get(mid)) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
@@ -147,6 +150,9 @@ public class LongestIncreasingSubsequence {
     public static void main(String[] args) {
         int[] arr = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
         int n = arr.length;
+        // index can be from 0 to n-1, size = n
+        // prev can be from -1 to n-2 (when index is n-1 prev can be at max n-2), after
+        // co-ordinate shift, 0 to n-1, size = n
         dp = new int[n][n];
         for (int x = 0; x < dp.length; x++)
             Arrays.fill(dp[x], -1);
@@ -155,5 +161,6 @@ public class LongestIncreasingSubsequence {
         System.out.println(findLisRecursive(arr, 0, -1));
         System.out.println(findLisTopDownDP(arr, n));
         System.out.println(printLisWithBacktrack(arr, n));
+        System.out.println (findLisTopDownDPSpaceOptimized(arr, n));
     }
 }

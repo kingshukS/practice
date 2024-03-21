@@ -1,12 +1,12 @@
 package com.kingshuk.tests.sorting;
 
+import java.util.Arrays;
+
 public class QuickSortCustomPartition {
     public static void main(String[] args) {
         int[] arr = {10,5,1};
         quickSort(arr, 0, arr.length - 1);
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        Arrays.stream ( arr ).forEach ( x -> System.out.print (x+" ") );
     }
 
     private static void quickSort(int[] arr, int lo, int hi) {
@@ -18,7 +18,6 @@ public class QuickSortCustomPartition {
     }
 
     private static int partition(int[] arr, int lo, int hi) {
-
         int pivot = arr[lo];
         int start = lo;
         int end = hi;
