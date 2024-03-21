@@ -1,31 +1,31 @@
 package com.kingshuk.tests.Designpatterns.Behavioral.state;
 
-public class ReadyState extends State{
+public class ReadyState extends State {
 
-    public ReadyState(Player player) {
-        super(player);
+    public ReadyState ( Player player ) {
+        super ( player );
     }
 
     @Override
-    String onLock() {
-        player.changeState(new LockedState(player));
+    String onLock () {
+        player.changeState ( new LockedState ( player ) );
         return "Locked...";
     }
 
     @Override
-    String onPlay() {
-        String action = player.startPlayback();
-        player.changeState(new PlayingState(player));
+    String onPlay () {
+        String action = player.startPlayback ();
+        player.changeState ( new PlayingState ( player ) );
         return action;
     }
 
     @Override
-    String onNext() {
+    String onNext () {
         return "Not Playing Yet...";
     }
 
     @Override
-    String onPrevious() {
+    String onPrevious () {
         return "Not Playing Yet...";
     }
 }

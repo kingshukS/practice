@@ -1,30 +1,30 @@
 package com.kingshuk.tests.Designpatterns.Behavioral.state;
 
-public class LockedState extends State{
+public class LockedState extends State {
 
-    public LockedState(Player player) {
-        super(player);
-        player.setPlaying(false);
+    public LockedState ( Player player ) {
+        super ( player );
+        player.setPlaying ( false );
     }
 
     @Override
-    String onLock() {
+    String onLock () {
         return "Already Locked...";
     }
 
     @Override
-    String onPlay() {
-        player.changeState(new ReadyState(player));
+    String onPlay () {
+        player.changeState ( new ReadyState ( player ) );
         return "Ready";
     }
 
     @Override
-    String onNext() {
+    String onNext () {
         return "Locked...";
     }
 
     @Override
-    String onPrevious() {
+    String onPrevious () {
         return "Locked...";
     }
 }

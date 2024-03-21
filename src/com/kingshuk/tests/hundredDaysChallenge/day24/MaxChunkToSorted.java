@@ -2,10 +2,10 @@ package com.kingshuk.tests.hundredDaysChallenge.day24;
 
 /**
  * You are given an integer array arr of length n that represents a permutation of the integers in the range [0, n - 1].
- *
+ * <p>
  * We split arr into some number of chunks (i.e., partitions), and individually sort each chunk. After concatenating them,
  * the result should equal the sorted array.
- *
+ * <p>
  * Return the largest number of chunks we can make to sort the array.
  */
 
@@ -19,12 +19,12 @@ package com.kingshuk.tests.hundredDaysChallenge.day24;
  * then we count add one.
  */
 public class MaxChunkToSorted {
-    public int maxChunksToSorted(int[] arr) {
+    public int maxChunksToSorted ( int[] arr ) {
         int count = 0;
         int max = 0;
-        for(int i = 0; i<arr.length; i++){
-            max = Math.max(max, arr[i]);
-            if(max == i)
+        for ( int i = 0; i < arr.length; i++ ) {
+            max = Math.max ( max, arr[i] );
+            if ( max == i )
                 count++;
         }
         return count;

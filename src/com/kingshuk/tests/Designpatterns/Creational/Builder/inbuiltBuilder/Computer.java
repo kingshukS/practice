@@ -19,9 +19,11 @@ public class Computer {
     private int graphicMemory;
     private int smps;
     private String gamepad;
-    private Computer(){}
 
-    private Computer(ComputerBuilder builder) {
+    private Computer () {
+    }
+
+    private Computer ( ComputerBuilder builder ) {
         this.ssd = builder.ssd;
         this.ram = builder.ram;
         this.processor = builder.processor;
@@ -37,73 +39,73 @@ public class Computer {
         this.gamepad = builder.gamepad;
     }
 
-    public int getSsd() {
+    public int getSsd () {
         return ssd;
     }
 
-    public int getRam() {
+    public int getRam () {
         return ram;
     }
 
-    public String getProcessor() {
+    public String getProcessor () {
         return processor;
     }
 
-    public String getCabinet() {
+    public String getCabinet () {
         return cabinet;
     }
 
-    public String getKeyboard() {
+    public String getKeyboard () {
         return keyboard;
     }
 
-    public String getMouse() {
+    public String getMouse () {
         return mouse;
     }
 
-    public boolean isGameMode() {
+    public boolean isGameMode () {
         return isGameMode;
     }
 
-    public boolean isBluetoothEnabled() {
+    public boolean isBluetoothEnabled () {
         return isBluetoothEnabled;
     }
 
-    public String getGraphicCard() {
+    public String getGraphicCard () {
         return graphicCard;
     }
 
-    public int getGraphicMemory() {
+    public int getGraphicMemory () {
         return graphicMemory;
     }
 
-    public int getSmps() {
+    public int getSmps () {
         return smps;
     }
 
-    public String getGamepad() {
+    public String getGamepad () {
         return gamepad;
     }
 
     @Override
-    public String toString() {
-        return new StringJoiner(", ", Computer.class.getSimpleName() + "[", "]")
-                .add("ssd=" + ssd)
-                .add("ram=" + ram)
-                .add("processor='" + processor + "'")
-                .add("cabinet='" + cabinet + "'")
-                .add("keyboard='" + keyboard + "'")
-                .add("mouse='" + mouse + "'")
-                .add("isGameMode=" + isGameMode)
-                .add("isBluetoothEnabled=" + isBluetoothEnabled)
-                .add("graphicCard='" + graphicCard + "'")
-                .add("graphicMemory=" + graphicMemory)
-                .add("smps=" + smps)
-                .add("gamepad='" + gamepad + "'")
-                .toString();
+    public String toString () {
+        return new StringJoiner ( ", ", Computer.class.getSimpleName () + "[", "]" )
+                .add ( "ssd=" + ssd )
+                .add ( "ram=" + ram )
+                .add ( "processor='" + processor + "'" )
+                .add ( "cabinet='" + cabinet + "'" )
+                .add ( "keyboard='" + keyboard + "'" )
+                .add ( "mouse='" + mouse + "'" )
+                .add ( "isGameMode=" + isGameMode )
+                .add ( "isBluetoothEnabled=" + isBluetoothEnabled )
+                .add ( "graphicCard='" + graphicCard + "'" )
+                .add ( "graphicMemory=" + graphicMemory )
+                .add ( "smps=" + smps )
+                .add ( "gamepad='" + gamepad + "'" )
+                .toString ();
     }
 
-    public static class ComputerBuilder{
+    public static class ComputerBuilder {
         // required fields
         private final int ssd;
         private final int ram;
@@ -120,7 +122,7 @@ public class Computer {
         private int smps;
         private String gamepad;
 
-        public ComputerBuilder(int ssd, int ram, String processor, String cabinet, String keyboard, String mouse) {
+        public ComputerBuilder ( int ssd, int ram, String processor, String cabinet, String keyboard, String mouse ) {
             this.ssd = ssd;
             this.ram = ram;
             this.processor = processor;
@@ -129,38 +131,38 @@ public class Computer {
             this.mouse = mouse;
         }
 
-        public ComputerBuilder gamingMode(boolean isGameMode) {
+        public ComputerBuilder gamingMode ( boolean isGameMode ) {
             this.isGameMode = isGameMode;
             return this;
         }
 
-        public ComputerBuilder bluetoothEnabled(boolean isBluetoothEnabled) {
+        public ComputerBuilder bluetoothEnabled ( boolean isBluetoothEnabled ) {
             this.isBluetoothEnabled = isBluetoothEnabled;
             return this;
         }
 
-        public ComputerBuilder graphicCard(String graphicCard) {
+        public ComputerBuilder graphicCard ( String graphicCard ) {
             this.graphicCard = graphicCard;
             return this;
         }
 
-        public ComputerBuilder smps(int smps) {
+        public ComputerBuilder smps ( int smps ) {
             this.smps = smps;
             return this;
         }
 
-        public ComputerBuilder graphicMemory(int graphicMemory) {
+        public ComputerBuilder graphicMemory ( int graphicMemory ) {
             this.graphicMemory = graphicMemory;
             return this;
         }
 
-        public ComputerBuilder gamepad(String gamepad) {
+        public ComputerBuilder gamepad ( String gamepad ) {
             this.gamepad = gamepad;
             return this;
         }
 
-        public Computer build(){
-            return new Computer(this);
+        public Computer build () {
+            return new Computer ( this );
         }
     }
 

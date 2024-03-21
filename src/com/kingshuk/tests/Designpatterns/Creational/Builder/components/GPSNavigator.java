@@ -3,15 +3,15 @@ package com.kingshuk.tests.Designpatterns.Creational.Builder.components;
 public class GPSNavigator {
     private final String route;
 
-    public GPSNavigator() {
+    public GPSNavigator () {
         this.route = "221b, Baker Street, London  to Scotland Yard, 8-10 Broadway, London";
     }
 
-    public GPSNavigator(String manualRoute) {
+    public GPSNavigator ( String manualRoute ) {
         this.route = manualRoute;
     }
 
-    public String getRoute() {
+    public String getRoute () {
         return route;
     }
 }

@@ -5,13 +5,13 @@ public class SecureChannel {
     static final String negResponse = "-1";
 
     // Complete the secureChannel function below.
-    static String secureChannel(int operation, String message, String key) {
+    static String secureChannel ( int operation, String message, String key ) {
 
         switch (operation) {
             case 1:
-                return encoded(message, key);
+                return encoded ( message, key );
             case 2:
-                return decoded(message, key);
+                return decoded ( message, key );
             default:
                 return negResponse;
         }
@@ -19,17 +19,17 @@ public class SecureChannel {
     }
 
 
-    private static String isEmpty(String message, String key) {
-        if (message == null || key == null)
+    private static String isEmpty ( String message, String key ) {
+        if ( message == null || key == null )
             return negResponse;
 
-        if (message.isEmpty() && key.isEmpty())
+        if ( message.isEmpty () && key.isEmpty () )
             return message;
 
-        if (!message.isEmpty() && key.isEmpty())
+        if ( ! message.isEmpty () && key.isEmpty () )
             return message;
 
-        if (message.isEmpty() && !key.isEmpty())
+        if ( message.isEmpty () && ! key.isEmpty () )
             return negResponse;
 
 
@@ -50,35 +50,35 @@ public class SecureChannel {
      * @param key
      * @return
      */
-    private static String decoded(String message, String key) {
-        String corner = isEmpty(message, key);
-        if (corner != null)
+    private static String decoded ( String message, String key ) {
+        String corner = isEmpty ( message, key );
+        if ( corner != null )
             return corner;
 
 
-        if (key.equals("0"))
+        if ( key.equals ( "0" ) )
             return message;
 
         int index = 0;
-        final StringBuilder res = new StringBuilder();
+        final StringBuilder res = new StringBuilder ();
 
-        char[] keys = key.toCharArray();
+        char[] keys = key.toCharArray ();
 
         int i;
-        for (i = 0; i < keys.length; i++) {
+        for ( i = 0; i < keys.length; i++ ) {
 
-            if (index < message.length()) {
-                char current = message.charAt(index);
-                if (Character.isDigit(keys[i])) {
+            if ( index < message.length () ) {
+                char current = message.charAt ( index );
+                if ( Character.isDigit ( keys[i] ) ) {
                     int keyV = keys[i] - '0';
                     int x = 1;
-                    while (x + index < message.length() && message.charAt(x + index) == current) {
+                    while (x + index < message.length () && message.charAt ( x + index ) == current) {
 
                         x++;
                     }
 
-                    if (x == keyV) { //this is correct
-                        res.append(current);
+                    if ( x == keyV ) { //this is correct
+                        res.append ( current );
                     } else
                         return negResponse;
                     index = index + x;
@@ -89,17 +89,17 @@ public class SecureChannel {
                 break;
         }
 
-        return getMessage(message, index, res);
+        return getMessage ( message, index, res );
 
 
     }
 
-    private static String getMessage(String message, int index, StringBuilder res) {
-        if (index < message.length()) {
-            String remaining = message.substring(index);
-            res.append(remaining);
+    private static String getMessage ( String message, int index, StringBuilder res ) {
+        if ( index < message.length () ) {
+            String remaining = message.substring ( index );
+            res.append ( remaining );
         }
-        return res.toString();
+        return res.toString ();
 
     }
 
@@ -114,27 +114,27 @@ public class SecureChannel {
      * @param key
      * @return
      */
-    private static String encoded(String message, String key) {
-        String corner = isEmpty(message, key);
-        if (corner != null)
+    private static String encoded ( String message, String key ) {
+        String corner = isEmpty ( message, key );
+        if ( corner != null )
             return corner;
 
         int index = 0;
-        final StringBuilder res = new StringBuilder();
+        final StringBuilder res = new StringBuilder ();
 
-        char[] keys = key.toCharArray();
+        char[] keys = key.toCharArray ();
 
         int i;
-        for (i = 0; i < keys.length; i++) {
+        for ( i = 0; i < keys.length; i++ ) {
 
-            if (index < message.length()) {
-                char current = message.charAt(index);
+            if ( index < message.length () ) {
+                char current = message.charAt ( index );
 
-                if (Character.isDigit(keys[i])) {
+                if ( Character.isDigit ( keys[i] ) ) {
                     int keyV = keys[i] - '0';
 
-                    for (int x = 0; x < keyV; x++) {
-                        res.append(current);
+                    for ( int x = 0; x < keyV; x++ ) {
+                        res.append ( current );
                     }
 
                     index++;
@@ -145,60 +145,59 @@ public class SecureChannel {
 
         }
 
-        return getMessage(message, index, res);
+        return getMessage ( message, index, res );
 
     }
 
-    public static void main(String[] args) {
+    public static void main ( String[] args ) {
 
 
-        System.out.println(secureChannel(2, "open", "aad"));
+        System.out.println ( secureChannel ( 2, "open", "aad" ) );
 
-        System.out.println(secureChannel(2, "", ""));
-
-
-
-        System.out.println("this "+secureChannel(1, "oop", "223"));
+        System.out.println ( secureChannel ( 2, "", "" ) );
 
 
-        System.out.println(secureChannel(2, "Oppeeennnn", "1234"));
+        System.out.println ( "this " + secureChannel ( 1, "oop", "223" ) );
 
 
-        System.out.println(secureChannel(1, "abcdefgh", ""));
-        System.out.println(secureChannel(2, "aaabbbcccdddeeefffggghhh", ""));
+        System.out.println ( secureChannel ( 2, "Oppeeennnn", "1234" ) );
 
 
-        System.out.println(secureChannel(1, "abcdefgh", "0"));
-        System.out.println(secureChannel(2, "bcdefgh", "0"));
+        System.out.println ( secureChannel ( 1, "abcdefgh", "" ) );
+        System.out.println ( secureChannel ( 2, "aaabbbcccdddeeefffggghhh", "" ) );
 
 
-        System.out.println(secureChannel(1, "abcdefgh", ""));
-        System.out.println(secureChannel(2, "aaabbbcccdddeeefffggghhh", ""));
+        System.out.println ( secureChannel ( 1, "abcdefgh", "0" ) );
+        System.out.println ( secureChannel ( 2, "bcdefgh", "0" ) );
 
 
-        System.out.println(secureChannel(1, "abcdefgh", "33333333333"));
-        System.out.println(secureChannel(2, "aaabbbcccdddeeefffggghhh", "33333333333"));
+        System.out.println ( secureChannel ( 1, "abcdefgh", "" ) );
+        System.out.println ( secureChannel ( 2, "aaabbbcccdddeeefffggghhh", "" ) );
 
 
-        System.out.println(secureChannel(1, null, "9999"));
-        System.out.println(secureChannel(2, null, "9999"));
-
-        System.out.println(secureChannel(1, "", "9999"));
-        System.out.println(secureChannel(2, "", "9999"));
-
-        System.out.println(secureChannel(1, "Ope", "12345"));
-        System.out.println(secureChannel(2, "Oppeee", "12345"));
+        System.out.println ( secureChannel ( 1, "abcdefgh", "33333333333" ) );
+        System.out.println ( secureChannel ( 2, "aaabbbcccdddeeefffggghhh", "33333333333" ) );
 
 
-        System.out.println(secureChannel(1, "open", "123"));
-        System.out.println(secureChannel(2, "Oppeeen", "123"));
+        System.out.println ( secureChannel ( 1, null, "9999" ) );
+        System.out.println ( secureChannel ( 2, null, "9999" ) );
+
+        System.out.println ( secureChannel ( 1, "", "9999" ) );
+        System.out.println ( secureChannel ( 2, "", "9999" ) );
+
+        System.out.println ( secureChannel ( 1, "Ope", "12345" ) );
+        System.out.println ( secureChannel ( 2, "Oppeee", "12345" ) );
 
 
-        System.out.println(secureChannel(1, "open", "1234"));
-        System.out.println(secureChannel(2, "oppeeennnn", "123"));
+        System.out.println ( secureChannel ( 1, "open", "123" ) );
+        System.out.println ( secureChannel ( 2, "Oppeeen", "123" ) );
 
 
-        System.out.println(secureChannel(1, "o", "1234"));
-        System.out.println(secureChannel(2, "opp", "123"));
+        System.out.println ( secureChannel ( 1, "open", "1234" ) );
+        System.out.println ( secureChannel ( 2, "oppeeennnn", "123" ) );
+
+
+        System.out.println ( secureChannel ( 1, "o", "1234" ) );
+        System.out.println ( secureChannel ( 2, "opp", "123" ) );
     }
 }

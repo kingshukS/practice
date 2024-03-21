@@ -8,7 +8,7 @@ package com.kingshuk.tests.hundredDaysChallenge.day22;
  * You must solve this problem without using the library's sort function.
  */
 public class SortColors {
-    public void sortColors(int[] a) {
+    public void sortColors ( int[] a ) {
         int low = 0, mid = 0, high = a.length - 1;
         while (mid <= high) {
             switch (a[mid]) {

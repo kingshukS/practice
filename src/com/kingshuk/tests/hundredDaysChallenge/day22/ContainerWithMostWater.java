@@ -10,11 +10,11 @@ package com.kingshuk.tests.hundredDaysChallenge.day22;
  * Notice that you may not slant the container.
  */
 public class ContainerWithMostWater {
-    public int maxArea(int[] height) {
+    public int maxArea ( int[] height ) {
         int max = Integer.MIN_VALUE;
-        for (int i = 0, j = height.length - 1; i < j; ) {
-            max = Math.max(max, Math.min(height[i], height[j]) * (j - i));
-            if (height[i] < height[j])
+        for ( int i = 0, j = height.length - 1; i < j; ) {
+            max = Math.max ( max, Math.min ( height[i], height[j] ) * ( j - i ) );
+            if ( height[i] < height[j] )
                 i++;
             else
                 j--;

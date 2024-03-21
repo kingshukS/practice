@@ -13,22 +13,22 @@ import java.util.Arrays;
  * to 0 and should be ignored. nums2 has a length of n.
  */
 public class MergeSortedArraysInFirstArray {
-    public static void main(String[] args) {
-        int[] arr1 = {3, 4, 9, 10, 0, 0, 0};
+    public static void main ( String[] args ) {
+        int[] arr1 = { 3, 4, 9, 10, 0, 0, 0 };
         int m = 4;
-        int[] arr2 = {1, 7, 8};
+        int[] arr2 = { 1, 7, 8 };
         int n = 3;
-        mergeArrays(arr1, m, arr2, n);
-        System.out.println(Arrays.toString(arr1));
+        mergeArrays ( arr1, m, arr2, n );
+        System.out.println ( Arrays.toString ( arr1 ) );
     }
 
-    private static void mergeArrays(int[] nums1, int m, int[] nums2, int n) {
+    private static void mergeArrays ( int[] nums1, int m, int[] nums2, int n ) {
         int i = m - 1;
         int j = n - 1;
         int k = m + n - 1;
 
         while (i >= 0 && j >= 0) {
-            if (nums1[i] > nums2[j]) {
+            if ( nums1[i] > nums2[j] ) {
                 nums1[k--] = nums1[i--];
             } else {
                 nums1[k--] = nums2[j--];

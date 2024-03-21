@@ -14,27 +14,27 @@ import java.util.Set;
  * Return true if n is a happy number, and false if not.
  */
 public class HappyNumber {
-    public static void main(String[] args) {
-        System.out.println(new HappyNumber().isHappy(2));
+    public static void main ( String[] args ) {
+        System.out.println ( new HappyNumber ().isHappy ( 2 ) );
     }
 
-    public boolean isHappy(int n) {
-        Set<Integer> set = new HashSet<>();
+    public boolean isHappy ( int n ) {
+        Set<Integer> set = new HashSet<> ();
         while (true) {
-            int res = squareDigits(n);
-            if (res == 1)
+            int res = squareDigits ( n );
+            if ( res == 1 )
                 return true;
-            else if (set.contains(res))
+            else if ( set.contains ( res ) )
                 return false;
-            set.add(res);
+            set.add ( res );
             n = res;
         }
     }
 
-    private int squareDigits(int n) {
+    private int squareDigits ( int n ) {
         int sum = 0;
         while (n > 0) {
-            sum += (n % 10) * (n % 10);
+            sum += ( n % 10 ) * ( n % 10 );
             n = n / 10;
         }
         return sum;

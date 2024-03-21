@@ -2,52 +2,49 @@ package com.kingshuk.tests.Trees;
 
 
 public class MaximumSumPath {
-    TreeNode root;
     static private int res;
+    TreeNode root;
 
-    int findMaxUtil(TreeNode node)
-    {
-        if(node == null)
-        {
+    public static void main ( String[] args ) {
+        MaximumSumPath m = new MaximumSumPath ();
+        m.root = new TreeNode ( 10 );
+        m.root.left = new TreeNode ( 2 );
+        m.root.right = new TreeNode ( 10 );
+        m.root.left.left = new TreeNode ( 20 );
+        m.root.left.right = new TreeNode ( 1 );
+        //  m.root.right.left = new Node(6);
+        m.root.right.right = new TreeNode ( - 25 );
+        m.root.right.right.right = new TreeNode ( 4 );
+        m.root.right.right.left = new TreeNode ( 3 );
+
+        System.out.println ( "Max sum possible is : " + m.FindmaxSum () );
+
+    }
+
+    int findMaxUtil ( TreeNode node ) {
+        if ( node == null ) {
             return 0;
         }
 
-        int l = findMaxUtil(node.left);
-        int r = findMaxUtil(node.right);
+        int l = findMaxUtil ( node.left );
+        int r = findMaxUtil ( node.right );
 
-        int s1 = Math.max(node.data+Math.max(l,r),node.data);
+        int s1 = Math.max ( node.data + Math.max ( l, r ), node.data );
 
-        int s2 = Math.max(s1,(l+r+node.data));
+        int s2 = Math.max ( s1, ( l + r + node.data ) );
 
-        res = Math.max(res, s2);
+        res = Math.max ( res, s2 );
         return s1;
     }
-     int FindmaxSum()
-    {
-        return FindmaxSum(root);
+
+    int FindmaxSum () {
+        return FindmaxSum ( root );
     }
 
-    int FindmaxSum(TreeNode node)
-    {
+    int FindmaxSum ( TreeNode node ) {
         res = Integer.MIN_VALUE;
-        findMaxUtil(node);
+        findMaxUtil ( node );
         return res;
-    }
-    public static void main(String[] args)
-    {
-        MaximumSumPath m = new MaximumSumPath();
-        m.root = new TreeNode(10);
-        m.root.left= new TreeNode(2);
-        m.root.right = new TreeNode(10);
-        m.root.left.left = new TreeNode(20);
-        m.root.left.right = new TreeNode(1);
-      //  m.root.right.left = new Node(6);
-        m.root.right.right = new TreeNode(-25);
-        m.root.right.right.right = new TreeNode(4);
-        m.root.right.right.left = new TreeNode(3);
-
-        System.out.println("Max sum possible is : "+m.FindmaxSum());
-
     }
 }
 

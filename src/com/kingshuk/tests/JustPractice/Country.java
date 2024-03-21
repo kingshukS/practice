@@ -5,35 +5,41 @@ public class Country {
     String name;
     long population;
 
-    public Country(String name, long population) {
-        super();
+    public Country ( String name, long population ) {
+        super ();
         this.name = name;
         this.population = population;
     }
-    public String getName() {
+
+    public String getName () {
         return name;
     }
-    public void setName(String name) {
+
+    public void setName ( String name ) {
         this.name = name;
     }
-    public long getPopulation() {
+
+    public long getPopulation () {
         return population;
     }
-    public void setPopulation(long population) {
+
+    public void setPopulation ( long population ) {
         this.population = population;
     }
+
     @Override
-    public int hashCode() {
+    public int hashCode () {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ( ( name == null ) ? 0 : name.hashCode () );
         return result;
     }
+
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals ( Object obj ) {
 
         Country other = (Country) obj;
-        return name.equalsIgnoreCase((other.name));
+        return name.equalsIgnoreCase ( ( other.name ) );
     }
 
 }

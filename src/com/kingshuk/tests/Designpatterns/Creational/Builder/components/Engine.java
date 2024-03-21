@@ -5,36 +5,36 @@ public class Engine {
     private double mileage;
     private boolean started;
 
-    public Engine(double volume, double mileage) {
+    public Engine ( double volume, double mileage ) {
         this.volume = volume;
         this.mileage = mileage;
     }
 
-    public void on() {
+    public void on () {
         started = true;
     }
 
-    public void off() {
+    public void off () {
         started = false;
     }
 
-    public boolean isStarted() {
+    public boolean isStarted () {
         return started;
     }
 
-    public void go(double mileage) {
-        if (started) {
+    public void go ( double mileage ) {
+        if ( started ) {
             this.mileage += mileage;
         } else {
-            System.err.println("Cannot go(), you must start engine first!");
+            System.err.println ( "Cannot go(), you must start engine first!" );
         }
     }
 
-    public double getVolume() {
+    public double getVolume () {
         return volume;
     }
 
-    public double getMileage() {
+    public double getMileage () {
         return mileage;
     }
 }

@@ -1,7 +1,11 @@
 package com.kingshuk.tests.hundredDaysChallenge.day13;
 
 public class IsPalindrome {
-    public boolean isPalindrome(int x) {
+    public static void main ( String[] args ) {
+        System.out.println ( new IsPalindrome ().isPalindrome ( - 525 ) );
+    }
+
+    public boolean isPalindrome ( int x ) {
         int n = x;
         int sum = 0;
         while (x != 0) {
@@ -10,9 +14,5 @@ public class IsPalindrome {
             x = x / 10;
         }
         return n == sum;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new IsPalindrome().isPalindrome(-525));
     }
 }

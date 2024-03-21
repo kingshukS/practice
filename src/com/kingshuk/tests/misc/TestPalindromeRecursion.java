@@ -1,15 +1,15 @@
 package com.kingshuk.tests.misc;
 
 public class TestPalindromeRecursion {
-    public static void main(String[] args) {
+    public static void main ( String[] args ) {
         String s = "abba";
-        System.out.println(findPalindromeRecursion(s));
+        System.out.println ( findPalindromeRecursion ( s ) );
     }
 
-    private static boolean findPalindromeRecursion(String s) {
-        if (s.length() == 1 || s.length() == 0)
+    private static boolean findPalindromeRecursion ( String s ) {
+        if ( s.length () == 1 || s.length () == 0 )
             return true;
 
-        return (s.charAt(0) == s.charAt(s.length() - 1)) && findPalindromeRecursion(s.substring(1, s.length() - 1));
+        return ( s.charAt ( 0 ) == s.charAt ( s.length () - 1 ) ) && findPalindromeRecursion ( s.substring ( 1, s.length () - 1 ) );
     }
 }

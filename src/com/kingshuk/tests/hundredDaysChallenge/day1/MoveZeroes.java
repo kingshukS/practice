@@ -4,46 +4,45 @@ import java.util.Arrays;
 
 /**
  * Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
- *
+ * <p>
  * Note that you must do this in-place without making a copy of the array.
  */
 public class MoveZeroes {
-    public static void main(String[] args) {
-        int[] arr = {0,1,0,3,12};
-        moveZeroesToRight(arr);
-        Arrays.stream(arr).forEach(i -> System.out.print(i+" "));
-        moveZeroesToLeft(arr);
-        System.out.println();
-        Arrays.stream(arr).forEach(i -> System.out.print(i+" "));
+    public static void main ( String[] args ) {
+        int[] arr = { 0, 1, 0, 3, 12 };
+        moveZeroesToRight ( arr );
+        Arrays.stream ( arr ).forEach ( i -> System.out.print ( i + " " ) );
+        moveZeroesToLeft ( arr );
+        System.out.println ();
+        Arrays.stream ( arr ).forEach ( i -> System.out.print ( i + " " ) );
     }
 
-    private static void moveZeroesToRight(int[] arr) {
+    private static void moveZeroesToRight ( int[] arr ) {
         int sizeZeroes = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == 0)
+        for ( int i = 0; i < arr.length; i++ ) {
+            if ( arr[i] == 0 )
                 sizeZeroes++;
-            else{
+            else {
                 int t = arr[i];
                 arr[i] = 0;
-                arr[i-sizeZeroes] = t;
+                arr[i - sizeZeroes] = t;
             }
         }
     }
 
-    private static void moveZeroesToLeft(int[] arr) {
-        if(arr.length <=1)
+    private static void moveZeroesToLeft ( int[] arr ) {
+        if ( arr.length <= 1 )
             return;
         int readIndex = arr.length - 1;
         int writeIndex = arr.length - 1;
-        while(readIndex >= 0){
-            if(arr[readIndex] != 0)
-            {
+        while (readIndex >= 0) {
+            if ( arr[readIndex] != 0 ) {
                 arr[writeIndex] = arr[readIndex];
                 writeIndex--;
             }
             readIndex--;
         }
-        while(writeIndex >= 0){
+        while (writeIndex >= 0) {
             arr[writeIndex] = 0;
             writeIndex--;
         }

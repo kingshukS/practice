@@ -20,12 +20,12 @@ package com.kingshuk.tests.Important;
  */
 public class MinimumMovesToMakeAllElementsEqual {
 
-    public int minMoves(int[] nums) {
+    public int minMoves ( int[] nums ) {
         int sum = 0, min = nums[0];
 
-        for (int i = 0; i < nums.length; i++) {
+        for ( int i = 0; i < nums.length; i++ ) {
             sum += nums[i];
-            min = Math.min(nums[i], min);
+            min = Math.min ( nums[i], min );
         }
         return sum - nums.length * min;
     }

@@ -6,59 +6,56 @@ import java.util.PriorityQueue;
 
 class PathWithMinimumEffort {
 
-    private final int[][] DIRECTIONS = {{0,-1}, {0,1}, {-1,0}, {1,0}};
-    int MinimumEffort(int[][] heights) {
+    private final int[][] DIRECTIONS = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
+
+    public static void main ( String[] args ) {
+        int[][] heights = new int[][]{ { 1, 2, 2 }, { 3, 8, 2 }, { 5, 3, 5 } };
+        System.out.println ( new PathWithMinimumEffort ().MinimumEffort ( heights ) );
+    }
+
+    int MinimumEffort ( int[][] heights ) {
         int n = heights.length;
         int m = heights[0].length;
 
         int[][] efforts = new int[n][m];
-        for(int i = 0; i < n; i++)
-        {
-            Arrays.fill(efforts[i], Integer.MAX_VALUE);
+        for ( int i = 0; i < n; i++ ) {
+            Arrays.fill ( efforts[i], Integer.MAX_VALUE );
         }
 
-        PriorityQueue<Tuple> pq = new PriorityQueue<>(Comparator.comparingInt(p -> p.e));
-        pq.add(new Tuple(0, 0, 0));
+        PriorityQueue<Tuple> pq = new PriorityQueue<> ( Comparator.comparingInt ( p -> p.e ) );
+        pq.add ( new Tuple ( 0, 0, 0 ) );
 
-        while(!pq.isEmpty())
-        {
-            Tuple t = pq.poll();
+        while (! pq.isEmpty ()) {
+            Tuple t = pq.poll ();
             int sx = t.x;
             int sy = t.y;
             int se = t.e;
 
-            if(sx == n-1 && sy == m-1)
+            if ( sx == n - 1 && sy == m - 1 )
                 return se;
-            for(int[] dir : DIRECTIONS)
-            {
+            for ( int[] dir : DIRECTIONS ) {
                 int rx = sx + dir[0];
                 int ry = sy + dir[1];
 
-                if(rx<0 || rx>=n || ry<0 || ry>=m)
+                if ( rx < 0 || rx >= n || ry < 0 || ry >= m )
                     continue;
-                int re = Math.max(Math.abs(heights[rx][ry] - heights[sx][sy]), se);
-                if(re < efforts[rx][ry])
-                {
+                int re = Math.max ( Math.abs ( heights[rx][ry] - heights[sx][sy] ), se );
+                if ( re < efforts[rx][ry] ) {
                     efforts[rx][ry] = re;
-                    pq.add(new Tuple(rx, ry, re));
+                    pq.add ( new Tuple ( rx, ry, re ) );
                 }
             }
         }
-        return -1;
+        return - 1;
     }
 
-    class Tuple{
+    class Tuple {
         int x, y, e;
 
-        public Tuple(int x, int y, int e) {
+        public Tuple ( int x, int y, int e ) {
             this.x = x;
             this.y = y;
             this.e = e;
         }
-    }
-
-    public static void main(String[] args) {
-        int[][] heights = new int[][]{{1,2,2},{3,8,2},{5,3,5}};
-        System.out.println(new PathWithMinimumEffort().MinimumEffort(heights));
     }
 }

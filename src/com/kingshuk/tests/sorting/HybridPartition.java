@@ -1,7 +1,7 @@
 package com.kingshuk.tests.sorting;
 
 public class HybridPartition {
-    public static int hybridPartition(int[] arr, int lo, int hi) {
+    public static int hybridPartition ( int[] arr, int lo, int hi ) {
         int pivot = arr[lo];
         int start = lo;
         int end = hi;
@@ -10,7 +10,7 @@ public class HybridPartition {
                 start++;
             while (arr[end] > pivot)
                 end--;
-            if (start < end) {
+            if ( start < end ) {
                 int temp = arr[start];
                 arr[start] = arr[end];
                 arr[end] = temp;

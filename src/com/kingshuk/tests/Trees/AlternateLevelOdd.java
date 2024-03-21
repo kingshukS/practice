@@ -1,50 +1,44 @@
 package com.kingshuk.tests.Trees;
 
-import java.util.LinkedList;
-import java.util.Queue;
+public class AlternateLevelOdd {
 
-public class AlternateLevelOdd{
-
-static class Node {
-    int data;
-    Node left, right;
-}
-
-    static void printOddNodes(Node root, boolean isOdd)
-    {
+    static void printOddNodes ( Node root, boolean isOdd ) {
         // If empty tree
-        if (root == null)
+        if ( root == null )
             return;
 
         // If current node is of odd level
-        if (isOdd)
-            System.out.print(root.data + " ");
+        if ( isOdd )
+            System.out.print ( root.data + " " );
 
         // Recur for children with isOdd
         // switched.
-        printOddNodes(root.left, !isOdd);
-        printOddNodes(root.right, !isOdd);
+        printOddNodes ( root.left, ! isOdd );
+        printOddNodes ( root.right, ! isOdd );
     }
 
     // Utility method to create a node
-    static Node newNode(int data)
-    {
-        Node node = new Node();
+    static Node newNode ( int data ) {
+        Node node = new Node ();
         node.data = data;
         node.left = null;
         node.right = null;
-        return (node);
+        return ( node );
     }
 
     // Driver code
-    public static void main(String[] args)
-    {
-        Node root = newNode(1);
-        root.left = newNode(2);
-        root.right = newNode(3);
-        root.left.left = newNode(4);
-        root.left.right = newNode(5);
-        printOddNodes(root, true);
+    public static void main ( String[] args ) {
+        Node root = newNode ( 1 );
+        root.left = newNode ( 2 );
+        root.right = newNode ( 3 );
+        root.left.left = newNode ( 4 );
+        root.left.right = newNode ( 5 );
+        printOddNodes ( root, true );
 
+    }
+
+    static class Node {
+        int data;
+        Node left, right;
     }
 }

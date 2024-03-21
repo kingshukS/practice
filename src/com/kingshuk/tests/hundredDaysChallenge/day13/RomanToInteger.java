@@ -24,12 +24,12 @@ package com.kingshuk.tests.hundredDaysChallenge.day13;
  * Given a roman numeral, convert it to an integer.
  */
 class RomanToInteger {
-    public int romanToInt(String s) {
-        if (s.length() == 0)
+    public int romanToInt ( String s ) {
+        if ( s.length () == 0 )
             return 0;
         int number = 0, answer = 0, prev = 0;
-        for (int i = s.length() - 1; i >= 0; i--) {
-            switch (s.charAt(i)) {
+        for ( int i = s.length () - 1; i >= 0; i-- ) {
+            switch (s.charAt ( i )) {
                 case 'M': {
                     number = 1000;
                     break;
@@ -59,7 +59,7 @@ class RomanToInteger {
                     break;
                 }
             }
-            if (number < prev)
+            if ( number < prev )
                 answer -= number;
             else
                 answer += number;

@@ -3,52 +3,43 @@ package com.kingshuk.tests.misc;
 public class SharedPrinter implements PrintOddEve {
 
     boolean isOddPrinted = false;
+
     @Override
-    public synchronized void printOdd(int number)
-    {
-        while (isOddPrinted)
-        {
-            try{
-                wait();
+    public synchronized void printOdd ( int number ) {
+        while (isOddPrinted) {
+            try {
+                wait ();
+            } catch (InterruptedException e) {
+                e.printStackTrace ();
             }
-            catch (InterruptedException e )
-            {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName()+" :"+number);
+            System.out.println ( Thread.currentThread ().getName () + " :" + number );
             isOddPrinted = true;
-            try
-            {
-                Thread.sleep(1000);
+            try {
+                Thread.sleep ( 1000 );
 
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                e.printStackTrace ();
             }
-            notify();
+            notify ();
         }
     }
+
     @Override
-    public synchronized void printEven(int number)
-    {
-        while(!isOddPrinted)
-        {
-            try
-            {
-                wait();
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName()+ " :" +number);
-            isOddPrinted = false;
-            try
-            {
-                Thread.sleep(1000);
+    public synchronized void printEven ( int number ) {
+        while (! isOddPrinted) {
+            try {
+                wait ();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                e.printStackTrace ();
             }
-            notify();
+            System.out.println ( Thread.currentThread ().getName () + " :" + number );
+            isOddPrinted = false;
+            try {
+                Thread.sleep ( 1000 );
+            } catch (InterruptedException e) {
+                e.printStackTrace ();
+            }
+            notify ();
         }
     }
 }

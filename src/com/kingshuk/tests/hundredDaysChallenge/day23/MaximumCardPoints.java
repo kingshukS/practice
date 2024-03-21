@@ -11,32 +11,32 @@ package com.kingshuk.tests.hundredDaysChallenge.day23;
  */
 public class MaximumCardPoints {
 
-    public int maxScore(int[] cardPoints, int k) {
+    public int maxScore ( int[] cardPoints, int k ) {
         int leftSum = 0;
-        for (int i = 0; i < k; i++)
+        for ( int i = 0; i < k; i++ )
             leftSum += cardPoints[i];
         int rightSum = 0;
         int max = leftSum;
         int n = cardPoints.length;
-        for (int i = 0; i < k; i++) {
+        for ( int i = 0; i < k; i++ ) {
             leftSum = leftSum - cardPoints[k - 1 - i];
             rightSum = rightSum + cardPoints[n - 1 - i];
-            max = Math.max(max, leftSum + rightSum);
+            max = Math.max ( max, leftSum + rightSum );
         }
         return max;
     }
 
-    public int maxScoreWithTotalSum(int[] cardPoints, int k) {
+    public int maxScoreWithTotalSum ( int[] cardPoints, int k ) {
         int total = 0, minSumArraySum = 0;
         int n = cardPoints.length;
-        for (int i = 0, curSum = 0; i < n; i++) {
+        for ( int i = 0, curSum = 0; i < n; i++ ) {
             total += cardPoints[i];
             curSum += cardPoints[i];
-            if (i < n - k)
+            if ( i < n - k )
                 minSumArraySum += cardPoints[i];
             else {
-                curSum = curSum - cardPoints[i - (n - k)];
-                minSumArraySum = Math.min(minSumArraySum, curSum);
+                curSum = curSum - cardPoints[i - ( n - k )];
+                minSumArraySum = Math.min ( minSumArraySum, curSum );
             }
         }
         return total - minSumArraySum;

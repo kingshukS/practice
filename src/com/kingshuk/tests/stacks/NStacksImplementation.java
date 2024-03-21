@@ -19,18 +19,18 @@ public class NStacksImplementation {
      * @param n size of the array
      * @param k number of the stacks implemented in the array
      */
-    public NStacksImplementation(int n, int k) {
+    public NStacksImplementation ( int n, int k ) {
         arr = new int[n];
         top = new int[k];
         next = new int[n];
         freeSlot = 0;
-        for (int i = 0; i < k; i++) {
-            top[i] = -1;
+        for ( int i = 0; i < k; i++ ) {
+            top[i] = - 1;
         }
-        for (int i = 0; i < n - 1; i++) {
+        for ( int i = 0; i < n - 1; i++ ) {
             next[i] = i + 1;
         }
-        next[n - 1] = -1;
+        next[n - 1] = - 1;
     }
 
     /**
@@ -40,8 +40,8 @@ public class NStacksImplementation {
      * @param data data to be inserted
      * @return true if the data is successfully inserted, else false
      */
-    public boolean push(int k, int data) {
-        if (freeSlot == -1)
+    public boolean push ( int k, int data ) {
+        if ( freeSlot == - 1 )
             return false;
         int index = freeSlot;
         freeSlot = next[index];
@@ -57,8 +57,8 @@ public class NStacksImplementation {
      * @param k kth stack
      * @return popped element from the kth stack. If the stack is empty, returns {@link Integer#MIN_VALUE}
      */
-    public int pop(int k) {
-        if (top[k - 1] == -1)
+    public int pop ( int k ) {
+        if ( top[k - 1] == - 1 )
             return Integer.MIN_VALUE;
         int index = top[k - 1];
         top[k - 1] = next[index];

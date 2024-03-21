@@ -14,31 +14,31 @@ import java.util.Queue;
  * Note that in a binary tree, the root node is at the depth 0, and children of each depth k node are at the depth k + 1.
  */
 public class CousinsInBinaryTree {
-    public boolean isCousins(TreeNode root, int x, int y) {
-        if (root == null)
+    public boolean isCousins ( TreeNode root, int x, int y ) {
+        if ( root == null )
             return false;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        Queue<TreeNode> queue = new LinkedList<> ();
+        queue.offer ( root );
+        while (! queue.isEmpty ()) {
+            int size = queue.size ();
             boolean isAExist = false;
             boolean isBExist = false;
-            for (int i = 0; i < size; i++) {
-                TreeNode curr = queue.poll();
-                if (curr.key == x) isAExist = true;
-                if (curr.key == y) isBExist = true;
-                if (curr.left != null && curr.right != null) {
-                    if (curr.left.key == x && curr.right.key == y)
+            for ( int i = 0; i < size; i++ ) {
+                TreeNode curr = queue.poll ();
+                if ( curr.key == x ) isAExist = true;
+                if ( curr.key == y ) isBExist = true;
+                if ( curr.left != null && curr.right != null ) {
+                    if ( curr.left.key == x && curr.right.key == y )
                         return false;
-                    if (curr.left.key == y && curr.right.key == x)
+                    if ( curr.left.key == y && curr.right.key == x )
                         return false;
                 }
-                if (curr.left != null)
-                    queue.offer(curr.left);
-                if (curr.right != null)
-                    queue.offer(curr.right);
+                if ( curr.left != null )
+                    queue.offer ( curr.left );
+                if ( curr.right != null )
+                    queue.offer ( curr.right );
             }
-            if (isAExist && isBExist)
+            if ( isAExist && isBExist )
                 return true;
         }
         return false;

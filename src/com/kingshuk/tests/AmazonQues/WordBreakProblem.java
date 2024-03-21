@@ -6,29 +6,29 @@ import java.util.Set;
 
 public class WordBreakProblem {
 
-    private static final Set<String> dictionary = new HashSet<String>(Arrays.asList("arrays", "dynamic", "heaps", "Deserve", "learn", "learning", "linked", "list", "platform", "programming", "stacks", "trees"));
+    private static final Set<String> dictionary = new HashSet<String> ( Arrays.asList ( "arrays", "dynamic", "heaps", "Deserve", "learn", "learning", "linked", "list", "platform", "programming", "stacks", "trees" ) );
 
-    public static boolean hasValidWords(String words) {
+    public static boolean hasValidWords ( String words ) {
 
         // Empty string
-        if(words == null || words.length() == 0) {
+        if ( words == null || words.length () == 0 ) {
             return true;
         }
 
-        int n = words.length();
+        int n = words.length ();
         boolean[] validWords = new boolean[n];
-        for (int i = 0; i < n; i++) {
-            if (dictionary.contains(words.substring(0, i + 1))) {
+        for ( int i = 0; i < n; i++ ) {
+            if ( dictionary.contains ( words.substring ( 0, i + 1 ) ) ) {
                 validWords[i] = true;
             }
-            if (validWords[i] && (i == n - 1))
+            if ( validWords[i] && ( i == n - 1 ) )
                 return true;
-            if (validWords[i]) {
-                for (int j = i + 1; j < n; j++) {
-                    if (dictionary.contains(words.substring(i + 1, j + 1))) {
+            if ( validWords[i] ) {
+                for ( int j = i + 1; j < n; j++ ) {
+                    if ( dictionary.contains ( words.substring ( i + 1, j + 1 ) ) ) {
                         validWords[j] = true;
                     }
-                    if (j == n - 1 && validWords[j]) {
+                    if ( j == n - 1 && validWords[j] ) {
                         return true;
                     }
                 }
@@ -37,10 +37,10 @@ public class WordBreakProblem {
         return false;
     }
 
-    public static void main(String[] args) {
-        if (hasValidWords("Deservelearningplatform"))
-            System.out.println("true");
+    public static void main ( String[] args ) {
+        if ( hasValidWords ( "Deservelearningplatform" ) )
+            System.out.println ( "true" );
         else
-            System.out.println("false");
+            System.out.println ( "false" );
     }
 }

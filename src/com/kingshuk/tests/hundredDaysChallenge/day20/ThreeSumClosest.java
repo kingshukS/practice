@@ -1,42 +1,41 @@
 package com.kingshuk.tests.hundredDaysChallenge.day20;
 
-import com.kingshuk.tests.sorting.LomutoPartition;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
  * Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
- *
+ * <p>
  * Return the sum of the three integers.
- *
+ * <p>
  * You may assume that each input would have exactly one solution.
  */
 public class ThreeSumClosest {
 
-    public static void main(String[] args) {
-        System.out.println(new ThreeSumClosest().threeSumClosest(new int[]{0,0,0}, 1));
+    public static void main ( String[] args ) {
+        System.out.println ( new ThreeSumClosest ().threeSumClosest ( new int[]{ 0, 0, 0 }, 1 ) );
     }
 
-    public int threeSumClosest(int[] nums, int target) {
-        Arrays.sort(nums);
+    public int threeSumClosest ( int[] nums, int target ) {
+        Arrays.sort ( nums );
         int result = Integer.MAX_VALUE;
-        List<List<Integer>> list = new ArrayList<>();
-        for(int i = 0; i < nums.length-2; i++) {
-            if(i > 0 && (nums[i] == nums[i-1])) continue;
-            for(int j = i+1, k = nums.length-1; j<k;) {
+        List<List<Integer>> list = new ArrayList<> ();
+        for ( int i = 0; i < nums.length - 2; i++ ) {
+            if ( i > 0 && ( nums[i] == nums[i - 1] ) ) continue;
+            for ( int j = i + 1, k = nums.length - 1; j < k; ) {
                 int sum = nums[i] + nums[j] + nums[k];
-                if(sum == target) {
+                if ( sum == target ) {
                     return target;
-                }else if(sum > target) {
+                } else if ( sum > target ) {
                     int diff = sum - target;
-                    if(diff < Math.abs(result-target))
+                    if ( diff < Math.abs ( result - target ) )
                         result = sum;
                     k--;
-                }
-                else {
-                    int diff = target-sum;
-                    if(diff < Math.abs(result-target))
+                } else {
+                    int diff = target - sum;
+                    if ( diff < Math.abs ( result - target ) )
                         result = sum;
                     j++;
                 }

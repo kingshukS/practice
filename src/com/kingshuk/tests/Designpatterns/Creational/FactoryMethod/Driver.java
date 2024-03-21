@@ -4,9 +4,9 @@ import com.kingshuk.tests.Designpatterns.Creational.FactoryMethod.factory.Ground
 import com.kingshuk.tests.Designpatterns.Creational.FactoryMethod.factory.Logistics;
 
 public class Driver {
-    public static void main(String[] args) {
-        Logistics log = new GroundLogistics();
-        log.planDelivery();
+    public static void main ( String[] args ) {
+        Logistics log = new GroundLogistics ();
+        log.planDelivery ();
 
     }
 }

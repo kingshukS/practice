@@ -2,41 +2,41 @@ package com.kingshuk.tests.misc;
 
 import java.util.concurrent.Semaphore;
 
-public class SharedSemphore implements PrintOddEve{
+public class SharedSemphore implements PrintOddEve {
 
-    Semaphore OddSem = new Semaphore(1);
-    Semaphore EvenSem = new Semaphore(0);
+    Semaphore OddSem = new Semaphore ( 1 );
+    Semaphore EvenSem = new Semaphore ( 0 );
+
     @Override
-    public void printEven(int number) {
-    try
-    {
-        EvenSem.acquire();
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-    System.out.println(Thread.currentThread().getName() + " :"+number);
-        try{
-            Thread.sleep(1000);
+    public void printEven ( int number ) {
+        try {
+            EvenSem.acquire ();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            e.printStackTrace ();
         }
-        OddSem.release();
+        System.out.println ( Thread.currentThread ().getName () + " :" + number );
+        try {
+            Thread.sleep ( 1000 );
+        } catch (InterruptedException e) {
+            e.printStackTrace ();
+        }
+        OddSem.release ();
     }
 
     @Override
-    public void printOdd(int number) {
-    try {
-        OddSem.acquire();
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-    System.out.println(Thread.currentThread().getName() + " :"+number);
-    try{
-        Thread.sleep(1000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
+    public void printOdd ( int number ) {
+        try {
+            OddSem.acquire ();
+        } catch (InterruptedException e) {
+            e.printStackTrace ();
+        }
+        System.out.println ( Thread.currentThread ().getName () + " :" + number );
+        try {
+            Thread.sleep ( 1000 );
+        } catch (InterruptedException e) {
+            e.printStackTrace ();
+        }
 
-        EvenSem.release();
+        EvenSem.release ();
     }
 }

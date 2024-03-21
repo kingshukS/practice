@@ -1,12 +1,10 @@
 package com.kingshuk.tests.Arrays;
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class STackMinElement {
 
-    static void getMinEle(Stack<Integer> mainStack,int x)
-    {
+    static void getMinEle ( Stack<Integer> mainStack, int x ) {
    /*     Stack<Integer> supportingStack = new Stack<Integer>();
         supportingStack*/
 
@@ -31,10 +29,5 @@ public class STackMinElement {
     }*/
 
 
-
-
-
-
-
-    }
+}
 
