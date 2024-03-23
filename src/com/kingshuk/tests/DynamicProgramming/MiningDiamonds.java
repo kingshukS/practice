@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// Bursting Balloons
 public class MiningDiamonds {
     public static int maxCoinsTabulation ( int a[] ) {
 

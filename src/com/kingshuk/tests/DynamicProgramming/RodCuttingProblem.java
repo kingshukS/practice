@@ -17,6 +17,7 @@ public class RodCuttingProblem {
             dp[i] = i * price[0];
 
         for ( int i = 1; i < n; i++ ) {
+            // Need to calculate the previous columns of the current row before calculating for the current columns
             for ( int j = 1; j <= n; j++ ) {
                 int notTake = dp[j];
                 int take = 0;

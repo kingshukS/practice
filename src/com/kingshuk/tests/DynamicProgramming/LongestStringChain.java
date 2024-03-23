@@ -7,26 +7,43 @@ public class LongestStringChain {
     public static int longestStrChain ( String[] arr ) {
         int n = arr.length;
         int[] dp = new int[n];
+        int[] backtrack = new int[n];
 
-        int maxI = 0;
+        int max = 1;
+        int maxIndex = 0;
         Arrays.sort ( arr, Comparator.comparingInt ( String::length ) );
 
         for ( int i = 0; i < n; i++ ) {
             dp[i] = 1;
+            backtrack[i] = i;
             for ( int j = 0; j < i; j++ ) {
-                if ( compare ( arr[i], arr[j] ) && dp[j] + 1 > dp[i] ) {
+                if ( isAChain ( arr[i], arr[j] ) && dp[j] + 1 > dp[i] ) {
                     dp[i] = dp[j] + 1;
+                    backtrack[i] = j;
                 }
             }
 
-            if ( dp[i] > maxI )
-                maxI = dp[i];
+            if ( dp[i] > max ) {
+                max = dp[i];
+                maxIndex = i;
+            }
         }
 
-        return maxI;
+        String[] chain = new String[max];
+        int index = max - 1;
+
+        while(backtrack[maxIndex] != maxIndex)
+        {
+            chain[index--] = arr[maxIndex];
+            maxIndex = backtrack[maxIndex];
+        }
+        chain[index] = arr[maxIndex];
+        Arrays.stream ( chain ).forEach ( x -> System.out.print (x+" ") );
+        System.out.println ();
+        return max;
     }
 
-    private static boolean compare ( String s1, String s2 ) {
+    private static boolean isAChain ( String s1, String s2 ) {
         if ( s1.length () != 1 + s2.length () )
             return false;
 
@@ -42,5 +59,10 @@ public class LongestStringChain {
             }
         }
         return notMatching == 0;
+    }
+
+    public static void main ( String[] args ) {
+        String[] arr = {"x", "xx", "y", "xyx"};
+        System.out.println (longestStrChain ( arr ));
     }
 }

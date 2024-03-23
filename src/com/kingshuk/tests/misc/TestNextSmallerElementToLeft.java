@@ -5,11 +5,14 @@ import java.util.Stack;
 public class TestNextSmallerElementToLeft {
     public static void main ( String[] args ) {
         int[] arr = new int[]{ 1, 3, 2, 4 };
-        findNextSmallerElementToLeft ( arr, arr.length );
+        int[] res = findNextSmallerElementToLeft ( arr, arr.length );
+        for ( int i = 0; i < res.length; i++ ) {
+            System.out.println ( "Element:" + arr[i] + " -> NSEL:" + res[i] );
+        }
     }
 
-    private static void findNextSmallerElementToLeft ( int[] arr, int n ) {
-        int[] arr1 = new int[n];
+    private static int[] findNextSmallerElementToLeft ( int[] arr, int n ) {
+        int[] res = new int[n];
         Stack<Integer> s = new Stack<> ();
         for ( int i = 0; i < n; i++ ) {
             int num = arr[i];
@@ -17,15 +20,12 @@ public class TestNextSmallerElementToLeft {
                 s.pop ();
             }
             if ( s.isEmpty () ) {
-                arr1[i] = - 1;
+                res[i] = - 1;
             } else {
-                arr1[i] = s.peek ();
+                res[i] = s.peek ();
             }
             s.push ( num );
         }
-
-        for ( int i = 0; i < n; i++ ) {
-            System.out.println ( "Element:" + arr[i] + " -> NSEL:" + arr1[i] );
-        }
+        return res;
     }
 }

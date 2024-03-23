@@ -3,7 +3,6 @@ package com.kingshuk.tests.DynamicProgramming;
 import java.util.Arrays;
 
 public class MatrixChainMultiplication {
-    static int count = 0;
     static int[][] t;
 
     public static void main ( String[] args ) {
@@ -11,7 +10,6 @@ public class MatrixChainMultiplication {
         int n = arr.length;
         System.out.println ( "Minimum number of multiplications is "
                 + matrixChainOrder ( arr ) );
-        System.out.println ( count );
     }
 
     private static int matrixChainOrder ( int[] arr ) {
@@ -25,7 +23,6 @@ public class MatrixChainMultiplication {
     }
 
     private static int mcmRecursive ( int[] arr, int i, int j ) {
-        count++;
         if ( i >= j )
             return 0;
         int min = Integer.MAX_VALUE;
@@ -36,7 +33,6 @@ public class MatrixChainMultiplication {
     }
 
     private static int mcmRecursiveMemoization ( int[] arr, int i, int j ) {
-        count++;
         if ( i >= j )
             return 0;
         if ( t[i][j] != - 1 )
@@ -52,6 +48,7 @@ public class MatrixChainMultiplication {
         return t[i][j] = min;
     }
 
+    // old code
     private static int matrixChainOrder ( int[] arr, int n ) {
         int[][] t = new int[n][n];
         for ( int i = 1; i < n; i++ )
@@ -72,7 +69,7 @@ public class MatrixChainMultiplication {
         return t[1][n - 1];
     }
 
-    private static int mcm ( int[] arr, int n ) {
+    private static int mcmTabulation ( int[] arr, int n ) {
         int[][] t = new int[n][n];
 
         for ( int i = n - 1; i >= 1; i-- ) {

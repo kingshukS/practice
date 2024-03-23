@@ -48,9 +48,9 @@ public class PalindromePartitioning {
         if ( dp[ind] != - 1 ) return dp[ind];
 
         int min = Integer.MAX_VALUE;
-        for ( int p = ind; p < n; p++ ) {
-            if ( isPalindrome ( str, ind, p ) ) {
-                int cost = 1 + f ( p + 1, n, str, dp );
+        for ( int partIndex = ind; partIndex < n; partIndex++ ) {
+            if ( isPalindrome ( str, ind, partIndex ) ) {
+                int cost = 1 + f ( partIndex + 1, n, str, dp );
                 min = Math.min ( cost, min );
             }
         }
@@ -72,9 +72,9 @@ public class PalindromePartitioning {
 
         for ( int ind = n - 1; ind >= 0; ind-- ) {
             int min = Integer.MAX_VALUE;
-            for ( int p = ind; p < n; p++ ) {
-                if ( isPalindrome ( str, ind, p ) ) {
-                    int cost = 1 + dp[p + 1];
+            for ( int partIndex = ind; partIndex < n; partIndex++ ) {
+                if ( isPalindrome ( str, ind, partIndex ) ) {
+                    int cost = 1 + dp[partIndex + 1];
                     min = Math.min ( cost, min );
                 }
             }
@@ -83,6 +83,7 @@ public class PalindromePartitioning {
         return dp[0] - 1;
     }
 
+    // old code
     private static int palindromePartitioningTabulation ( String str, int l, int r, int n ) {
         int[][] t = new int[n][n];
         boolean[][] p = new boolean[n][n];

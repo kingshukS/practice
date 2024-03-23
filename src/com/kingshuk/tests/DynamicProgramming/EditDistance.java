@@ -34,9 +34,9 @@ class EditDistance {
         return dp[i][j] = Math.min ( insert, Math.min ( delete, replace ) );
     }
 
-    public int minDistanceTabulation ( String word1, String word2 ) {
-        int n = word1.length ();
-        int m = word2.length ();
+    public int minDistanceTabulation ( String s, String t ) {
+        int n = s.length ();
+        int m = t.length ();
 
         int[][] dp = new int[n + 1][m + 1];
 
@@ -48,7 +48,7 @@ class EditDistance {
 
         for ( int i = 1; i <= n; i++ ) {
             for ( int j = 1; j <= m; j++ ) {
-                if ( word1.charAt ( i - 1 ) == word2.charAt ( j - 1 ) ) {
+                if ( s.charAt ( i - 1 ) == t.charAt ( j - 1 ) ) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     int insert = 1 + dp[i][j - 1];
@@ -63,9 +63,9 @@ class EditDistance {
         return dp[n][m];
     }
 
-    public int minDistanceTabulationSpaceOptimized ( String word1, String word2 ) {
-        int n = word1.length ();
-        int m = word2.length ();
+    public int minDistanceTabulationSpaceOptimized ( String s, String t ) {
+        int n = s.length ();
+        int m = t.length ();
 
         int[] dp = new int[m + 1];
 
@@ -76,7 +76,7 @@ class EditDistance {
             int[] cur = new int[m + 1];
             cur[0] = i;
             for ( int j = 1; j <= m; j++ ) {
-                if ( word1.charAt ( i - 1 ) == word2.charAt ( j - 1 ) ) {
+                if ( s.charAt ( i - 1 ) == t.charAt ( j - 1 ) ) {
                     cur[j] = dp[j - 1];
                 } else {
                     cur[j] = 1 + Math.min ( cur[j - 1], Math.min ( dp[j], dp[j - 1] ) );

@@ -13,7 +13,7 @@ public class TestNextGreaterElementToRight {
     }
 
     public static int[] findNextGreaterElement ( int[] arr, int length ) {
-        int[] arr1 = new int[length];
+        int[] res = new int[length];
         ArrayDeque<Integer> s = new ArrayDeque<> ();
         for ( int i = length - 1; i >= 0; i-- ) {
             int num = arr[i];
@@ -21,13 +21,13 @@ public class TestNextGreaterElementToRight {
                 s.pop ();
             }
             if ( s.isEmpty () ) {
-                arr1[i] = - 1;
+                res[i] = - 1;
             } else {
-                arr1[i] = s.peek ();
+                res[i] = s.peek ();
             }
             s.push ( num );
         }
 
-        return arr1;
+        return res;
     }
 }

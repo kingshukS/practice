@@ -32,7 +32,7 @@ public class LongestIncreasingSubsequence {
 
     private static int printLisWithBacktrack ( int[] arr, int n ) {
         int[] dp = new int[n], backtrack = new int[n];
-        int max = dp[0];
+        int max =1;
         int maxIndex = 0;
 
         for ( int i = 0; i < n; i++ ) {

@@ -6,11 +6,14 @@ public class TestNextSmallerElementToRight {
 
     public static void main ( String[] args ) {
         int[] arr = new int[]{ 1, 3, 2, 4 };
-        findNextSmallerElementToRIght ( arr, arr.length );
+        int[] res = findNextSmallerElementToRIght ( arr, arr.length );
+        for ( int i = 0; i < res.length; i++ ) {
+            System.out.println ( "Element:" + arr[i] + " -> NSE:" + res[i] );
+        }
     }
 
-    private static void findNextSmallerElementToRIght ( int[] arr, int n ) {
-        int[] arr1 = new int[n];
+    private static int[] findNextSmallerElementToRIght ( int[] arr, int n ) {
+        int[] res = new int[n];
         Stack<Integer> s = new Stack<> ();
         for ( int i = n - 1; i >= 0; i-- ) {
             int num = arr[i];
@@ -18,15 +21,12 @@ public class TestNextSmallerElementToRight {
                 s.pop ();
             }
             if ( s.isEmpty () ) {
-                arr1[i] = - 1;
+                res[i] = - 1;
             } else {
-                arr1[i] = s.peek ();
+                res[i] = s.peek ();
             }
             s.push ( num );
         }
-
-        for ( int i = 0; i < n; i++ ) {
-            System.out.println ( "Element:" + arr[i] + " -> NSE:" + arr1[i] );
-        }
+        return res;
     }
 }
