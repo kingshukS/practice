@@ -7,9 +7,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class LRU {
     private final Map<Integer, Node> nodeMap;
     private final ReentrantReadWriteLock lock;
-    private int capacity;
-    private Node head;
-    private Node tail;
+    private final int capacity;
+    private final Node head;
+    private final Node tail;
     private int counter;
 
     public LRU ( int capacity ) {

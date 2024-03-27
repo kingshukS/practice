@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 class RottingOranges {
-    int[][] add = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
+    int[][] DIRECTIONS = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
 
     public static void main ( String[] args ) {
         int[][] grid = { { 0, 1, 2 }, { 0, 1, 2 }, { 2, 1, 1 } };
@@ -32,7 +32,7 @@ class RottingOranges {
             int jx = tux.y;
             int tx = tux.t;
             time = Math.max ( time, tx );
-            for ( int[] x : add ) {
+            for ( int[] x : DIRECTIONS ) {
                 int newI = ix + x[0];
                 int newJ = jx + x[1];
                 if ( newI < 0 || newI >= n || newJ < 0 || newJ >= m || grid[newI][newJ] != 1 )

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 // Bursting Balloons
 public class MiningDiamonds {
-    public static int maxCoinsTabulation ( int a[] ) {
+    public static int maxCoinsTabulation ( int[] a ) {
 
         List<Integer> mines = Arrays.stream ( a ).boxed ().collect ( Collectors.toList () );
         int n = a.length;
@@ -27,7 +27,7 @@ public class MiningDiamonds {
         return dp[1][n];
     }
 
-    public static int maxCoinsMemoization ( int a[] ) {
+    public static int maxCoinsMemoization ( int[] a ) {
         List<Integer> list = Arrays.stream ( a ).boxed ().collect ( Collectors.toList () );
         int n = a.length;
         list.add ( 0, 1 );

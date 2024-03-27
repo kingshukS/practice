@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Queue;
 
 class FloodFill {
-    int[][] add = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
+    int[][] DIRECTIONS = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
 
     public static void main ( String[] args ) {
         int[][] image = { { 0, 0, 0 }, { 0, 0, 0 } };
@@ -22,14 +22,14 @@ class FloodFill {
     }
 
     private void bfs ( int[][] image, int sr, int sc, int startingColor, int color ) {
+        image[sr][sc] = color;
         Queue<Pair> pairQueue = new ArrayDeque<> ();
         pairQueue.add ( new Pair ( sr, sc ) );
         while (! pairQueue.isEmpty ()) {
             Pair p = pairQueue.poll ();
             int i = p.i;
             int j = p.j;
-            image[i][j] = color;
-            for ( int[] x : add ) {
+            for ( int[] x : DIRECTIONS ) {
                 int newI = i + x[0];
                 int newJ = j + x[1];
                 if ( newI < 0 || newI >= image.length || newJ < 0 || newJ >= image[newI].length || image[newI][newJ] != startingColor )

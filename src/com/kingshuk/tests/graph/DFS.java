@@ -1,8 +1,6 @@
 package com.kingshuk.tests.graph;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
 class DFS {
     private static void dfs ( int s, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> result, int[] vis ) {

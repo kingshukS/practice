@@ -18,14 +18,14 @@ public class BattleShip {
             // rows can be from 1 to 26 i.e it can be of two digits logic added to read both the digits
             int top = ( splitTopAndBottom[0].charAt ( 1 ) > 57 ) //Ascii value of 57 -> 9
                     ? Integer.parseInt ( splitTopAndBottom[0].charAt ( 0 ) + "" )
-                    : Integer.parseInt ( splitTopAndBottom[0].charAt ( 0 ) + "" + splitTopAndBottom[0].charAt ( 1 ) + "" );
+                    : Integer.parseInt ( splitTopAndBottom[0].charAt ( 0 ) + "" + splitTopAndBottom[0].charAt ( 1 ) );
 
             int left = ( top > 9 ) ? splitTopAndBottom[0].charAt ( 2 ) : splitTopAndBottom[0].charAt ( 1 );
             //if top comes out to be 2 digit then left will be at 2nd position else at 1st position.
 
             int bottom = ( splitTopAndBottom[1].charAt ( 1 ) > 57 )
                     ? Integer.parseInt ( splitTopAndBottom[1].charAt ( 0 ) + "" )
-                    : Integer.parseInt ( splitTopAndBottom[1].charAt ( 0 ) + "" + splitTopAndBottom[1].charAt ( 1 ) + "" );
+                    : Integer.parseInt ( splitTopAndBottom[1].charAt ( 0 ) + "" + splitTopAndBottom[1].charAt ( 1 ) );
 
             int right = ( bottom > 9 ) ? splitTopAndBottom[1].charAt ( 2 ) : splitTopAndBottom[1].charAt ( 1 );
 //same logic for bottom right location.
@@ -56,7 +56,7 @@ public class BattleShip {
 
         }
 
-        return "" + sink + "," + hit;
+        return sink + "," + hit;
 
     }
 

@@ -6,11 +6,11 @@ import java.util.Arrays;
 
 public class OuterClass {
 
-    private static String name = "OuterClass";
+    private static final String name = "OuterClass";
     public int l;
     protected int j;
     int k;
-    private int i;
+    private final int i;
 
     //OuterClass constructor
     public OuterClass ( int i, int j, int k, int l ) {
@@ -56,7 +56,7 @@ public class OuterClass {
     public void print ( String initial ) {
         //local inner class inside the method
         class Logger {
-            String name;
+            final String name;
 
             public Logger ( String name ) {
                 this.name = name;

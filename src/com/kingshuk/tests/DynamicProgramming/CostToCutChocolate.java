@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CostToCutChocolate {
-    public static int cost ( int n, int c, int cuts[] ) {
+    public static int cost ( int n, int c, int[] cuts ) {
         List<Integer> list = Arrays.stream ( cuts ).boxed ().collect ( Collectors.toList () );
         list.add ( 0 );
         list.add ( n );
@@ -15,7 +15,7 @@ public class CostToCutChocolate {
         return f ( 1, c, list );
     }
 
-    public static int costMemoization ( int n, int c, int cuts[] ) {
+    public static int costMemoization ( int n, int c, int[] cuts ) {
         List<Integer> list = Arrays.stream ( cuts ).boxed ().collect ( Collectors.toList () );
         list.add ( 0 );
         list.add ( n );
@@ -30,7 +30,7 @@ public class CostToCutChocolate {
         return f ( 1, c, list, dp );
     }
 
-    public static int costTabulation ( int n, int c, int cuts[] ) {
+    public static int costTabulation ( int n, int c, int[] cuts ) {
         List<Integer> list = Arrays.stream ( cuts ).boxed ().collect ( Collectors.toList () );
         list.add ( 0 );
         list.add ( n );

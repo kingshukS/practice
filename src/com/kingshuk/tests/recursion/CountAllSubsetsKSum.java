@@ -1,8 +1,5 @@
 package com.kingshuk.tests.recursion;
 
-import java.util.ArrayList;
-import java.util.List;
-
 // time complexity: O(2^n)
 public class CountAllSubsetsKSum {
     public static void main ( String[] args ) {

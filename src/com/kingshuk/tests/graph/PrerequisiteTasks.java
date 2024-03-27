@@ -83,8 +83,6 @@ class PrerequisiteTasks {
             }
         }
 
-        if ( count == N ) return true;
-
-        return false;
+        return count == N;
     }
 }

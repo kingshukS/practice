@@ -2,7 +2,7 @@ package com.kingshuk.tests.misc;
 
 public class TestArrayInsertAtIndex {
     public static void main ( String[] args ) {
-        String s = "new string".intern ();
+        String s = "new string";
         int[] arr = new int[6];
         for ( int i = 0; i < 5; i++ ) {
             arr[i] = i + 1;

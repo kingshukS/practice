@@ -3,7 +3,7 @@ package com.kingshuk.tests.graph;
 import java.util.*;
 
 class PrimsAlgorithm {
-    static int spanningTree ( int V, int E, int edges[][] ) {
+    static int spanningTree ( int V, int E, int[][] edges ) {
         List<List<List<Integer>>> adjList = new ArrayList<> ();
         for ( int i = 0; i < V; i++ ) {
             adjList.add ( new ArrayList<> () );

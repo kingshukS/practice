@@ -7,7 +7,6 @@ import java.util.Queue;
 class DetectCycle {
     // Function to detect cycle in an undirected graph.
     public boolean isCycle ( int V, ArrayList<ArrayList<Integer>> adj ) {
-        // Code here
         int[] vis = new int[V];
         for ( int i = 0; i < V; i++ ) {
             if ( vis[i] == 0 ) {

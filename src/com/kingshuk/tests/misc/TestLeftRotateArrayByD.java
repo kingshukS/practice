@@ -19,6 +19,6 @@ public class TestLeftRotateArrayByD {
             arr[i - d] = arr[i];
         }
 
-        System.arraycopy ( arr2, 0, arr, n - d + 0, d );
+        System.arraycopy ( arr2, 0, arr, n - d, d );
     }
 }

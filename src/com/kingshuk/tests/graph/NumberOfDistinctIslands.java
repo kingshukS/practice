@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 class NumberOfDistinctIslands {
-
-    private static int[][] DIRECTIONS = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
+    public static final String LOC_DELIMITER = ",";
+    private static final int[][] DIRECTIONS = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
 
     int countDistinctIslands ( int[][] grid ) {
-
         int n = grid.length;
         int m = grid[0].length;
 
@@ -32,7 +31,7 @@ class NumberOfDistinctIslands {
 
     private void dfs ( int[][] grid, int[][] vis, int row, int col, List<String> list, int baseRow, int baseCol ) {
         vis[row][col] = 1;
-        list.add ( ( row - baseRow ) + "," + ( col - baseCol ) );
+        list.add ( ( row - baseRow ) + LOC_DELIMITER + ( col - baseCol ) );
 
         for ( int[] dir : DIRECTIONS ) {
             int r = row + dir[0];

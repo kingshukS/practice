@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UI {
-    private static JTextField textField = new JTextField ();
-    private Player player;
+    private static final JTextField textField = new JTextField ();
+    private final Player player;
 
     public UI ( Player player ) {
         this.player = player;

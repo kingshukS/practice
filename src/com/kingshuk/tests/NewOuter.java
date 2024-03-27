@@ -20,7 +20,7 @@ public class NewOuter {
             System.out.println ( "b = " + b );
             System.out.println ( "NewOuterTest.this.a = " + NewOuter.this.a );
             System.out.println ( "NewOuterTest.b = " + NewOuter.b );
-            System.out.println ( "NewOuterTest.this.b = " + NewOuter.this.b );
+            System.out.println ( "NewOuterTest.this.b = " + NewOuter.b );
         }
     }
 }

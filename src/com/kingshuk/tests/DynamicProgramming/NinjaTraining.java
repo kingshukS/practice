@@ -1,7 +1,7 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 public class NinjaTraining {
-    public static int ninjaTraining1 ( int n, int points[][] ) {
+    public static int ninjaTraining1 ( int n, int[][] points ) {
         int[][] dp = new int[n][4];
         for ( int i = 0; i < n; i++ )
             for ( int j = 0; j < 4; j++ )
@@ -29,7 +29,7 @@ public class NinjaTraining {
         return dp[index][prev] = max;
     }
 
-    public static int ninjaTraining ( int n, int points[][] ) {
+    public static int ninjaTraining ( int n, int[][] points ) {
         // base case
         int[][] dp = new int[n][4];
         dp[0][0] = Math.max ( points[0][1], points[0][2] );

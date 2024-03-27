@@ -1,6 +1,9 @@
 package com.kingshuk.tests.graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 class DijkstraPQ {
     //Function to find the shortest distance of all the vertices

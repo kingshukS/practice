@@ -1,10 +1,11 @@
 package com.kingshuk.tests.graph;
 
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class NoOfIsland {
-    int[][] add = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
+    int[][] DIRECTIONS = { { 0, - 1 }, { 0, 1 }, { - 1, 0 }, { 1, 0 } };
 
     public static void main ( String[] args ) {
         char[][] grid = {
@@ -470,11 +471,12 @@ class NoOfIsland {
             return;
         grid[i][j] = '0';
         int newI, newJ;
-        for ( int[] x : add ) {
+        for ( int[] x : DIRECTIONS ) {
             newI = i + x[0];
             newJ = j + x[1];
-            if ( newI >= 0 && newI < grid.length && newJ >= 0 && newJ < grid[newI].length && grid[newI][newJ] == '1' )
-                dfs ( grid, newI, newJ );
+            if ( newI < 0 || newI >= grid.length || newJ < 0 || newJ >= grid[newI].length || grid[newI][newJ] == '0' )
+                continue;
+            dfs ( grid, newI, newJ );
         }
     }
 
@@ -487,13 +489,14 @@ class NoOfIsland {
             j = pairs.peek ().j;
             pairs.remove ();
             grid[i][j] = 0;
-            for ( int[] x : add ) {
+            for ( int[] x : DIRECTIONS ) {
                 int newI = i + x[0];
                 int newJ = j + x[1];
-                if ( newI >= 0 && newI < grid.length && newJ >= 0 && newJ < grid[newI].length && grid[newI][newJ] == '1' ) {
-                    grid[newI][newJ] = '0';
-                    pairs.add ( new Pair ( newI, newJ ) );
-                }
+                if ( newI < 0 || newI >= grid.length || newJ < 0 || newJ >= grid[newI].length || grid[newI][newJ] == '0' )
+                    continue;
+
+                grid[newI][newJ] = '0';
+                pairs.add ( new Pair ( newI, newJ ) );
             }
         }
     }

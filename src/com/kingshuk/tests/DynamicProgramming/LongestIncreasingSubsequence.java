@@ -2,7 +2,6 @@ package com.kingshuk.tests.DynamicProgramming;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class LongestIncreasingSubsequence {
@@ -32,7 +31,7 @@ public class LongestIncreasingSubsequence {
 
     private static int printLisWithBacktrack ( int[] arr, int n ) {
         int[] dp = new int[n], backtrack = new int[n];
-        int max =1;
+        int max = 1;
         int maxIndex = 0;
 
         for ( int i = 0; i < n; i++ ) {

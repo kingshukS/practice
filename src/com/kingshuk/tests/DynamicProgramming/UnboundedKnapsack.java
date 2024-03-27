@@ -32,7 +32,7 @@ public class UnboundedKnapsack {
 
     public static int unboundedKnapsackRecursion ( int index, int w, int[] profit, int[] weight ) {
         if ( index == 0 )
-            return ( (int) ( w / weight[0] ) ) * profit[0];
+            return ( w / weight[0] ) * profit[0];
         int notTake = unboundedKnapsackRecursion ( index - 1, w, profit, weight );
         int take = 0;
         if ( weight[index] <= w )
@@ -44,7 +44,7 @@ public class UnboundedKnapsack {
         int[][] dp = new int[n][w + 1];
 
         for ( int wt = weight[0]; wt <= w; wt++ )
-            dp[0][wt] = ( (int) ( wt / weight[0] ) ) * profit[0];
+            dp[0][wt] = ( wt / weight[0] ) * profit[0];
 
         for ( int idx = 1; idx < n; idx++ ) {
             for ( int wt = 1; wt <= w; wt++ ) {

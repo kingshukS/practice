@@ -2,7 +2,6 @@ package com.kingshuk.tests.misc;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Stack;
 
 public class TestNextGreaterElementToRight {
 

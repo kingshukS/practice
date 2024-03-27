@@ -6,7 +6,7 @@ import java.util.List;
 public class Player {
     private State state;
     private boolean playing = false;
-    private List<String> playlist = new ArrayList<> ();
+    private final List<String> playlist = new ArrayList<> ();
     private int currentTrack = 0;
 
     public Player () {

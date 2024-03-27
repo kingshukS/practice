@@ -32,13 +32,12 @@ public class LongestStringChain {
         String[] chain = new String[max];
         int index = max - 1;
 
-        while(backtrack[maxIndex] != maxIndex)
-        {
+        while (backtrack[maxIndex] != maxIndex) {
             chain[index--] = arr[maxIndex];
             maxIndex = backtrack[maxIndex];
         }
         chain[index] = arr[maxIndex];
-        Arrays.stream ( chain ).forEach ( x -> System.out.print (x+" ") );
+        Arrays.stream ( chain ).forEach ( x -> System.out.print ( x + " " ) );
         System.out.println ();
         return max;
     }
@@ -62,7 +61,7 @@ public class LongestStringChain {
     }
 
     public static void main ( String[] args ) {
-        String[] arr = {"x", "xx", "y", "xyx"};
-        System.out.println (longestStrChain ( arr ));
+        String[] arr = { "x", "xx", "y", "xyx" };
+        System.out.println ( longestStrChain ( arr ) );
     }
 }
