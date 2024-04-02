@@ -30,7 +30,7 @@ class AlienDictionary {
             }
         }
 
-        List<Integer> toposort = toposort ( K, adj );
+        List<Integer> toposort = topologicalSort ( K, adj );
         StringBuilder s = new StringBuilder ();
         for ( int k : toposort ) {
             char ch = (char) ( k + ( (int) 'a' ) );
@@ -39,19 +39,19 @@ class AlienDictionary {
         return s.toString ();
     }
 
-    private List<Integer> toposort ( int V, List<List<Integer>> adj ) {
-        int[] indegrees = new int[V];
+    private List<Integer> topologicalSort ( int V, List<List<Integer>> adj ) {
+        int[] inDegrees = new int[V];
 
         for ( int i = 0; i < V; i++ ) {
             for ( int x : adj.get ( i ) ) {
-                indegrees[x]++;
+                inDegrees[x]++;
             }
         }
 
         Queue<Integer> queue = new LinkedList<> ();
         List<Integer> list = new ArrayList<> ();
         for ( int i = 0; i < V; i++ ) {
-            if ( indegrees[i] == 0 )
+            if ( inDegrees[i] == 0 )
                 queue.add ( i );
         }
 
@@ -59,8 +59,8 @@ class AlienDictionary {
             int node = queue.poll ();
             list.add ( node );
             for ( int x : adj.get ( node ) ) {
-                indegrees[x]--;
-                if ( indegrees[x] == 0 )
+                inDegrees[x]--;
+                if ( inDegrees[x] == 0 )
                     queue.add ( x );
             }
         }

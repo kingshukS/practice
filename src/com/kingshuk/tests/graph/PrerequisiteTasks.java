@@ -32,18 +32,18 @@ class PrerequisiteTasks {
             }
         }
         int[] res = new int[n];
-        int i = 0;
+        int index = 0;
         while (! q.isEmpty ()) {
-            int z = q.poll ();
-            res[i++] = z;
-            for ( int x : adj.get ( z ) ) {
+            int task = q.poll ();
+            res[index++] = task;
+            for ( int x : adj.get ( task ) ) {
                 indegrees[x]--;
                 if ( indegrees[x] == 0 ) {
                     q.add ( x );
                 }
             }
         }
-        return i == n ? res : new int[0];
+        return index == n ? res : new int[0];
     }
 
     public boolean isPossible ( int N, int P, int[][] prerequisites ) {
@@ -73,9 +73,9 @@ class PrerequisiteTasks {
         }
         int count = 0;
         while (! q.isEmpty ()) {
-            int z = q.poll ();
+            int task = q.poll ();
             count++;
-            for ( int x : adj.get ( z ) ) {
+            for ( int x : adj.get ( task ) ) {
                 indegrees[x]--;
                 if ( indegrees[x] == 0 ) {
                     q.add ( x );
