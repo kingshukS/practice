@@ -1,8 +1,8 @@
-package com.kingshuk.tests.patterns;
+package com.kingshuk.tests.striver.patterns;
 
 import java.util.Scanner;
 
-public class Pattern16 {
+public class Pattern1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Provide N: ");
@@ -11,12 +11,11 @@ public class Pattern16 {
     }
 
     public static void printPattern(int n) {
-        char c = 'A';
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
-                System.out.print(c + " ");
+            for (int j = 0; j < n - 1; j++) {
+                System.out.print("* ");
             }
-            c++;
+            System.out.print("*");
             System.out.println();
         }
     }

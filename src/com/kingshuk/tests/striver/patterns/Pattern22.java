@@ -1,4 +1,4 @@
-package com.kingshuk.tests.patterns;
+package com.kingshuk.tests.striver.patterns;
 
 import java.util.Scanner;
 
