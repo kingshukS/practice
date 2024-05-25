@@ -6,19 +6,20 @@ package com.kingshuk.tests.hundredDaysChallenge.day15;
  */
 public class MissingNumber {
     public int missingNumber ( int[] nums ) {
-        for ( int i = 0; i < nums.length; i++ ) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++ ) {
             int index = nums[i];
-            while (index >= 0 && index <= nums.length - 1 && nums[index] != nums[i]) {
+            while (index >= 0 && index <= n - 1 && nums[index] != nums[i]) {
                 int temp = nums[index];
                 nums[index] = nums[i];
                 nums[i] = temp;
                 index = nums[i];
             }
         }
-        for ( int i = 0; i < nums.length; i++ ) {
+        for (int i = 0; i < n; i++ ) {
             if ( nums[i] != i )
                 return i;
         }
-        return nums.length;
+        return n;
     }
 }

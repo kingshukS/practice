@@ -13,19 +13,19 @@ package com.kingshuk.tests.hundredDaysChallenge.day2;
  * Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
  */
 public class RemoveDuplicatesFromSortedArray {
-    public static void main ( String[] args ) {
-        int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
-        int num = removeDuplicates ( nums );
-        for ( int i = 0; i < num; i++ ) {
-            System.out.print ( nums[i] + " " );
+    public static void main(String[] args) {
+        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int num = removeDuplicates(nums);
+        for (int i = 0; i < num; i++) {
+            System.out.print(nums[i] + " ");
         }
     }
 
-    public static int removeDuplicates ( int[] nums ) {
+    public static int removeDuplicates(int[] nums) {
         int count = 1;
         int i = 1;
         while (i < nums.length) {
-            if ( nums[i] != nums[i - 1] ) {
+            if (nums[i] != nums[i - 1]) {
                 nums[count] = nums[i];
                 count++;
             }
