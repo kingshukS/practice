@@ -79,6 +79,7 @@ public class StockBuySell2 {
         return nextBuy;
     }
 
+    //Local minima (@buy) and local maxima (@sell)
     private static void findMaxProfitForMultipleTxns ( int[] price, int n ) {
         if ( n == 1 )
             return;
