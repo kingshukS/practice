@@ -2,7 +2,7 @@ package com.kingshuk.tests.hundredDaysChallenge.day1;
 
 import java.util.Arrays;
 
-public class MergeSortedArrays {
+public class MergeSortedArraysWithoutExtraSpace {
 
     public static void main ( String[] args ) {
         int[] arr1 = new int[]{ 1, 5, 9, 10, 15, 20 };

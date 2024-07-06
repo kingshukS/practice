@@ -34,7 +34,7 @@ class InversionCount {
                 arr[k++] = left[i++];
             } else {
                 arr[k++] = right[j++];
-                swaps += ( m + 1 ) - ( l + i );
+                swaps += left.length - i;
             }
         }
 
@@ -49,7 +49,7 @@ class InversionCount {
 
     public static void main ( String[] args ) {
         long N = 5;
-        long[] arr = { 2, 4, 1, 3, 5 };
+        long[] arr = { 2, 3, 4, 5, 6 };
         System.out.println ( inversionCount ( arr, N ) );
     }
 }
