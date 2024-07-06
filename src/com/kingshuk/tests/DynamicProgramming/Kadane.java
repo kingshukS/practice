@@ -1,7 +1,6 @@
 package com.kingshuk.tests.DynamicProgramming;
 
 public class Kadane {
-
     static void maxSum ( int[] arr ) {
         int maxSoFar = 0;
         int maxSum = 0;
