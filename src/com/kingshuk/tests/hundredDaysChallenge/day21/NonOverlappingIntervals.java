@@ -9,7 +9,7 @@ import java.util.Comparator;
  */
 public class NonOverlappingIntervals {
     public static void main ( String[] args ) {
-        System.out.println ( new NonOverlappingIntervals ().eraseOverlapIntervals2 ( new int[][]{ { 0, 2 }, { 1, 3 }, { 4, 4 }, { 3, 5 }, { 4, 6 } } ) );
+        System.out.println ( new NonOverlappingIntervals ().eraseOverlapIntervalsUsingScale ( new int[][]{ { 0, 2 }, { 1, 3 }, { 4, 4 }, { 3, 5 }, { 4, 6 } } ) );
     }
 
     public int eraseOverlapIntervals ( int[][] intervals ) {
@@ -29,20 +29,20 @@ public class NonOverlappingIntervals {
         return intervals.length - count;
     }
 
-    public int eraseOverlapIntervals2 ( int[][] intervals ) {
+    public int eraseOverlapIntervalsUsingScale ( int[][] intervals ) {
         int n = intervals.length;
         if ( n <= 1 )
             return 0;
-        int maxEndTime = Integer.MIN_VALUE;
-        int minEndTime = Integer.MAX_VALUE;
+        int maxEnd = Integer.MIN_VALUE;
+        int minEnd = Integer.MAX_VALUE;
         for ( int[] in : intervals ) {
-            maxEndTime = Math.max ( maxEndTime, in[1] );
-            minEndTime = Math.min ( minEndTime, in[1] );
+            maxEnd = Math.max ( maxEnd, in[1] );
+            minEnd = Math.min ( minEnd, in[1] );
         }
-        Integer[] range = new Integer[maxEndTime - minEndTime + 1];
+        Integer[] range = new Integer[maxEnd - minEnd + 1];
         for ( int[] interval : intervals ) {
-            int start = interval[0] - minEndTime;
-            int end = interval[1] - minEndTime;
+            int start = interval[0] - minEnd;
+            int end = interval[1] - minEnd;
             // maximize the starting time for a range ending
             if ( range[end] == null || start > range[end] ) {
                 range[end] = start;

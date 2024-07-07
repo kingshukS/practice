@@ -32,15 +32,15 @@ public class MergeIntervals {
 
     public int[][] mergeUsingScale(int[][] intervals) {
         List<int[]> res = new ArrayList<>();
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        int maxStart = Integer.MIN_VALUE;
+        int minStart = Integer.MAX_VALUE;
         for (int[] interval : intervals) {
-            min = Math.min(min, interval[0]);
-            max = Math.max(max, interval[0]);
+            minStart = Math.min(minStart, interval[0]);
+            maxStart = Math.max(maxStart, interval[0]);
         }
-        int[] range = new int[max - min + 1];
+        int[] range = new int[maxStart - minStart + 1];
         for (int[] interval : intervals) {
-            range[interval[0] - min] = Math.max(range[interval[0] - min], interval[1] - min);
+            range[interval[0] - minStart] = Math.max(range[interval[0] - minStart], interval[1] - minStart);
         }
         int start = 0, end = 0;
         for (int i = 0; i < range.length; i++) {
@@ -49,12 +49,12 @@ public class MergeIntervals {
             if (i <= end)
                 end = Math.max(end, range[i]);
             else {
-                res.add(new int[]{start + min, end + min});
+                res.add(new int[]{start + minStart, end + minStart});
                 start = i;
                 end = range[i];
             }
         }
-        res.add(new int[]{start + min, end + min});
+        res.add(new int[]{start + minStart, end + minStart});
         return res.toArray(new int[res.size()][]);
     }
 
