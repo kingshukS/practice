@@ -16,11 +16,11 @@ public class FloodFill {
         int[][] image = { { 1, 1, 1 }, { 1, 1, 0 }, { 1, 0, 1 } };
         int sr = 1, sc = 1, color = 2;
         new FloodFill ().floodFill ( image, sr, sc, color );
-        for ( int i = 0; i < image.length; i++ ) {
-            for ( int j = 0; j < image[i].length; j++ ) {
-                System.out.print ( image[i][j] + " " );
+        for (int[] ints : image) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
-            System.out.println ();
+            System.out.println();
         }
     }
 

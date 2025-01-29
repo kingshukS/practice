@@ -6,14 +6,14 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RemovingDuplictaesUnsorted {
+public class RemovingDuplicatesUnsorted {
 
     public static void main ( String[] args ) {
-        RemovingDuplictaesUnsorted removingDuplictaesUnsorted = new RemovingDuplictaesUnsorted ();
+        RemovingDuplicatesUnsorted removingDuplicatesUnsorted = new RemovingDuplicatesUnsorted();
         int[] arr = { 1, 3, 2, 5, 4, 3, 2, 2, 7, 8, 1, 5 };
         int n = arr.length;
         LinkedHashSet<Integer> linkedHashSet;
-        linkedHashSet = removingDuplictaesUnsorted.remDups ( arr, n );
+        linkedHashSet = removingDuplicatesUnsorted.remDups ( arr, n );
         System.out.println ( linkedHashSet );
 
         //For Java8 only
