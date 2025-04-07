@@ -1,14 +1,46 @@
 package com.kingshuk.tests.sorting;
 
+import java.util.Arrays;
+
+// Insertion sort algorithm
 public class InsertionSort {
     public static void main(String[] args) {
         int[] arr = {5, 4, 7, 8, 3, 0, 1, 7, 2};
         applyInsertionSort2(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * Insertion sort algorithm
+     * Time complexity: O(n^2)
+     * Space complexity: O(1)
+     *
+     * @param arr the array to be sorted
+     */
+    public static void applyInsertionSort3(int[] arr) {
+        int n = arr.length;
+        if (n < 2)
+            return;
+        for (int i = 1; i < n; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[j] > arr[j + 1]) {
+                    int t = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = t;
+                } else {
+                    break;
+                }
+            }
         }
     }
 
+    /**
+     * Insertion sort algorithm
+     * Time complexity: O(n^2)
+     * Space complexity: O(1)
+     *
+     * @param arr the array to be sorted
+     */
     public static void applyInsertionSort(int[] arr) {
         int n = arr.length;
         if (n < 2)
@@ -16,6 +48,8 @@ public class InsertionSort {
         for (int i = 1; i < n; i++) {
             int key = arr[i];
             int j = i - 1;
+            // Move elements of arr[0..i-1], that are greater than key,
+            // best case O(n)
             while (j >= 0 && key < arr[j]) {
                 arr[j + 1] = arr[j];
                 j--;
