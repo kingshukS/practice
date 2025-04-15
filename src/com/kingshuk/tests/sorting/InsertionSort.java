@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class InsertionSort {
     public static void main(String[] args) {
         int[] arr = {5, 4, 7, 8, 3, 0, 1, 7, 2};
-        applyInsertionSort2(arr);
+        applyInsertionSortRecursive(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -17,7 +17,7 @@ public class InsertionSort {
      *
      * @param arr the array to be sorted
      */
-    public static void applyInsertionSort3(int[] arr) {
+    public static void applyInsertionSortWithSwap(int[] arr) {
         int n = arr.length;
         if (n < 2)
             return;
@@ -58,20 +58,30 @@ public class InsertionSort {
         }
     }
 
-    public static void applyInsertionSort2(int[] arr) {
+    /**
+     * Insertion sort algorithm with recursion
+     * Time complexity: O(n^2)
+     * Space complexity: O(1)
+     *
+     * @param arr the array to be sorted
+     */
+    public static void applyInsertionSortRecursive(int[] arr) {
         if (arr.length < 2) return;
         applyInsertionSortRecursive(arr, 1, arr.length);
     }
 
 
     private static void applyInsertionSortRecursive(int[] arr, int index, int n) {
+        // base case
         if (index >= n) return;
         int key = arr[index];
         int j = index - 1;
+        // Move elements of arr[0..i-1], that are greater than key,
         while (j >= 0 && key < arr[j]) {
             arr[j + 1] = arr[j];
             j--;
         }
+        // Insert key at the correct position
         arr[j + 1] = key;
         applyInsertionSortRecursive(arr, index + 1, n);
     }

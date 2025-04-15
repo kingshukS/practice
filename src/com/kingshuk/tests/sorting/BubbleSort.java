@@ -1,13 +1,15 @@
 package com.kingshuk.tests.sorting;
 
+import java.util.Arrays;
+
+import static com.kingshuk.tests.sorting.LomutoPartition.swap;
+
 // Bubble sort algorithm
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {5, 4, 7, 8, 3, 0, 1, 7, 2};
         applyBubbleSortRecursive(arr, arr.length);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        System.out.print(Arrays.toString(arr));
     }
 
     /**
@@ -28,9 +30,7 @@ public class BubbleSort {
             for (int i = 0; i < n - j - 1; i++) {
                 // swap if the element is greater than the adjacent element
                 if (arr[i] > arr[i + 1]) {
-                    int temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
+                    swap(arr, i, i + 1);
                     swapped = true;
                 }
             }
@@ -48,9 +48,7 @@ public class BubbleSort {
         // last element will be in correct place automatically, 0 to n-2 i.e. n-1 iterations
         for (int i = 0; i < n - 1; i++) {
             if (arr[i] > arr[i + 1]) {
-                int temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+                swap(arr, i, i + 1);
                 swapped = true;
             }
         }
