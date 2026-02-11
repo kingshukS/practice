@@ -13,4 +13,11 @@ public class Test {
         b = temp;
         System.out.println("Inside swap method: a = " + a + ", b = " + b);
     }
+
+    public static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        System.out.println("Inside swap method: a = " + a + ", b = " + b);
+    }
 }

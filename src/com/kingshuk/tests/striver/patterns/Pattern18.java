@@ -12,10 +12,9 @@ public class Pattern18 {
 
     public static void printPattern(int n) {
         for (int i = 0; i < n; i++) {
-            char ch = (char) ((int) 'A' + (n - 1 - i));
-            for (int j = 0; j <= i; j++) {
+            char ch =  (char)('A' + (n - 1 - i));
+            for (int j = 0; j <= i; j++, ch++) {
                 System.out.print(ch + " ");
-                ch++;
             }
             System.out.println();
         }

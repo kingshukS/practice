@@ -15,7 +15,7 @@ class Permutation {
     public List<List<Integer>> permute ( int[] nums ) {
         List<List<Integer>> ans = new ArrayList<> ();
         boolean[] vis = new boolean[nums.length];
-        findPermutations ( nums, new ArrayList<Integer> (), vis, ans );
+        findPermutations ( nums, new ArrayList<>(), vis, ans );
         return ans;
     }
 
