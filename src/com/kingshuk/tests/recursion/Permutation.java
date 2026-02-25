@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.kingshuk.tests.TestUtils.swap;
+
 class Permutation {
 
     public static void main ( String[] args ) {
@@ -37,12 +39,6 @@ class Permutation {
             findPermutations2 ( index + 1, nums, ans );
             swap ( nums, index, i );
         }
-    }
-
-    private void swap ( int[] nums, int x, int y ) {
-        int t = nums[x];
-        nums[x] = nums[y];
-        nums[y] = t;
     }
 
     private void findPermutations ( int[] nums, ArrayList<Integer> ds, boolean[] vis, List<List<Integer>> ans ) {

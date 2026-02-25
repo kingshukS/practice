@@ -1,8 +1,7 @@
 package com.kingshuk.tests.striver.arrays;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -59,7 +58,7 @@ class LongestConsecutive {
 
         Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 
-        int maxCount = 0;
+        int result = 0;
         for(int x : nums){
             if(!numSet.contains(x-1)){
                 int count = 1;
@@ -68,11 +67,36 @@ class LongestConsecutive {
                     count++;
                     x++;
                 }
-                maxCount = Math.max(count, maxCount);
+                result = Math.max(count, result);
             }
         }
         
-        return maxCount;
+        return result;
+    }
+
+    // Ref: https://leetcode.com/problems/longest-consecutive-sequence/solutions/7555212/actual-on-solution-no-sorting-no-hashset-8oju
+    public int longestConsecutive4(int[] nums) {
+        int max = 0;
+        HashMap<Integer,Integer> map = new HashMap<>() ;
+        for(int num : nums){
+            int left = 0 ; int right = 0 ;
+            if(map.containsKey(num)) continue ;
+
+            if(map.containsKey(num-1)){
+                left = map.get(num-1);
+            }
+
+            if(map.containsKey(num+1)){
+                right = map.get(num+1);
+            }
+
+            int sum = 1 + left + right;
+            map.put(num , sum);
+            map.put(num - left, sum);
+            map.put(num + right, sum);
+            max = Math.max(max , sum);
+        }
+        return max ;
     }
 
     private boolean search(int[] nums, int elem) {

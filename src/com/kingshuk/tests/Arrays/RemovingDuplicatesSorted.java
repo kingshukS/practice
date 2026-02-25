@@ -1,9 +1,8 @@
 package com.kingshuk.tests.Arrays;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-import static com.kingshuk.tests.Test.swap;
+import static com.kingshuk.tests.TestUtils.swap;
 
 public class RemovingDuplicatesSorted {
 

@@ -1,13 +1,8 @@
 package com.kingshuk.tests.striver.arrays;
 
-public class Permutations {
+import static com.kingshuk.tests.TestUtils.swap;
 
-    // Swap helper
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+public class Permutations {
 
     // Permutation generator — O(n!)
     private static void permute(int[] arr, int left, int right) {
