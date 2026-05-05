@@ -12,6 +12,7 @@ public class MergeIntervals {
                 .forEach(a -> System.out.println("{" + a[0] + "," + a[1] + "}"));
     }
 
+    // Skipping it
     public int[][] merge(int[][] intervals) {
         if (intervals.length <= 1)
             return intervals;
@@ -30,6 +31,18 @@ public class MergeIntervals {
         return intervals;
     }
 
+    /**
+     * Merge intervals using a discrete scale based on start times.
+     *
+     * <p>Constructs a scale from the minimum to maximum start value and maps each
+     * start index to the maximum end (offset by {@code minStart}). It then scans
+     * the scale to merge consecutive or overlapping ranges into final intervals.</p>
+     *
+     * @param intervals an array of intervals where each interval is an {@code int[2]}
+     *                  with {@code intervals[i][0]} as start and {@code intervals[i][1]} as end
+     * @return a new array of merged intervals; returns an empty array if {@code intervals} is empty
+     * @throws IllegalArgumentException if {@code intervals} is {@code null}
+     */
     public int[][] mergeUsingScale(int[][] intervals) {
         List<int[]> res = new ArrayList<>();
         int maxStart = Integer.MIN_VALUE;
@@ -58,9 +71,21 @@ public class MergeIntervals {
         return res.toArray(new int[res.size()][]);
     }
 
+    /**
+     * Merge overlapping intervals.
+     *
+     * <p>Sorts the input intervals by start time and merges any overlapping or adjacent
+     * intervals into a single interval.</p>
+     *
+     * @param intervals an array of intervals where each interval is an {@code int[2]}
+     *                  with {@code intervals[i][0]} as start and {@code intervals[i][1]} as end
+     * @return a new array of merged intervals
+     * @throws IllegalArgumentException if {@code intervals} is {@code null}
+     */
     public int[][] merge2(int[][] intervals) {
         if (intervals.length <= 1)
             return intervals;
+
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
         List<int[]> result = new ArrayList<>();
         // Iterate through all slots
@@ -78,7 +103,7 @@ public class MergeIntervals {
                 result.add(slot);
             }
 
-            // if above conditions fail its an overlap since possibility of new interval existing in left & right of slot is checked
+            // if above conditions fail it's an overlap since possibility of new interval existing in left & right of slot is checked
             // update lowest of start & highest of end & not insert
             else {
                 newInterval[0] = Math.min(newInterval[0], slot[0]);

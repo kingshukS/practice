@@ -10,24 +10,24 @@ public class MergeSortedArraysWithoutExtraSpace {
         mergeArrays ( arr1, arr2 );
     }
 
-    static void mergeArrays ( int[] arr1, int[] arr2 ) {
-        int size1 = arr1.length;
-        int size2 = arr2.length;
-        for ( int i = size2 - 1; i >= 0; i-- ) {
-             /* Find the smallest element greater than ar2[i]. Move all
-               elements one position ahead till the smallest greater
-               element is not found */
-            int j;
-            int last = arr1[size1 - 1];
-            for ( j = size1 - 2; j >= 0 && arr1[j] > arr2[i]; j-- ) {
-                arr1[j + 1] = arr1[j];
-            }
-            // If there was a greater element
-            if ( j != size1 - 2 || last > arr2[i] ) {
-                arr1[j + 1] = arr2[i];
-                arr2[i] = last;
+    static void mergeArrays(int[] a, int[] b) {
+        // Traverse b[] starting from the last element
+        for (int i = b.length - 1; i >= 0; i--) {
+            // If b[i] is smaller than the largest element of a[]
+            if (a[a.length - 1] > b[i]) {
+
+                // Place b[i] in the correct position in a[],
+                // and move last element of a[] to b[]
+                int last = a[a.length - 1];
+                int j = a.length - 2;
+                while (j >= 0 && a[j] > b[i]) {
+                    a[j + 1] = a[j];
+                    j--;
+                }
+                a[j + 1] = b[i];
+                b[i] = last;
             }
         }
-        System.out.println ( "arrays after sorting " + Arrays.toString ( arr1 ) + " " + Arrays.toString ( arr2 ) );
+        System.out.println ( "arrays after sorting " + Arrays.toString ( a ) + " " + Arrays.toString ( b ) );
     }
 }

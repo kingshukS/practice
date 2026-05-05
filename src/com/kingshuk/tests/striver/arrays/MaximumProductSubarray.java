@@ -7,13 +7,13 @@ package com.kingshuk.tests.striver.arrays;
  */
 class MaximumProductSubarray {
     public int maxProduct(int[] nums) {
-        int max = nums[0], min = nums[0], ans = nums[0];
+        int max = 1, min = 1, ans = nums[0];
         int n = nums.length;
 
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
 
             // Swapping min and max
-            if (nums[i] < 0) {
+            if (nums[i] < 0){
                 int temp = max;
                 max = min;
                 min = temp;
@@ -29,7 +29,6 @@ class MaximumProductSubarray {
     }
 
     public int maxProductPrefixAndSuffix(int[] nums) {
-
         int n = nums.length;
         int l = 1, r = 1;
         int ans = nums[0];
